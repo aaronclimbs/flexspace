@@ -3,7 +3,9 @@ var express = require("express");
 var session = require("express-session");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
-require("dotenv").config();
+
+// Require middleware logger 'morgan'
+var morgan = require('morgan');
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
@@ -20,6 +22,8 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(morgan('dev'));
 
 app.set("view engine", "ejs");
 
