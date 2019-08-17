@@ -28,6 +28,9 @@ module.exports = function(app) {
       city: req.body.city,
       state: req.body.state,
       zip: req.body.zip,
+      phone: req.body.phone,
+      secQuestion: req.body.secQuestion,
+      secAnswer: req.body.secAnswer,
     }).then(function() {
       res.redirect(307, "/api/login");
     }).catch(function(err) {
