@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "moxe1p6l5tzrk2u9",
-    "password": "vepi5janx014ya6k",
-    "database": "	ag43dmiwo143jka0",
-    "host": "gp96xszpzlqupw4k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "root",
+    "password": "password",
+    "database": "flexspace_db",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
