@@ -1,0 +1,52 @@
+
+
+body {
+  background-color:#072752;
+  color:white;
+}
+
+.signup-form, .login-form, .member{
+  margin-top: 100px;
+ 
+}
+
+.signup-link, .login-link{
+  color:#072752;
+  text-decoration: underline;
+}
+
+.member-name {
+  color:white;
+}
+
+.form-group {
+  margin-bottom:5px;
+  margin-top:0px;
+}
+
+.card {
+  color:#072752;
+}
+
+.search-link{
+  color:#072752;
+  text-decoration: underline;
+}
+
+h2 {
+  margin-bottom:20px;
+}
+
+label {
+  margin-bottom:5px;
+}
+
+.pass-header, .acct-header {
+  margin-bottom:10px;
+}
+
+
+
+
+
+

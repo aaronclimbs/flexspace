@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Conference Room Search</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+​
+</head>
+<body>
+​
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Conference Room Search</h1>
+      <h3>Find a conference room in your area</h3>
+      <hr>
+      <a href="/"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> Home</button></a>
+    </div>
+    <div class="row">
+​
+      <div class="col-12">
+​
+        <div class="card">
+          <div class="card-header">
+            <h3><strong>Search for a space:</strong></h3>
+          </div>
+          <div class="card-body">
+            <form method="POST" role="form" class="form-inline">
+                <div class="form-group">
+                    <label for="name">Give us an estimate of how many people with be attending:&nbsp;&nbsp;</label><br><hr>
+                  <div><hr><br><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div>
+                    <input type="number" class="form-control" id="capacity">
+                  </div>
+​
+​
+                  <div class="form-row align-items-center">
+                <label class="my-1 mr-2" for="roomType">What kind of room are you looking for?</label><br><hr>
+                <select class="custom-select my-1 mr-sm-2" id="roomType">
+                  <option value="1">Classroom</option>
+                  <option value="2">Mixed-Use Office Space</option>
+                  <option value="3">Conference Hall</option>
+                  <option value="4">Conference with Video Link</option>
+                  <option value="5">Casual Mixed-Use Space</option>
+                </select>
+                <br>
+                <label class="my-1 mr-2" for="region">What region?</label><br><hr>
+                <select class="custom-select my-1 mr-sm-2" id="region">
+                  <option value="1">DC</option>
+                  <option value="2">Virginia</option>
+                  <option value="3">Maryland</option>
+                </select>
+                <br>
+                  <div><hr><br><p>&nbsp;</p></div>
+                <button type="submit" class="btn btn-primary my-1" id="search-btn">Search</button>
+		
+​
+              </div>
+		<div id="errorMsg"></div>
+              </form>
+​
+          </div>
+        </div>
+​
+      </div>
+    </div>
+  </div>
+​
+  <script type="text/javascript">
+    $("#search-btn").on("click", function(event) {
+      event.preventDefault();
+      console.log("Clicked");
+      var newSearch = "/" + $("#capacity").val().trim();
+      newSearch += "/" + $("#roomType").val().trim();
+      newSearch += "/" + $("#region").val().trim();
+      console.log("Searched for: " + newSearch);
+      $.get("/api/rooms"+ newSearch, function(data) {
+        if (data) {
+	console.log(data);
+        }
+        else {
+          $("#errorMsg").text("No rooms with these specifications were found. Please try again.");
+        }
+      });
+    });
+  </script>
+​
+</body>
+</html>
