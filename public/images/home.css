@@ -1,0 +1,39 @@
+.carousel-item {
+    height: 100vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .carousel-caption {
+   margin-bottom:0px;
+   padding-bottom:0px;
+    z-index:10;
+    color:#fff;
+    text-align:center;
+    top:80%;
+    left:20%;
+    bottom:auto;
+    -webkit-transform:translate(0, -50%);
+    -ms-transform:translate(0, -50%);
+    transform:translate(0, -50%);
+    }
+
+  .display-4  {
+color:#fff;
+font-weight: bold;
+
+  }
+
+  .lead {
+    margin-top:0px;
+    padding-top: 0px;
+    color:#fff;
+    font-weight: bold;
+    font-family: 
+   
+
+  }
