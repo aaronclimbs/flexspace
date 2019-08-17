@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Room = sequelize.define("Room", {
+    var Reservation = sequelize.define("Reservation", {
         roomID: {
             type: DataTypes.STRING,
             allowNull: false
