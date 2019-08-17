@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <% include ../partials/head.ejs %>
+    <link rel="stylesheet" type ="text/css" href="../stylesheets/style.css">
+  </head>
+  <% include ../partials/nav.ejs %>
+  <div class="container member mx-auto">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h2>Welcome <span class="member-name"></span></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card ">
+      <div class="card-header text-center">
+        My Reserved Rooms
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title">No reservations found</h5>
+      </div>
+      <div class="card-footer text-center">
+        Need a room? Search <a class="search-link" href="#">Here</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/members.js"></script>
+  <% include ../partials/footer.ejs %>
+</html>
+
+
+<!--Add user login param to show in Welcome -->

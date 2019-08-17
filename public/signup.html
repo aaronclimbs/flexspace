@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type ="text/css" href="stylesheets/style.css">
+    <title>FlexSpace Home</title>
+  </head>
+  <body>
+      <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="/">Flex<img src="../images/icon.jpg">Space </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home
+                      <span class="sr-only">(current)</span>
+                    </a>
+              </li>
+              <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                  </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/signup">Signup</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+
+
+
+
+
+
+  <div class="container">
+
+      <div class="card signup-form w-75 mx-auto"">
+          <div class="card-header text-center">
+            New Member Signup
+          </div>
+          <div class="card-body">
+              <form class="signup">
+
+                <div class="form-row d-block">
+                  
+                  <div class="card-header text-center pass-header mt-0">
+                    Password and Security
+                  </div>
+
+                  <div class="form-row">
+
+                  <div class="form-group col-md-6 ">
+                      <label for="email-input">Email</label>
+                      <input type="email" class="form-control" id="email-input" placeholder="Email">
+                    </div>
+
+                    <div class="form-group col-md-6 ">
+                        <label for="first-input">Phone Number</label>
+                        <input type="text" class="form-control" id="phone-input" placeholder="Phone Number">
+                    </div>
+
+                  </div> 
+    
+                  
+
+                        <div class="form-group col-md-6">
+                            <label for="password-input">Password</label>
+                            <input type="password" class="form-control" id="password-input" placeholder="Password">
+                          </div>
+
+                          <div class="form-group col-md-6">
+                              <label for="confirm-password-input">Confirm Password</label>
+                              <input type="password" class="form-control" id="confirm-password-input" placeholder="Confirm Password">
+                            </div>
+          
+                          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                              <span class="sr-only">Error:</span> <span class="msg"></span>
+                            </div>
+
+                  
+                         
+
+                  <div class="form-row">
+
+                   <div class="form-group col-md-6 ">
+                      <label for="sec-question-input">Security Question</label>
+                      <select id="sec-question-input" class="form-control">
+                        <option>Choose a security question</option>
+                        <option value="What is your favorite Book">What is your favorite Book</option>
+                        <option value="What is your favorite Movie">What is your favorite Movie</option>
+                        <option value="What was yo first pet's Name">What was your first pet's Name</option>
+                      </select>
+                      
+                    </div>  
+
+                   <div class="form-group col-md-6">
+                      <label for="sec-question-answer">Answer</label>
+                      <input type="text" class="form-control" id="sec-question-answer" placeholder="Answer">
+                   </div>
+
+                   </div>
+
+               </div>
+                  
+                  <div class="form-row d-block">
+                      <div class="card-header text-center acct-header mt-3">
+                         Account Information
+                        </div>
+
+                       <div class="form-row">
+    
+                      <div class="form-group col-md-6 ">
+                          <label for="first-input">First Name</label>
+                          <input type="text" class="form-control" id="first-input" placeholder="First Name">
+                        </div>
+        
+                        <div class="form-group col-md-6">
+                          <label for="last-input">Last Name</label>
+                          <input type="text" class="form-control" id="last-input" placeholder="Last Name">
+                        </div>
+                    
+                    
+    
+                  </div>
+    
+                  <div class="form-group">
+                    <label for="address-input">Address</label>
+                    <input type="text" class="form-control" id="address-input" placeholder="1234 Main St">
+                  </div>
+    
+                  <div class="form-group">
+                    <label for="address2-input">Address 2</label>
+                    <input type="text" class="form-control" id="address2-input" placeholder="Apartment, studio, or floor">
+                  </div>
+    
+                  <div class="form-row">
+    
+                    <div class="form-group col-md-6">
+                      <label for="city-input">City</label>
+                      <input type="text" class="form-control" id="city-input">
+                    </div>
+    
+                    <div class="form-group col-md-4">
+                      <label for="state-input">State</label>
+                      <select id="state-input" class="form-control">
+                        <option></option>Choose...</option>
+                        <option value="DC">DC</option>
+                        <option value="MD">MD</option>
+                        <option value="VA">VA</option>
+                      </select>
+                    </div>
+    
+                    <div class="form-group col-md-2">
+                      <label for="zip-input">Zip</label>
+                      <input type="text" class="form-control" id="zip-input">
+                    </div>
+                 
+                </div>
+                  <button type="submit" class="btn btn-dark">Sign Up</button>
+                 
+                </form>
+                </div>
+         
+            </div>   
+
+          <div class="card-footer">
+              <p class="text-center">Already a member? Login <a class="login-link"href="/login">here</a></p>
+ 
+          </div>
+
+ 
+
+          
+
+          </div>
+
+
+
+
+        
+
+
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/signup.js"></script>
+
+</body>
+
+</html>
