@@ -10,7 +10,10 @@ $(document).ready(function() {
   var cityInput = $("input#city-input");
   var stateInput = $("#state-input");
   var zipInput = $("input#zip-input");
-
+  var phoneInput = $("input#phone-input");
+  var secQuestionInput = $("#sec-question-input");
+  var secAnswerInput = $("input#sec-question-answer");
+ 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", function(event) {
 
@@ -26,6 +29,11 @@ $(document).ready(function() {
       city: cityInput.val().trim(),
       state: stateInput.val().trim(),
       zip: zipInput.val().trim(),
+      phone:phoneInput.val().trim(),
+      secQuestion:secQuestionInput.val().trim(),
+      secAnswer:secAnswerInput.val().trim(),
+
+        
 
 
     };
@@ -34,7 +42,7 @@ $(document).ready(function() {
       return;
     }
     // If we have an email and password, run the signUpUser function
-    signUpUser(userData.email, userData.password, userData.first, userData.last,userData.address,userData.address2, userData.city,userData.state,userData.zip,);
+    signUpUser(userData.email, userData.password, userData.first, userData.last,userData.address,userData.address2, userData.city,userData.state,userData.zip,userData.phone, userData.secQuestion, userData.secAnswer);
     emailInput.val("");
     passwordInput.val("");
     firstInput.val("");
@@ -44,11 +52,14 @@ $(document).ready(function() {
     cityInput.val("");
     stateInput.val("");
     zipInput.val("");
+    phoneInput.val("");
+    secQuestionInput.val("");
+    secAnswerInput.val("");
   });
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(email, password, first, last, address, address2, city, state, zip) {
+  function signUpUser(email, password, first, last, address, address2, city, state, zip, phone, secQuestion, secAnswer) {
     $.post("/api/signup", {
       email: email,
       password: password,
@@ -59,6 +70,9 @@ $(document).ready(function() {
       city:city,
       state:state,
       zip:zip,
+      phone:phone,
+      secQuestion:secQuestion,
+      secAnswer:secAnswer
 
     }).then(function(data) {
       window.location.replace(data);
