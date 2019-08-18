@@ -57,3 +57,12 @@ Distributed under the XYZ license. See ``LICENSE`` for more information.
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
+
+
+
+## More ToDos:
+
+* walkthrough on how to set up the .env file (and .gitignore)
+* some walkthrough steps on  JAWSDB and Heroku if needed
+* Link to deployed/live version
+* comments on Passport, passwords and security
