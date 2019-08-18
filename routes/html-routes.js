@@ -11,19 +11,21 @@ module.exports = function(app) {
     res.render("pages/home", ejsObj);
   });
 
-  app.get("/signup", function(req, res) {
+  app.get("/signup", function(req, res, next) {
     // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect("/members");
+      next()
     }
     var ejsObj = {pageTitle: "Signup"};
     res.render("pages/signup", ejsObj);
   });
 
-  app.get("/login", function(req, res) {
+  app.get("/login", function(req, res, next) {
     // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect("/members");
+      next()
     }
     var ejsObj = {pageTitle: "Login"};
     res.render("pages/login", ejsObj);
