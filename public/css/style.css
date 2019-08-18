@@ -1,0 +1,113 @@
+
+body {
+  background-color:#072752;
+  color:white;
+}
+
+/* home page*/
+
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.carousel-caption {
+ margin-bottom:0px;
+ padding-bottom:0px;
+  z-index:10;
+  color:#fff;
+  text-align:center;
+  top:80%;
+  left:20%;
+  bottom:auto;
+  -webkit-transform:translate(0, -50%);
+  -ms-transform:translate(0, -50%);
+  transform:translate(0, -50%);
+  }
+
+.display-4  {
+color:#fff;
+font-weight: bold;
+
+}
+
+.lead {
+  margin-top:0px;
+  padding-top: 0px;
+  color:#fff;
+  font-weight: bold;
+  
+ 
+}
+
+
+
+
+/* form css*/
+
+.signup-form, .login-form {
+  margin-top: 25px;
+ 
+}
+
+.member {
+  margin-top: 100px;
+
+} 
+
+.signup-link, .login-link{
+  color:#072752;
+  text-decoration: underline;
+}
+
+.member-name {
+  color:white;
+  margin-bottom:10px;
+}
+
+.form-group {
+  margin-bottom:5px;
+  margin-top:0px;
+}
+
+.card {
+  color:#072752;
+}
+
+.search-link{
+  color:#072752;
+  text-decoration: underline;
+}
+
+
+
+label {
+  margin-bottom:5px;
+}
+
+.pass-header, .acct-header {
+  margin-bottom:10px;
+}
+
+.signup-btn {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.card-body {
+  padding-bottom: 0px;
+}
+
+
+
+
+
+
+
+
+
