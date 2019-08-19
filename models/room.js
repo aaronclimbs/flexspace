@@ -61,7 +61,7 @@ module.exports = function(sequelize, DataTypes) {
     };
 
     Room.associate = function(models) {
-        Roomm.hasMany(models.Reservation, {
+        Room.hasMany(models.Reservation, {
             onDelete: "cascade"
         });
     };
