@@ -1,29 +1,39 @@
 <html>
   <head>
     <% include ../partials/head.ejs %>
-    <link rel="stylesheet" type ="text/css" href="../stylesheets/style.css">
+    
   </head>
   <% include ../partials/nav.ejs %>
-  <div class="container member mx-auto">
+  <div class="container member mx-auto"> 
+
     <div class="row text-center">
       <div class="col-md-12">
         <h2>Welcome <span class="member-name"></span></h2>
       </div>
     </div>
-  </div>
+  
 
-  <div class="container">
-    <div class="card signup-form w-75 mx-auto">
-      <div class="card-header text-center">
+  
+  <div class="container"> 
+
+    <div class="card signup-form w-75 mx-auto"> 
+
+      <div class="card-header text-center"> 
         New Member Signup
       </div>
+
       <div class="card-body">
+
         <form class="signup">
+
           <div class="form-row d-block">
+
             <div class="card-header text-center pass-header mt-0">
               Password and Security
             </div>
+
             <div class="form-row">
+
               <div class="form-group col-md-6 ">
                 <label for="email-input">Email</label>
                 <input
@@ -33,6 +43,7 @@
                   placeholder="Email"
                 />
               </div>
+
               <div class="form-group col-md-6 ">
                 <label for="first-input">Phone Number</label>
                 <input
@@ -42,7 +53,10 @@
                   placeholder="Phone Number"
                 />
               </div>
-            </div>
+
+            </div> 
+
+            <div class="form-row">
             <div class="form-group col-md-6">
               <label for="password-input">Password</label>
               <input
@@ -52,6 +66,7 @@
                 placeholder="Password"
               />
             </div>
+
             <div class="form-group col-md-6">
               <label for="confirm-password-input">Confirm Password</label>
               <input
@@ -61,6 +76,7 @@
                 placeholder="Confirm Password"
               />
             </div>
+
             <div
               style="display: none"
               id="alert"
@@ -73,7 +89,11 @@
               ></span>
               <span class="sr-only">Error:</span> <span class="msg"></span>
             </div>
+
+          </div> 
+
             <div class="form-row">
+
               <div class="form-group col-md-6 ">
                 <label for="sec-question-input">Security Question</label>
                 <select id="sec-question-input" class="form-control">
@@ -89,6 +109,7 @@
                   >
                 </select>
               </div>
+
               <div class="form-group col-md-6">
                 <label for="sec-question-answer">Answer</label>
                 <input
@@ -98,13 +119,19 @@
                   placeholder="Answer"
                 />
               </div>
-            </div>
-          </div>
+
+            </div> 
+
+          </div> 
+
           <div class="form-row d-block">
+
             <div class="card-header text-center acct-header mt-3">
               Account Information
             </div>
+
             <div class="form-row">
+
               <div class="form-group col-md-6 ">
                 <label for="first-input">First Name</label>
                 <input
@@ -114,6 +141,7 @@
                   placeholder="First Name"
                 />
               </div>
+
               <div class="form-group col-md-6">
                 <label for="last-input">Last Name</label>
                 <input
@@ -123,8 +151,11 @@
                   placeholder="Last Name"
                 />
               </div>
+
             </div>
-          </div>
+
+          <div class="form-row d-block">
+
           <div class="form-group">
             <label for="address-input">Address</label>
             <input
@@ -135,6 +166,10 @@
             />
           </div>
 
+          </div>
+
+          <div class="form-row d-block">
+
           <div class="form-group">
             <label for="address2-input">Address 2</label>
             <input
@@ -144,7 +179,11 @@
               placeholder="Apartment, studio, or floor"
             />
           </div>
+
+          </div>
+
           <div class="form-row">
+
             <div class="form-group col-md-6">
               <label for="city-input">City</label>
               <input type="text" class="form-control" id="city-input" />
@@ -164,17 +203,25 @@
               <label for="zip-input">Zip</label>
               <input type="text" class="form-control" id="zip-input" />
             </div>
+
           </div>
-          <button type="submit" class="btn btn-dark">Sign Up</button>
+
+          <button type="submit" class="btn btn-dark signup-btn">Sign Up</button>
         </form>
-      </div>
-    </div>
-    <div class="card-footer">
-      <p class="text-center">
-        Already a member? Login <a class="login-link" href="/login">here</a>
+
+      </div> 
+
+   </div> 
+
+   <div class="card-footer">
+      <p class="text-center">Already a member? Login <a class="login-link" href="/login">here</a>
       </p>
     </div>
-  </div>
+
+  </div> 
+
+  <!--End outer-->
+  </div> 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script

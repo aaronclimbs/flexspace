@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
      allowNull: false
     },
-    
+
     address: {
       type: DataTypes.STRING,
      allowNull: false
@@ -39,12 +39,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
      allowNull: false
     },
-    
+
     state: {
       type: DataTypes.STRING,
      allowNull: false
     },
-    
+
     zip: {
       type: DataTypes.STRING,
      allowNull: false
@@ -73,5 +73,6 @@ module.exports = function(sequelize, DataTypes) {
   User.hook("beforeCreate", function(user) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
+
   return User;
 };
