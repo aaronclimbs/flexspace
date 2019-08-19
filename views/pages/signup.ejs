@@ -9,16 +9,33 @@
         <h2>Welcome <span class="member-name"></span></h2>
       </div>
     </div>
-    <div class="container">
-      <div class="card signup-form w-75 mx-auto">
-        <div class="card-header text-center">
-          New Member Signup
-        </div>
-        <div class="card-body">
-          <form class="signup">
-            <div class="form-row d-block">
-              <div class="card-header text-center pass-header mt-0">
-                Password and Security
+  <div class="container">
+      <div id="loading">
+          <div id="loadingcontent">
+              <p id="loadingspinner">
+                  Logging in...sending 0s and 1s
+              </p>
+          </div>
+      </div>
+    <div class="card signup-form w-75 mx-auto">
+      <div class="card-header text-center">
+        New Member Signup
+      </div>
+      <div class="card-body">
+        <form class="signup">
+          <div class="form-row d-block">
+            <div class="card-header text-center pass-header mt-0">
+              Password and Security
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6 ">
+                <label for="email-input">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email-input"
+                  placeholder="Email"
+                />
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6 ">
@@ -169,7 +186,6 @@
               Sign Up
             </button>
           </form>
-        </div>
       </div>
       <div class="card-footer">
         <p class="text-center">
