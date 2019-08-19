@@ -7,15 +7,25 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function(app) {
   app.get("/", function(req, res) {
     // If the user already has an account send them to the members page
-    var ejsObj = { pageTitle: "FlexSpace" };
+    if (req.user) {
+    
+    var ejsObj = { pageTitle: "FlexSpace",
+                   loggedIn: true };
+    
+
+    } else {
+      var ejsObj = { pageTitle: "FlexSpace",
+      loggedIn: false };
+
+    }
     res.render("pages/home", ejsObj);
   });
 
   app.get("/signup", function(req, res, next) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
-      next()
+      return res.redirect("/members");
+      next();
     }
     var ejsObj = {pageTitle: "Signup"};
     res.render("pages/signup", ejsObj);
@@ -24,7 +34,7 @@ module.exports = function(app) {
   app.get("/login", function(req, res, next) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      return res.redirect("/members");
       next()
     }
     var ejsObj = {pageTitle: "Login"};
