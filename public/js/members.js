@@ -3,7 +3,7 @@ $(document).ready(function() {
   // and updates the HTML on the page
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.first);
-    $("#logMsg").text("Logged In").css("display", "unset");
+    //$("#logMsg").text("Logged In").css("display", "unset");
     $("#login").css("display", "none");
     $("#signup").css("display", "none");
     $("#features").css("display", "none");

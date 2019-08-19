@@ -68,5 +68,22 @@
 
   
   <% include ../partials/footer.ejs %>
+  <!--<script type="text/javascript" src="js/home.js"></script>-->
+
+  <script>
+  var isloggedIn = (<%=loggedIn%>);
+  console.log("User logged in? "+ isloggedIn)
+
+if (isloggedIn) {
+  $("#login").hide();
+  $("#signup").hide();
+  $("#features").hide();
+  $("#myDashboard").show();
+} else {
+  $("#logout").hide()
+  $("#myDashboard").hide();
+};
+
+  </script>
   </body>
 </html>
