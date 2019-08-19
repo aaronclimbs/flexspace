@@ -22,6 +22,5 @@
     "sequelize": "4.44.2",
     "morgan": "^1.9.1"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
