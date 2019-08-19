@@ -17,17 +17,5 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
         }
     });
-
-//adding associations here:
-
-    Reservation.associate = function(models) {
-        Reservation.belongsTo(models.Room, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-    };
-
-
     return Reservation;
 };
