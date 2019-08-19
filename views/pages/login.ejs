@@ -1,6 +1,7 @@
 <html>
   <head>
     <% include ../partials/head.ejs %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.js"></script>
    
   </head>
   <% include ../partials/nav.ejs %>
@@ -12,7 +13,19 @@
     </div>
   </div>
 
+
+
   <div class="container login-form">
+      <div id="loading">
+          <div id="loadingcontent">
+              
+              <p id="loadingspinner">
+                  Logging in...sending 0s and 1s
+               
+              </p>
+              
+          </div>
+      </div>
     <div class="row">
       <div class="col-md-6 mx-auto">
         <div class="container">
@@ -40,7 +53,7 @@
                     placeholder="Password"
                   />
                 </div>
-                <button type="submit" class="btn btn-dark float-left">
+                <button type="submit " class="btn btn-dark float-left login-btn">
                   Login
                 </button>
               </form>
