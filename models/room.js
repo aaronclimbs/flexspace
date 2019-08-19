@@ -49,23 +49,5 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
         }
     });
-
-    // trying to add foreign keys here:
-
-    Room.associate = function(models) {
-        Room.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-    };
-
-    Room.associate = function(models) {
-        Room.hasMany(models.Reservation, {
-            onDelete: "cascade"
-        });
-    };
-    
-
     return Room;
 };
