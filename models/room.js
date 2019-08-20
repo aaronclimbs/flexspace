@@ -57,6 +57,9 @@ module.exports = function(sequelize, DataTypes) {
                 allowNull: false
             }
         });
+        Room.hasMany(models.Reservation, {
+            onDelete: "cascade"
+        });
     };
 
 
