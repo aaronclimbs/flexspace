@@ -7,6 +7,9 @@ var passport = require("./config/passport");
 // Require middleware logger 'morgan'
 var morgan = require("morgan");
 
+// Require EJS-Lint
+var ejsLint = require("ejs-lint")
+
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
