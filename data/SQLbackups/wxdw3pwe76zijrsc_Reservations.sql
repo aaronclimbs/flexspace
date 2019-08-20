@@ -33,13 +33,16 @@ DROP TABLE IF EXISTS `Reservations`;
 CREATE TABLE `Reservations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `roomID` varchar(255) NOT NULL,
-  `renterID` varchar(255) NOT NULL,
-  `startDate` int(11) NOT NULL,
-  `endDate` int(11) NOT NULL,
+  `text` varchar(255) NOT NULL,
+  `start_date` datetime NOT NULL,
+  `end_date` datetime NOT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `UserId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `UserId` (`UserId`),
+  CONSTRAINT `Reservations_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `Users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,6 +51,7 @@ CREATE TABLE `Reservations` (
 
 LOCK TABLES `Reservations` WRITE;
 /*!40000 ALTER TABLE `Reservations` DISABLE KEYS */;
+INSERT INTO `Reservations` VALUES (1,'2','testing','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',6),(2,'4','test2','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',3),(3,'6','test3','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',4),(4,'5','test4','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',6),(5,'3','test5','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',3),(7,'3','test7','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',6),(8,'5','test7','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',4),(9,'6','test8','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',8),(10,'3','test10','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',4);
 /*!40000 ALTER TABLE `Reservations` ENABLE KEYS */;
 UNLOCK TABLES;
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
@@ -61,4 +65,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-19 21:12:27
+-- Dump completed on 2019-08-20 18:05:12
