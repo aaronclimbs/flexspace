@@ -34,18 +34,6 @@ body {
   background-size: cover;
 }
 
-#slider-animation{max-height:550px;}
-.heading-box h2{ width:100%; color: red; }
-h2, p{color:#fff;}
-.carousel-item img{width:100%;}
-.text-box {
-	position: absolute;
-	top: 50%;
-	left: 15%;
-	right: 15%;
-	color: #000;
-	transform: translateY(-50%);
-}
 
 .carousel-caption {
  margin-bottom:0px;
