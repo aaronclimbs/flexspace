@@ -81,4 +81,23 @@ module.exports = function(app) {
     }
   });
 
+
+    app.get("/api/members", function(req, res) {
+      // Here we add an "include" property to our options in our findOne query
+      // We set the value to an array of the models we want to include in a left outer join
+      // In this case, just db.Author
+      console.log(req.user.id);
+      db.Room.findAll({
+        where: {
+          userID: req.user.id
+        },
+        include: [db.User]
+      }).then(function(dbRoom) {
+        res.json(dbRoom);
+      });
+    });
+
+
+
+
 };
