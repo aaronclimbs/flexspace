@@ -1,0 +1,95 @@
+[33mcommit f9c91852f72420a167f66c972d9de70a7ef961af[m
+Merge: 154e2bb 9ae0014
+Author: Javier Pagan <9905163+javierjpagan@users.noreply.github.com>
+Date:   Mon Aug 19 19:29:45 2019 -0400
+
+    WIP on JavierP2: 154e2bb Merge branch 'master' of https://github.com/brityank/flexspace into JavierP2
+
+[1mdiff --cc public/cardtest.html[m
+[1mindex 29b72b9,29b72b9..0000000[m
+[1mdeleted file mode 100644,100644[m
+[1m--- a/public/cardtest.html[m
+[1m+++ /dev/null[m
+[36m@@@ -1,69 -1,69 +1,0 @@@[m
+[31m--<!doctype html>[m
+[31m--<html lang="en">[m
+[31m--  <head>[m
+[31m--    <!-- Required meta tags -->[m
+[31m--    <meta charset="utf-8">[m
+[31m--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">[m
+[31m--[m
+[31m--    <!-- Bootstrap CSS -->[m
+[31m--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">[m
+[31m--    <link rel="stylesheet" type ="text/css" href="../css/home.css">[m
+[31m--    <title>FlexSpace Home</title>[m
+[31m--  </head>[m
+[31m--  <body>[m
+[31m--<section class="details-card">[m
+[31m--    <div class="container">[m
+[31m--        <div class="row">[m
+[31m--            <div class="col-md-4">[m
+[31m--                <div class="card-content">[m
+[31m--                    <div class="card-img">[m
+[31m--                        <img src="https://placeimg.com/380/230/nature" alt="">[m
+[31m--                        <span><h4></h4></span>[m
+[31m--                    </div>[m
+[31m--                    <div class="card-desc">[m
+[31m--                        <h3>Conference Rooms</h3>[m
+[31m--                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis[m
+[31m--                            voluptas totam</p>[m
+[31m--                            <a href="#" class="btn-card">Read</a>   [m
+[31m--                    </div>[m
+[31m--                </div>[m
+[31m--            </div>[m
+[31m--            <div class="col-md-4">[m
+[31m--                <div class="card-content">[m
+[31m--                    <div class="card-img">[m
+[31m--                        <img src="https://placeimg.com/380/230/animals" alt="">[m
+[31m--                        <span><h4></h4></span>[m
+[31m--                    </div>[m
+[31m--                    <div class="card-desc">[m
+[31m--                        <h3>Private Offices</h3>[m
+[31m--                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis[m
+[31m--                            voluptas totam</p>[m
+[31m--                            <a href="#" class="btn-card">Read</a>   [m
+[31m--                    </div>[m
+[31m--                </div>[m
+[31m--            </div>[m
+[31m--            <div class="col-md-4">[m
+[31m--                <div class="card-content">[m
+[31m--                    <div class="card-img">[m
+[31m--                        <img src="https://placeimg.com/380/230/tech" alt="">[m
+[31m--                        <span><h4></h4></span>[m
+[31m--                    </div>[m
+[31m--                    <div class="card-desc">[m
+[31m--                        <h3>Open Spaces</h3>[m
+[31m--                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis[m
+[31m--                            voluptas totam</p>[m
+[31m--                            <a href="#" class="btn-card">Read</a>   [m
+[31m--                    </div>[m
+[31m--                </div>[m
+[31m--            </div>[m
+[31m--        </div>[m
+[31m--    </div>[m
+[31m--</section>[m
+[31m--[m
+[31m--    <!-- Optional JavaScript -->[m
+[31m--    <!-- jQuery first, then Popper.js, then Bootstrap JS -->[m
+[31m--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>[m
+[31m--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>[m
+[31m--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>[m
+[31m--  </body>[m
+[31m--</html>[m
+[1mdiff --cc views/partials/head.ejs[m
+[1mindex 1279729,1279729..84dfc7d[m
+[1m--- a/views/partials/head.ejs[m
+[1m+++ b/views/partials/head.ejs[m
+[36m@@@ -12,7 -12,7 +12,6 @@@[m
+    rel="stylesheet"[m
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"[m
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"[m
+[31m--  crossorigin="anonymous"[m
+[31m--/>[m
+[32m++  crossori/>[m
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />[m
+  <title><%=pageTitle%></title>[m
