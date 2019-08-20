@@ -5,7 +5,7 @@ var session = require("express-session");
 var passport = require("./config/passport");
 
 // Require middleware logger 'morgan'
-var morgan = require('morgan');
+var morgan = require("morgan");
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
@@ -23,7 +23,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 
 app.set("view engine", "ejs");
 
@@ -32,7 +32,7 @@ require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
-db.sequelize.sync({force: true}).then(function() {
+db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
