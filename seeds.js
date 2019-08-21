@@ -5,7 +5,7 @@ const db = require("./models");
 const userData = [
   {
     email: "Testdavid1@email.com",
-    password: "$2a$10$jC52PwZvcRsX1qpGg43wN.HsFn6l/6fNnNInmYoVvus/ZQ4ErCYr.",
+    password: "password",
     first: "testDavid1",
     last: "testDavidLast1",
     address: "1234 Main St.",
@@ -21,7 +21,7 @@ const userData = [
   },
   {
     email: "kevin@kevin.com",
-    password: "$2a$10$tvMsItPaEzEJshQxk.waCOKYrVxWY8ogNLSxRwXu0GTkYUzpinDWq",
+    password: "password",
     first: "Kevin",
     last: "Steele",
     address: "123 Any St",
@@ -37,7 +37,7 @@ const userData = [
   },
   {
     email: "kevin@steele.com",
-    password: "$2a$10$GNkBWLqCYgBae90ubspwuO/lT2MCkwO8zWHxoZW1LeeEG1irsLl0i",
+    password: "password",
     first: "Kevin",
     last: "Steele",
     address: "123 Main St",
@@ -53,7 +53,7 @@ const userData = [
   },
   {
     email: "javierjpagan@gmail.com",
-    password: "$2a$10$aAUlPF2..3vlYgpY2KCkT.zVG2pxXPUy0UnkTGLjA8LOEJNuZUrBK",
+    password: "password",
     first: "Javier",
     last: "Pagan",
     address: "3308 Montrose Ave.",
@@ -69,7 +69,7 @@ const userData = [
   },
   {
     email: "test@test.com",
-    password: "$2a$10$No9yO1Ya2lkF6k7aJ04pDejT6yW.JqIps.nKByBzvxtvVtczj/mwm",
+    password: "password",
     first: "Test",
     last: "User",
     address: "Test Street",
@@ -85,7 +85,7 @@ const userData = [
   },
   {
     email: "kevin@test.com",
-    password: "$2a$10$WlWC5Z9ozsKBNTQlA6dhCucCKQdxYQ2DtWHbLNh4FyuhalFoC5vyi",
+    password: "password",
     first: "Kevin",
     last: "Test",
     address: "5678 Main St",
@@ -101,7 +101,7 @@ const userData = [
   },
   {
     email: "jim@jim.com",
-    password: "$2a$10$hqIVq3ktOrpTP5Z.VCk26OPyzEOxc1puAzz2nDTV2BzDpEsthZV9u",
+    password: "password",
     first: "Jim",
     last: "Bob",
     address: "666 Main St",
@@ -117,7 +117,7 @@ const userData = [
   },
   {
     email: "tim@tim.com",
-    password: "$2a$10$CiJCZcW3KjGysEQhUkjkoedt3ZYNRWc7lvZIHTyJVCaJtCrYV.3wC",
+    password: "password",
     first: "Tim",
     last: "Test",
     address: "4567 Main",
@@ -133,7 +133,7 @@ const userData = [
   },
   {
     email: "aaron@test.com",
-    password: "$2a$10$RS0Kj26LJfmXwqgAypnwAuoUVy51Oc3EL3yQ56up7uxvlbZqatLzO",
+    password: "password",
     first: "Tim",
     last: "Test",
     address: "4567 Main",
