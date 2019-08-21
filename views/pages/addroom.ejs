@@ -19,7 +19,7 @@
           <div id="loadingcontent">
               
               <p id="loadingspinner">
-                  Logging in...sending 0s and 1s
+                  Adding Room...sending 0s and 1s
                
               </p>
               
@@ -34,7 +34,7 @@
 
       <div class="card-body">
 
-        <form class="signup">
+        <form id="add-room" class="signup">
 
           <div class="form-row d-block">
 
@@ -103,7 +103,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  id="room-rate-inout"
+                  id="room-rate-input"
                   placeholder="Room Rate"
                 />
               </div>
@@ -125,7 +125,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  id="room-phone-inpput"
+                  id="room-phone-input"
                   placeholder="Room contact phone number"
                 />
               </div>
@@ -184,7 +184,7 @@
 
           </div>
 
-          <button type="submit" class="btn btn-dark add-room-btn">Add Room</button>
+          <button type="submit" id="add-room-btn" class="btn btn-dark add-room-btn">Add Room</button>
         </form>
 
       </div> 
@@ -211,6 +211,6 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"
   ></script>
-  <script type="text/javascript" src="js/signup.js"></script>
+  <script type="text/javascript" src="js/addroom.js"></script>
   <% include ../partials/footer.ejs %>
 </html>
