@@ -130,6 +130,22 @@ const userData = [
     secAnswer: "Avengers",
     createdAt: new Date(),
     updatedAt: new Date()
+  },
+  {
+    email: "aaron@test.com",
+    password: "$2a$10$RS0Kj26LJfmXwqgAypnwAuoUVy51Oc3EL3yQ56up7uxvlbZqatLzO",
+    first: "Tim",
+    last: "Test",
+    address: "4567 Main",
+    address2: "9",
+    city: "Washington",
+    state: "DC",
+    zip: "20009",
+    phone: "12025551212",
+    secQuestion: "What is your favorite Movie",
+    secAnswer: "Avengers",
+    createdAt: new Date(),
+    updatedAt: new Date()
   }
 ];
 
