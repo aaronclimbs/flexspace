@@ -61,4 +61,21 @@ module.exports = function(app) {
       res.render("pages/members", ejsObj);
     });
   //});
+
+  app.get("/addroom", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+    
+    var ejsObj = { pageTitle: "FlexSpace",
+                   loggedIn: true };
+    
+
+    } else {
+      var ejsObj = { pageTitle: "FlexSpace",
+      loggedIn: false };
+
+    }
+    res.render("pages/addroom", ejsObj);
+  });
+
 };

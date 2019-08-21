@@ -81,4 +81,59 @@ module.exports = function(app) {
     }
   });
 
+
+    app.get("/api/members", function(req, res) {
+      // Here we add an "include" property to our options in our findOne query
+      // We set the value to an array of the models we want to include in a left outer join
+      // In this case, just db.Author
+      console.log(req.user.id);
+      db.Room.findAll({
+        where: {
+          userID: req.user.id
+        },
+        include: [db.User]
+      }).then(function(dbRoom) {
+        res.json(dbRoom);
+      });
+    });
+
+//DISPLAYING RESERVATIONS WITH ROOMS AND ROOM OWNER:
+
+    app.get("/api/reservations", function(req, res) {
+      console.log(req.user.id);
+      db.Reservation.findAll({
+        where: {
+          userID: req.user.id
+        },
+        include: [
+          {
+            model: db.Room,
+            include: [
+              {
+                model: db.User
+              }
+            ]
+          }
+        ]
+      }).then(function(dbRes) {
+        res.json(dbRes);
+      });
+    });
+
+
+
+
+    app.get("/api/rooms", function(req, res) {
+      console.log(req.user.id);
+      db.Room.findAll({
+        where: {
+          userID: req.user.id
+        },
+        include: [db.Reservation]
+      }).then(function(dbRoom) {
+        res.json(dbRoom);
+      });
+    });
+  
+
 };

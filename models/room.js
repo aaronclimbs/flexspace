@@ -40,14 +40,28 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        ownerID: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
+        // ownerID: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false
+        // },
         hourlyRate: {
             type: DataTypes.STRING,
             allowNull: false
         }
     });
+
+
+    Room.associate = function(models) {
+        Room.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+        Room.hasMany(models.Reservation, {
+            onDelete: "cascade"
+        });
+    };
+
+
     return Room;
 };

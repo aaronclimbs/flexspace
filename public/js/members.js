@@ -8,4 +8,9 @@ $(document).ready(function() {
     $("#signup").css("display", "none");
     $("#features").css("display", "none");
   });
+
+  $.get("/api/members")
+
+
+
 });

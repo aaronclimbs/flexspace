@@ -1,21 +1,43 @@
 module.exports = function(sequelize, DataTypes) {
     var Reservation = sequelize.define("Reservation", {
-        roomID: {
+        // roomID: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false
+        // },
+        text: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        renterID: {
-            type: DataTypes.STRING,
+        start_date: {
+            type: DataTypes.DATE,
             allowNull: false
         },
-        startDate: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        endDate: {
-            type: DataTypes.INTEGER,
+        end_date: {
+            type: DataTypes.DATE,
             allowNull: false
         }
     });
+
+
+    Reservation.associate = function(models) {
+
+        Reservation.belongsTo(models.Room, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+        Reservation.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
+
+
+
+
+
+
     return Reservation;
 };
