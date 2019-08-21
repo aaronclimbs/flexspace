@@ -121,4 +121,19 @@ module.exports = function(app) {
     });
 
 
+
+
+    app.get("/api/rooms", function(req, res) {
+      console.log(req.user.id);
+      db.Room.findAll({
+        where: {
+          userID: req.user.id
+        },
+        include: [db.Reservation]
+      }).then(function(dbRoom) {
+        res.json(dbRoom);
+      });
+    });
+  
+
 };
