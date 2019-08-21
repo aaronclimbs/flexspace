@@ -1,33 +1,49 @@
 <html>
   <head>
     <% include ../partials/head.ejs %>
+    
   </head>
   <% include ../partials/nav.ejs %>
-  <div class="container member mx-auto">
+  <div class="container member mx-auto"> 
+
     <div class="row text-center">
       <div class="col-md-12">
         <h2>Welcome <span class="member-name"></span></h2>
       </div>
     </div>
-  <div class="container">
+  
+
+  
+  <div class="container"> 
       <div id="loading">
           <div id="loadingcontent">
+              
               <p id="loadingspinner">
                   Logging in...sending 0s and 1s
+               
               </p>
+              
           </div>
       </div>
-    <div class="card signup-form w-75 mx-auto">
-      <div class="card-header text-center">
+
+    <div class="card signup-form w-75 mx-auto"> 
+
+      <div class="card-header text-center"> 
         New Member Signup
       </div>
+
       <div class="card-body">
+
         <form class="signup">
+
           <div class="form-row d-block">
+
             <div class="card-header text-center pass-header mt-0">
               Password and Security
             </div>
+
             <div class="form-row">
+
               <div class="form-group col-md-6 ">
                 <label for="email-input">Email</label>
                 <input
@@ -37,164 +53,185 @@
                   placeholder="Email"
                 />
               </div>
-              <div class="form-row">
-                <div class="form-group col-md-6 ">
-                  <label for="email-input">Email</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email-input"
-                    placeholder="Email"
-                  />
-                </div>
-                <div class="form-group col-md-6 ">
-                  <label for="first-input">Phone Number</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="phone-input"
-                    placeholder="Phone Number"
-                  />
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="password-input">Password</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="password-input"
-                    placeholder="Password"
-                  />
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="confirm-password-input">Confirm Password</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="confirm-password-input"
-                    placeholder="Confirm Password"
-                  />
-                </div>
-                <div
-                  style="display: none"
-                  id="alert"
-                  class="alert alert-danger"
-                  role="alert"
-                >
-                  <span
-                    class="glyphicon glyphicon-exclamation-sign"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only">Error:</span> <span class="msg"></span>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6 ">
-                  <label for="sec-question-input">Security Question</label>
-                  <select id="sec-question-input" class="form-control">
-                    <option>Choose a security question</option>
-                    <option value="What is your favorite Book"
-                      >What is your favorite Book</option
-                    >
-                    <option value="What is your favorite Movie"
-                      >What is your favorite Movie</option
-                    >
-                    <option value="What was yo first pet's Name"
-                      >What was your first pet's Name</option
-                    >
-                  </select>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="sec-question-answer">Answer</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="sec-question-answer"
-                    placeholder="Answer"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="form-row d-block">
-              <div class="card-header text-center acct-header mt-3">
-                Account Information
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6 ">
-                  <label for="first-input">First Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="first-input"
-                    placeholder="First Name"
-                  />
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="last-input">Last Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="last-input"
-                    placeholder="Last Name"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="form-row d-block">
-              <div class="form-group">
-                <label for="address-input">Address</label>
+
+              <div class="form-group col-md-6 ">
+                <label for="first-input">Phone Number</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="address-input"
-                  placeholder="1234 Main St"
+                  id="phone-input"
+                  placeholder="Phone Number"
                 />
               </div>
-            </div>
-            <div class="form-row d-block">
-              <div class="form-group">
-                <label for="address2-input">Address 2</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="address2-input"
-                  placeholder="Apartment, studio, or floor"
-                />
-              </div>
-            </div>
+
+            </div> 
+
             <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="city-input">City</label>
-                <input type="text" class="form-control" id="city-input" />
-              </div>
-              <div class="form-group col-md-4">
-                <label for="state-input">State</label>
-                <select id="state-input" class="form-control">
-                  <option>Choose...</option>
-                  <option value="DC">DC</option>
-                  <option value="MD">MD</option>
-                  <option value="VA">VA</option>
+            <div class="form-group col-md-6">
+              <label for="password-input">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password-input"
+                placeholder="Password"
+              />
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="confirm-password-input">Confirm Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="confirm-password-input"
+                placeholder="Confirm Password"
+              />
+            </div>
+
+            <div
+              style="display: none"
+              id="alert"
+              class="alert alert-danger"
+              role="alert"
+            >
+              <span
+                class="glyphicon glyphicon-exclamation-sign"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Error:</span> <span class="msg"></span>
+            </div>
+
+          </div> 
+
+            <div class="form-row">
+
+              <div class="form-group col-md-6 ">
+                <label for="sec-question-input">Security Question</label>
+                <select id="sec-question-input" class="form-control">
+                  <option>Choose a security question</option>
+                  <option value="What is your favorite Book"
+                    >What is your favorite Book</option
+                  >
+                  <option value="What is your favorite Movie"
+                    >What is your favorite Movie</option
+                  >
+                  <option value="What was yo first pet's Name"
+                    >What was your first pet's Name</option
+                  >
                 </select>
               </div>
-              <div class="form-group col-md-2">
-                <label for="zip-input">Zip</label>
-                <input type="text" class="form-control" id="zip-input" />
+
+              <div class="form-group col-md-6">
+                <label for="sec-question-answer">Answer</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="sec-question-answer"
+                  placeholder="Answer"
+                />
               </div>
+
+            </div> 
+
+          </div> 
+
+          <div class="form-row d-block">
+
+            <div class="card-header text-center acct-header mt-3">
+              Account Information
             </div>
-            <button type="submit" class="btn btn-dark signup-btn">
-              Sign Up
-            </button>
-          </form>
-      </div>
-      <div class="card-footer">
-        <p class="text-center">
-          Already a member? Login <a class="login-link" href="/login">here</a>
-        </p>
-      </div>
+
+            <div class="form-row">
+
+              <div class="form-group col-md-6 ">
+                <label for="first-input">First Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="first-input"
+                  placeholder="First Name"
+                />
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="last-input">Last Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="last-input"
+                  placeholder="Last Name"
+                />
+              </div>
+
+            </div>
+
+          <div class="form-row d-block">
+
+          <div class="form-group">
+            <label for="address-input">Address</label>
+            <input
+              type="text"
+              class="form-control"
+              id="address-input"
+              placeholder="1234 Main St"
+            />
+          </div>
+
+          </div>
+
+          <div class="form-row d-block">
+
+          <div class="form-group">
+            <label for="address2-input">Address 2</label>
+            <input
+              type="text"
+              class="form-control"
+              id="address2-input"
+              placeholder="Apartment, studio, or floor"
+            />
+          </div>
+
+          </div>
+
+          <div class="form-row">
+
+            <div class="form-group col-md-6">
+              <label for="city-input">City</label>
+              <input type="text" class="form-control" id="city-input" />
+            </div>
+
+            <div class="form-group col-md-4">
+              <label for="state-input">State</label>
+              <select id="state-input" class="form-control">
+                <option>Choose...</option>
+                <option value="DC">DC</option>
+                <option value="MD">MD</option>
+                <option value="VA">VA</option>
+              </select>
+            </div>
+
+            <div class="form-group col-md-2">
+              <label for="zip-input">Zip</label>
+              <input type="text" class="form-control" id="zip-input" />
+            </div>
+
+          </div>
+
+          <button type="submit" class="btn btn-dark signup-btn">Sign Up</button>
+        </form>
+
+      </div> 
+
+   </div> 
+
+   <div class="card-footer">
+      <p class="text-center">Already a member? Login <a class="login-link" href="/login">here</a>
+      </p>
     </div>
-    <!--End outer-->
-  </div>
+
+  </div> 
+
+  <!--End outer-->
+  </div> 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script
