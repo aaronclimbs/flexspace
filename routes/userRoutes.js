@@ -1,10 +1,9 @@
 var db = require("../models");
 
 module.exports = function(app) {
-
   app.get("/api/users", function(req, res) {
     if (req.user.isAdmin) {
-      db.User.find({})
+      db.User.findAll({})
         .then(function(result) {
           res.json(result);
         })
@@ -19,11 +18,7 @@ module.exports = function(app) {
 
   app.get("/api/users/:id", function(req, res) {
     if (req.user.isAdmin || req.user.id === req.params.id) {
-      db.User.find({
-        where: {
-          id: req.params.id
-        }
-      })
+      db.User.findByPk(req.params.id)
         .then(function(result) {
           res.json(result);
         })
