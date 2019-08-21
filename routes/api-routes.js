@@ -55,6 +55,35 @@ module.exports = function(app) {
     }, 2000);
   });
 
+  app.post("/api/addroom", function(req, res) {
+    console.log(req.body);
+
+    delay(function() {
+      db.Room.create({
+        roomName: req.body.roomName,
+        roomCapacity: req.body.roomCapacity,
+        roomURL: req.body.roomURL,
+        roomType: req.body.roomType,
+        address1: req.body.address1,
+        address2: req.body.address2,
+        city: req.body.city,
+        state_us: req.body.state_us,
+        zip: req.body.zip,
+        contactPhone: req.body.contactPhone,
+        hourlyRate: req.body.roomRate,
+        UserId: req.user.id
+      })
+        .then(function() {
+          res.json("/members");
+        })
+        .catch(function(err) {
+          console.log(err);
+          res.json(err);
+          // res.status(422).json(err.errors[0].message);
+        });
+    }, 2000);
+  });
+
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();
@@ -113,6 +142,39 @@ module.exports = function(app) {
       ]
     }).then(function(dbRes) {
       res.json(dbRes);
+    });
+
+    app.get("/api/rooms", function(req, res) {
+      console.log(req.user.id);
+      db.Room.findAll({
+        where: {
+          userID: req.user.id
+        },
+        include: [db.Reservation]
+      }).then(function(dbRoom) {
+        res.json(dbRoom);
+      });
+    });
+
+    app.get("/api/allrooms", function(req, res) {
+      console.log(req);
+      db.Room.findAll({}).then(function(dbRoom) {
+        res.json(dbRoom);
+      });
+    });
+
+    app.get("/api/allrooms/:queryState/:queryType", function(req, res) {
+      console.log("State is" + req.params.queryState);
+      console.log("State is" + req.params.queryType);
+
+      db.Room.findAll({
+        where: {
+          state_us: req.params.queryState,
+          roomType: req.params.queryType
+        }
+      }).then(function(dbRoom) {
+        res.json(dbRoom);
+      });
     });
   });
 };
