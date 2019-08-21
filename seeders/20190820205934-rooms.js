@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert(
-      "People",
+      "Rooms",
       [
         {
           roomName: "Farragut West",
@@ -18,8 +18,8 @@ module.exports = {
           zip: "20001",
           contactPhone: "202-555-5555",
           hourlyRate: "5.5",
-          createdAt: "0000-00-00 00:00:00",
-          updatedAt: "0000-00-00 00:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
           UserId: "1"
         },
         {
@@ -35,8 +35,8 @@ module.exports = {
           zip: "22201",
           contactPhone: "202-555-1234",
           hourlyRate: "6",
-          createdAt: "0000-00-00 00:00:00",
-          updatedAt: "0000-00-00 00:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
           UserId: "2"
         },
         {
@@ -52,8 +52,8 @@ module.exports = {
           zip: "20815",
           contactPhone: "301-555-2345",
           hourlyRate: "5.5",
-          createdAt: "0000-00-00 00:00:00",
-          updatedAt: "0000-00-00 00:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
           UserId: "4"
         },
         {
@@ -69,8 +69,8 @@ module.exports = {
           zip: "20001",
           contactPhone: "202-555-6345",
           hourlyRate: "7",
-          createdAt: "0000-00-00 00:00:00",
-          updatedAt: "0000-00-00 00:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
           UserId: "3"
         },
         {
@@ -86,8 +86,8 @@ module.exports = {
           zip: "22201",
           contactPhone: "202-555-5555",
           hourlyRate: "4",
-          createdAt: "0000-00-00 00:00:00",
-          updatedAt: "0000-00-00 00:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
           UserId: "6"
         },
         {
@@ -103,8 +103,8 @@ module.exports = {
           zip: "20001",
           contactPhone: "202-555-5555",
           hourlyRate: "6",
-          createdAt: "0000-00-00 00:00:00",
-          updatedAt: "0000-00-00 00:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
           UserId: "4"
         },
         {
@@ -120,8 +120,8 @@ module.exports = {
           zip: "20815",
           contactPhone: "301-555-5555",
           hourlyRate: "8",
-          createdAt: "0000-00-00 00:00:00",
-          updatedAt: "0000-00-00 00:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
           UserId: "3"
         },
         {
@@ -137,8 +137,8 @@ module.exports = {
           zip: "22201",
           contactPhone: "202-555-5555",
           hourlyRate: "5",
-          createdAt: "0000-00-00 00:00:00",
-          updatedAt: "0000-00-00 00:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
           UserId: "3"
         },
         {
@@ -154,8 +154,8 @@ module.exports = {
           zip: "22201",
           contactPhone: "202-555-5555",
           hourlyRate: "6.5",
-          createdAt: "0000-00-00 00:00:00",
-          updatedAt: "0000-00-00 00:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
           UserId: "8"
         },
         {
@@ -171,8 +171,8 @@ module.exports = {
           zip: "20001",
           contactPhone: "202-555-5555",
           hourlyRate: "7.5",
-          createdAt: "0000-00-00 00:00:00",
-          updatedAt: "0000-00-00 00:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
           UserId: "6"
         },
         {
@@ -188,8 +188,8 @@ module.exports = {
           zip: "20815",
           contactPhone: "301-555-5555",
           hourlyRate: "8.5",
-          createdAt: "0000-00-00 00:00:00",
-          updatedAt: "0000-00-00 00:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
           UserId: "5"
         },
         {
@@ -205,8 +205,8 @@ module.exports = {
           zip: "20001",
           contactPhone: "202-555-5555",
           hourlyRate: "4.5",
-          createdAt: "0000-00-00 00:00:00",
-          updatedAt: "0000-00-00 00:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
           UserId: "5"
         }
       ],

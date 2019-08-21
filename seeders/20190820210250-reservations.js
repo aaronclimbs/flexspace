@@ -1,26 +1,97 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
+    return queryInterface.bulkInsert(
+      "Reservations",
+      [
+        {
+          text: "testing",
+          start_date: "01/08/19 17:00:00",
+          end_date: "01/08/19 17:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          RoomId: "2",
+          UserId: "6"
+        },
+        {
+          text: "test2",
+          start_date: "01/08/19 17:00:00",
+          end_date: "01/08/19 17:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          RoomId: "4",
+          UserId: "3"
+        },
+        {
+          text: "test3",
+          start_date: "01/08/19 17:00:00",
+          end_date: "01/08/19 17:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          RoomId: "6",
+          UserId: "4"
+        },
+        {
+          text: "test4",
+          start_date: "01/08/19 17:00:00",
+          end_date: "01/08/19 17:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          RoomId: "5",
+          UserId: "6"
+        },
+        {
+          text: "test5",
+          start_date: "01/08/19 17:00:00",
+          end_date: "01/08/19 17:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          RoomId: "3",
+          UserId: "3"
+        },
+        {
+          text: "test6",
+          start_date: "01/08/19 17:00:00",
+          end_date: "01/08/19 17:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          RoomId: "3",
+          UserId: "6"
+        },
+        {
+          text: "test7",
+          start_date: "01/08/19 17:00:00",
+          end_date: "01/08/19 17:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          RoomId: "5",
+          UserId: "4"
+        },
+        {
+          text: "test8",
+          start_date: "01/08/19 17:00:00",
+          end_date: "01/08/19 17:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          RoomId: "6",
+          UserId: "8"
+        },
+        {
+          text: "test10",
+          start_date: "01/08/19 17:00:00",
+          end_date: "01/08/19 17:00:00",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          RoomId: "3",
+          UserId: "4"
+        }
+      ],
+      {}
+    );
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete("Reservations", null, {});
   }
 };

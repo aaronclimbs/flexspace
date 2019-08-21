@@ -19,8 +19,8 @@ module.exports = {
           phone: "555-5555",
           secQuestion: "What is your favorite Movie",
           secAnswer: "goodfellas",
-          createdAt: "08/17/2019 22:11:28",
-          updatedAt: "08/17/2019 22:11:28"
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           email: "kevin@kevin.com",
@@ -36,8 +36,8 @@ module.exports = {
           phone: "12025551212",
           secQuestion: "What is your favorite Movie",
           secAnswer: "Avengers",
-          createdAt: "08/17/2019 22:23:00",
-          updatedAt: "08/17/2019 22:23:00"
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           email: "kevin@steele.com",
@@ -53,8 +53,8 @@ module.exports = {
           phone: "2025551212",
           secQuestion: "What is your favorite Movie",
           secAnswer: "Avengers",
-          createdAt: "08/18/2019 15:10:28",
-          updatedAt: "08/18/2019 15:10:28"
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           email: "javierjpagan@gmail.com",
@@ -70,8 +70,8 @@ module.exports = {
           phone: "2029755455",
           secQuestion: "What is your favorite Movie",
           secAnswer: "Inception",
-          createdAt: "08/17/2019 22:11:28",
-          updatedAt: "08/17/2019 22:11:28"
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           email: "test@test.com",
@@ -87,8 +87,8 @@ module.exports = {
           phone: "12025551212",
           secQuestion: "What is your favorite Book",
           secAnswer: "Harry Potter",
-          createdAt: "08/18/2019 19:41:29",
-          updatedAt: "08/18/2019 19:41:29"
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           email: "kevin@test.com",
@@ -104,8 +104,8 @@ module.exports = {
           phone: "12025551212",
           secQuestion: "What was yo first pet's Name",
           secAnswer: "Dog",
-          createdAt: "08/19/2019 21:37:10",
-          updatedAt: "08/19/2019 21:37:10"
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           email: "jim@jim.com",
@@ -121,8 +121,8 @@ module.exports = {
           phone: "17035551212",
           secQuestion: "What is your favorite Book",
           secAnswer: "Fahrenheit 451",
-          createdAt: "08/19/2019 21:42:08",
-          updatedAt: "08/19/2019 21:42:08"
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           email: "tim@tim.com",
@@ -138,8 +138,8 @@ module.exports = {
           phone: "12025551212",
           secQuestion: "What is your favorite Movie",
           secAnswer: "Avengers",
-          createdAt: "08/19/2019 21:49:59",
-          updatedAt: "08/19/2019 21:49:59"
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ],
       {}
