@@ -165,13 +165,31 @@ module.exports = function(app) {
     });
 
     app.get("/api/allrooms", function(req, res) {
-      console.log(req.user.id);
+      console.log(req);
       db.Room.findAll({
+        
+
+        
         
       }).then(function(dbRoom) {
         res.json(dbRoom);
       });
     });
   
+    app.get("/api/allrooms/:queryState/:queryType", function(req, res) {
+     
+     console.log ("State is" + req.params.queryState)
+      db.Room.findAll({
+        
+        where: {
+          state_us: req.params.queryState,
+          roomType: req.params.queryType,
+        }
+        
+        
+      }).then(function(dbRoom) {
+        res.json(dbRoom);
+      });
+    });
 
 };

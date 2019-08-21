@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-   
+  var query ={} 
 
 $(document).on ("click", ".bookme", function (event)  {
    
@@ -22,7 +22,18 @@ $(document).on ("click", "#search-btn", function (event)  {
 
   console.log("Search clicked")
 
-  $.get("/api/allrooms" , function(data) {
+
+
+  query = {
+      "state":roomState,
+      "type":roomType
+  }
+
+ 
+
+  console.log("Query is " + query.state + " " + query.type)
+
+  $.get("/api/allrooms/" + query.state +"/" + query.type, function(data) {
     console.log("Rooms", data);
     roomSearch = data;
 
