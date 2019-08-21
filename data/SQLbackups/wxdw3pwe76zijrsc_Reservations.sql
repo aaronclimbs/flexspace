@@ -32,14 +32,19 @@ DROP TABLE IF EXISTS `Reservations`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `Reservations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `roomID` varchar(255) NOT NULL,
-  `renterID` varchar(255) NOT NULL,
-  `startDate` int(11) NOT NULL,
-  `endDate` int(11) NOT NULL,
+  `text` varchar(255) NOT NULL,
+  `start_date` datetime NOT NULL,
+  `end_date` datetime NOT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `RoomId` int(11) NOT NULL,
+  `UserId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `RoomId` (`RoomId`),
+  KEY `UserId` (`UserId`),
+  CONSTRAINT `Reservations_ibfk_1` FOREIGN KEY (`RoomId`) REFERENCES `Rooms` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  CONSTRAINT `Reservations_ibfk_2` FOREIGN KEY (`UserId`) REFERENCES `Users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,6 +53,7 @@ CREATE TABLE `Reservations` (
 
 LOCK TABLES `Reservations` WRITE;
 /*!40000 ALTER TABLE `Reservations` DISABLE KEYS */;
+INSERT INTO `Reservations` VALUES (1,'testing','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',2,6),(2,'test2','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',4,3),(3,'test3','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',6,4),(4,'test4','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',5,6),(5,'test5','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',3,3),(7,'test7','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',3,6),(8,'test7','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',5,4),(9,'test8','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',6,8),(10,'test10','2019-08-01 14:00:00','2019-08-01 17:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00',3,4);
 /*!40000 ALTER TABLE `Reservations` ENABLE KEYS */;
 UNLOCK TABLES;
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
@@ -61,4 +67,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-19 21:12:27
+-- Dump completed on 2019-08-20 18:39:52

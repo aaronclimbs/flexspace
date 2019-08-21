@@ -8,7 +8,7 @@ var passport = require("./config/passport");
 var morgan = require("morgan");
 
 // Require EJS-Lint
-var ejsLint = require("ejs-lint")
+var ejsLint = require("ejs-lint");
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;

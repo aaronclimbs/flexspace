@@ -97,7 +97,28 @@ module.exports = function(app) {
       });
     });
 
+//DISPLAYING RESERVATIONS WITH ROOMS AND ROOM OWNER:
 
+    app.get("/api/reservations", function(req, res) {
+      console.log(req.user.id);
+      db.Reservation.findAll({
+        where: {
+          userID: req.user.id
+        },
+        include: [
+          {
+            model: db.Room,
+            include: [
+              {
+                model: db.User
+              }
+            ]
+          }
+        ]
+      }).then(function(dbRes) {
+        res.json(dbRes);
+      });
+    });
 
 
 };
