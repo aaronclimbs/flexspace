@@ -1,7 +1,7 @@
 <html>
   <head>
     <% include ../partials/head.ejs %>
-    
+
   </head>
   <% include ../partials/nav.ejs %>
   <div class="container member mx-auto">
@@ -36,13 +36,13 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary modal-btn" data-dismiss="modal">Close</button>
-                    
+
                   </div>
                 </div>
               </div>
             </div>
-      
-      
+
+
               <!-- Modal used to book room-->
           <div class="modal fade" id="book-modal" tabindex="-1" role="dialog" aria-labelledby="bookmodal" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
@@ -63,105 +63,105 @@
                                 <input type="text" id="datepicker" width="250" class="form-control " placeholder="Reservation Date">
                                 <label for="datepicker" class="pt-2">Reservation Time</label>
                                 <input type="text" id="timepicker" width="250" class="form-control " placeholder="Reservation Time">
-                               
+
                             </div>
-                             
+
                             </div>
-                         
+
                         </form>
                   </div>
                   <div class="modal-footer">
                     <button type="submit" class="btn btn-primary float-left">Search</button>
                     <button type="button" class="btn btn-secondary modal-btn" data-dismiss="modal">Cancel</button>
-                    
+
                   </div>
                 </div>
               </div>
             </div>
-      
+
               <div class="container">
                       <div class="row">
                         <div class="col-lg-12 text-center">
-                          
-                  
+
+
                         </div>
-                        
+
                       </div>
                       <div class="container" id="search-bar">
-                              
+
                                       <div class="row justify-content-center">
                                               <div class="col-lg-2 col-md-2 col-sm-12 p-0">
-                                                      
+
                                                   </div>
-                                                  
+
                                               <div class="col-lg-2 col-md-2 col-sm-12 p-0">
                                                       <select class="form-control search-slt" id="state-select">
-                                                              <option state="ALL">Room Location</option>
-                                                              <option state="DC">Washigton DC</option>
+                                                              <option state="ALL">All Locations</option>
+                                                              <option state="DC">Washington DC</option>
                                                               <option state="MD">Maryland</option>
                                                               <option state="VA">Virginia</option>
-                                                        
+
                                                           </select>
                                               </div>
                                               <div class="col-lg-2 col-md-2 col-sm-12 p-0">
                                                       <select class="form-control search-slt" id="type-select">
-                                                              <option type="ALL">Room Type</option>
-                                                              <option type="Large Conference">Large Conference</option>
-                                                              <option type="Medium Conference">Medium Conference</option>
-                                                              <option type="Huddle Room">Huddle Room</option>
-                                                              <option type="Office">Office</option>
-                                                            
+                                                              <option type="ALL">All Types</option>
+                                                              <option type="large">Large Conference</option>
+                                                              <option type="medium">Medium Conference</option>
+                                                              <option type="huddle">Huddle Room</option>
+                                                              <option type="ofice">Office</option>
+
                                                           </select>
                                               </div>
-                                             
+
                                               <div class="col-lg-2 col-md-2 col-sm-12 p-0 text-right">
                                                 <button type="button" class="btn btn-secondary w-100" id="search-btn">Search</button>
                                             </div>
                                               <div class="col-lg-2 col-md-2 col-sm-12 p-0">
-                                                      
+
                                                   </div>
-                                                  
+
                                       </div>
-                        
-                     </div>  
-                              
-                            
-          
+
+                     </div>
+
+
+
           <div class="container-fluid">
               <div class="row" id="results-header">
                   <div class="col-md-12">
-                          
+
                       <nav aria-label="search navigation" id="pag-nav">
                           <span class="d-inline-block"><ul class="pagination justify-content-left w-25 ">
                               <li class="pr-2">Results</li>
-                                                
+
                           </ul>
                          </span>
                          <span class="d-inline-block">
                           <ul class="pagination justify-content-right " id="search-nav">
-                              
-                                                
+
+
                           </ul>
                           </span>
                       </nav>
                   </div>
-             
-          </div>  
-      
+
+          </div>
+
           <div class="row">
               <div class="col-md-12 results-block" id="results">
-                  
+
               </div>
-      
-             
+
+
           </div>
       </div>
-      
+
       <!--End Search Section-->
-      </section> 
+      </section>
       </div>
       <div class="card-footer text-center">
-       
+
         <br>
         Have a room to list? Click <a class="search-link" href="/addroom">Here</a>
       </div>
@@ -169,7 +169,7 @@
   </div>
 
 
-  
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/viewrooms.js"></script>

@@ -143,38 +143,48 @@ module.exports = function(app) {
     }).then(function(dbRes) {
       res.json(dbRes);
     });
+  });
 
-    app.get("/api/rooms", function(req, res) {
-      console.log(req.user.id);
-      db.Room.findAll({
-        where: {
-          userID: req.user.id
-        },
-        include: [db.Reservation]
-      }).then(function(dbRoom) {
-        res.json(dbRoom);
-      });
+  app.get("/api/rooms", function(req, res) {
+    console.log(req.user.id);
+    db.Room.findAll({
+      where: {
+        userID: req.user.id
+      },
+      include: [db.Reservation]
+    }).then(function(dbRoom) {
+      res.json(dbRoom);
     });
+  });
 
-    app.get("/api/allrooms", function(req, res) {
-      console.log(req);
-      db.Room.findAll({}).then(function(dbRoom) {
-        res.json(dbRoom);
-      });
+  app.get("/api/allrooms", function(req, res) {
+    console.log(req);
+    db.Room.findAll({}).then(function(dbRoom) {
+      res.json(dbRoom);
     });
+  });
 
-    app.get("/api/allrooms/:queryState/:queryType", function(req, res) {
-      console.log("State is" + req.params.queryState);
-      console.log("State is" + req.params.queryType);
+  app.get("/api/allrooms/:queryState/:queryType", function(req, res) {
+    const state = req.params.queryState;
+    const type = req.params.queryType;
 
-      db.Room.findAll({
-        where: {
-          state_us: req.params.queryState,
-          roomType: req.params.queryType
-        }
-      }).then(function(dbRoom) {
-        res.json(dbRoom);
-      });
+    console.log(`State: ${state}, Type: ${type}`);
+
+    const whereCondition = {};
+
+    if (state !== "ALL") {
+      whereCondition.state_us = state;
+    }
+    if (type !== "ALL") {
+      whereCondition.roomType = type;
+    }
+
+    console.log(whereCondition);
+
+    db.Room.findAll({
+      where: whereCondition
+    }).then(function(dbRoom) {
+      res.json(dbRoom);
     });
   });
 };
