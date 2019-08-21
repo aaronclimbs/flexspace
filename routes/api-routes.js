@@ -163,6 +163,15 @@ module.exports = function(app) {
         res.json(dbRoom);
       });
     });
+
+    app.get("/api/allrooms", function(req, res) {
+      console.log(req.user.id);
+      db.Room.findAll({
+        
+      }).then(function(dbRoom) {
+        res.json(dbRoom);
+      });
+    });
   
 
 };

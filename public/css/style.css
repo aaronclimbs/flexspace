@@ -278,6 +278,45 @@ section{
 /* End card section */
 
 
+/* View rooms */
+
+.search-box {
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+.roomPhoto {
+  height: 150px;
+  width: 200px;
+  border:1px solid lightslategray;
+  
+  }
+  
+  .room-card {
+      float:left;
+      margin-right:5px;
+      margin-bottom:20px;
+      width:200px;
+  }
+  .room-card-body {
+  padding:5px 5px 5px 10px;
+  }
+  
+  p {
+  font-size:12px;
+  margin-bottom:0px;
+  }
+  
+  li {
+      font-size:12px;  
+      
+  }
+  
+  .list-group-item {
+      padding:5px 5px 5px 10px;
+  }
+
+
 
 
 
