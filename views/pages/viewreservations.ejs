@@ -1,0 +1,222 @@
+<html>
+  <head>
+    <% include ../partials/head.ejs %>
+
+  </head>
+  <% include ../partials/nav.ejs %>
+  <div class="container member mx-auto">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h2>Welcome <span class="member-name"></span></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card ">
+      <div class="card-header text-center">
+        Search for a reservation
+      </div>
+      <div class="card-body text-center">
+        <section class="search-box page-section" id="search">
+
+          <!-- Modal used to display search errors -->
+          <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Error</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <h3></h3>
+                    <p>No results found. Please adjust your search parameters</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary modal-btn" data-dismiss="modal">Close</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+              <!-- Modal used to book room-->
+          <div class="modal fade" id="book-modal" tabindex="-1" role="dialog" aria-labelledby="bookmodal" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="bookmodal">Book a room</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      <form>
+                          <h6 id="bookRoomID"></h6>
+                          <h6 id="bookRoomName"></h6>
+                          <div class="row">
+                              <div class="col">
+                                    <label for="datepicker">Reservation Date</label>
+                                <input type="text" id="datepicker" width="250" class="form-control " placeholder="Reservation Date">
+                                <label for="datepicker" class="pt-2">Reservation Time</label>
+                                <input type="text" id="timepicker" width="250" class="form-control " placeholder="Reservation Time">
+
+                            </div>
+
+                            </div>
+
+                        </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary float-left">Search</button>
+                    <button type="button" class="btn btn-secondary modal-btn" data-dismiss="modal">Cancel</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+              <div class="container">
+                      <div class="row">
+                        <div class="col-lg-12 text-center">
+
+
+                        </div>
+
+                      </div>
+                      <div class="container" id="search-bar">
+
+                                      <div class="row justify-content-center">
+                                              <div class="col-lg-2 col-md-2 col-sm-12 p-0">
+
+                                                  </div>
+                                                  <br><br></div>
+
+
+                                                  <div class="row justify-content-center">
+                                                    <div class="col-lg-2 col-md-2 col-sm-12 p-0">
+                                                  <div class="form-group">
+                                                    <label for="state">Location:</label>
+                                                    <select class="form-control search-slt" id="state-select">
+                                                        <option state="ALL">All Locations</option>
+                                                        <option state="DC">Washington DC</option>
+                                                        <option state="MD">Maryland</option>
+                                                        <option state="VA">Virginia</option>
+                                                    </select>
+                                                  </div>
+                                                  </div>
+
+                                                  
+                                                  <div class="col-lg-2 col-md-2 col-sm-12 p-0"></div>
+                                                  <div class="col-lg-2 col-md-2 col-sm-12 p-0">
+                                                    <div class="form-group">
+                                                      <label for="exampleFormControlInput1">Start Date:</label>
+                                                      <input type="datetime-local" class="form-control" id="startDate" value="2019-01-08T14:00:00">
+                                                    </div>
+                                                  </div>
+                                                
+                                                
+                                                </div>
+                                                  <div class="row justify-content-center">
+                                                    <div class="col-lg-2 col-md-2 col-sm-12 p-0">
+                                                  <div class="form-group">
+                                                    <label for="roomType">Room Type:</label>
+                                                    <select class="form-control search-slt" id="type-select">
+                                                        <option type="ALL">All Types</option>
+                                                        <option type="large">Large Conference</option>
+                                                        <option type="medium">Medium Conference</option>
+                                                        <option type="huddle">Huddle Room</option>
+                                                        <option type="ofice">Office</option>
+                                                    </select>
+                                                  </div>
+                                                </div>
+
+                                                <div class="col-lg-2 col-md-2 col-sm-12 p-0"></div>
+                                                <div class="col-lg-2 col-md-2 col-sm-12 p-0">
+                                                    <div class="form-group">
+                                                      <label for="exampleFormControlInput1">End Date:</label>
+                                                      <input type="datetime-local" class="form-control" id="endDate" value="2022-01-08T22:00:00">
+                                                    </div>
+                                                  </div>
+                                            
+                                            </div>
+
+                                            <div class="row justify-content-center">
+                                                <div class="col-lg-2 col-md-2 col-sm-12 p-0">
+                                                    <div><br><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div>
+                                                </div>
+                                            </div>
+
+                                                <div class="row justify-content-center">
+                                                  <div class="col-lg-2 col-md-2 col-sm-12 p-0">
+                                                  <div class="form-group">
+                                                    <button type="button" class="btn btn-secondary w-100" id="search-btn2">Search</button>
+                                                </div>
+                                                </div></div>
+
+
+
+
+
+                                      </div>
+
+                     </div>
+
+
+
+          <div class="container-fluid">
+              <div class="row" id="results-header">
+                  <div class="col-md-12">
+
+                      <nav aria-label="search navigation" id="pag-nav">
+                          <span class="d-inline-block"><ul class="pagination justify-content-left w-25 ">
+                              <li class="pr-2">Results</li>
+
+                          </ul>
+                         </span>
+                         <span class="d-inline-block">
+                          <ul class="pagination justify-content-right " id="search-nav">
+
+
+                          </ul>
+                          </span>
+                      </nav>
+                  </div>
+
+          </div>
+
+          <div class="row">
+              <div class="col-md-12 results-block" id="results">
+
+              </div>
+
+
+          </div>
+      </div>
+
+      <!--End Search Section-->
+      </section>
+      </div>
+      <!-- <div class="card-footer text-center">
+
+        <br>
+        Have a room to list? Click <a class="search-link" href="/addroom">Here</a>
+      </div> -->
+    </div>
+  </div>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="https://unpkg.com/moment"></script>
+  <script type="text/javascript" src="js/viewreservations.js"></script>
+  <% include ../partials/footer.ejs %>
+</html>
+
+
+<!--Add user login param to show in Welcome -->

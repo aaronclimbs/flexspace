@@ -10,6 +10,9 @@ var morgan = require("morgan");
 // Require EJS-Lint
 var ejsLint = require("ejs-lint");
 
+
+
+
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
@@ -29,6 +32,8 @@ app.use(passport.session());
 app.use(morgan("dev"));
 
 app.set("view engine", "ejs");
+// moment.js
+app.locals.moment = require('moment');
 
 // Requiring our routes
 var routes = require("./routes/index");

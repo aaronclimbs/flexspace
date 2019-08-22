@@ -62,6 +62,8 @@ module.exports = function(app) {
     });
   //});
 
+    // ADD & VIEW ROOMS
+
   app.get("/addroom", function(req, res, next) {
     // If the user already has an account send them to the members page
     if (req.user) {
@@ -99,5 +101,35 @@ module.exports = function(app) {
     }
     res.render("pages/viewrooms", ejsObj);
   });
+
+    // ADD & VIEW RESERVATIONS  
+
+    app.get("/addreservation", function(req, res, next) {
+      if (req.user) {
+      var ejsObj = { pageTitle: "FlexSpace",
+        loggedIn: true };
+      } else {
+        var ejsObj = { pageTitle: "FlexSpace",
+        loggedIn: false };
+        return res.redirect("/login");
+        next()
+      }
+      res.render("pages/addreservation", ejsObj);
+    });
+  
+    app.get("/viewreservations", function(req, res, next) {
+      if (req.user) {
+      var ejsObj = { pageTitle: "FlexSpace",
+        loggedIn: true };
+      } else {
+        var ejsObj = { pageTitle: "FlexSpace",
+        loggedIn: false };
+        return res.redirect("/login");
+        next()
+      }
+      res.render("pages/viewreservations", ejsObj);
+    });
+  
+
 
 };

@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+var Sequelize = require("sequelize");
 
 var delay = (function() {
   var timer;
@@ -72,6 +73,28 @@ module.exports = function(app) {
         contactPhone: req.body.contactPhone,
         hourlyRate: req.body.roomRate,
         UserId: req.user.id
+      })
+        .then(function() {
+          res.json("/members");
+        })
+        .catch(function(err) {
+          console.log(err);
+          res.json(err);
+          // res.status(422).json(err.errors[0].message);
+        });
+    }, 2000);
+  });
+
+  app.post("/api/addreservation", function(req, res) {
+    console.log(req.body);
+
+    delay(function() {
+      db.Reservation.create({
+        RoomId: req.body.RoomId,
+        UserId: req.user.id,
+        start_date: req.body.start_date,
+        end_date:req.body.end_date,
+        text: req.body.text
       })
         .then(function() {
           res.json("/members");
@@ -187,4 +210,66 @@ module.exports = function(app) {
       res.json(dbRoom);
     });
   });
+
+
+  app.get("/api/allreservations/:queryState/:queryType/:queryStart/:queryEnd", function(req, res) {
+    const state = req.params.queryState;
+    const type = req.params.queryType;
+    const start = req.params.queryStart;
+    const end = req.params.queryEnd;
+
+    console.log(`State: ${state}, Type: ${type}, Start: ${start}, End: ${end}`);
+
+    // const whereCondition2 = {};
+
+    // if (state !== "ALL") {
+    //   whereCondition2.Room.state_us = state;
+    // }
+    // if (type !== "ALL") {
+    //   whereCondition2.Room.roomType = type;
+    // }
+    // if (start !== -1) {
+    //   whereCondition2.start_date = start;
+    // }
+    // if (end !== -1) {
+    //   whereCondition2.end_date = end;
+    // }
+    
+    var start_date = start.replace(/%20/g, " ");
+    var end_date = end.replace(/%20/g, " ");
+
+    console.log(start + " " + end);
+
+    // "$between": ["2018-03-31T21:00:00.000Z","2018-05-30T05:23:59.007Z"]
+    const Op = Sequelize.Op;
+    db.Reservation.findAll({
+      where: {
+        start_date: { 
+          [Op.between]: [start_date, end_date]
+        }
+      },
+      include: [
+        {
+          model: db.Room,
+          include: [
+            {
+              model: db.User
+            }
+          ]
+        }
+      ]
+    }).then(function(dbRes) {
+      console.log("test result" + dbRes);
+      res.json(dbRes);
+    });
+
+
+  });
+
+
+
+
+
+
+
 };

@@ -1,0 +1,121 @@
+<html>
+  <head>
+    <% include ../partials/head.ejs %>
+    
+  </head>
+  <% include ../partials/nav.ejs %>
+  <div class="container member mx-auto"> 
+
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h2>Add a reservation</h2>
+      </div>
+    </div>
+  
+
+  
+  <div class="container"> 
+      <div id="loading">
+          <div id="loadingcontent">
+              
+              <p id="loadingspinner">
+                  Adding Reservation...sending 0s and 1s
+               
+              </p>
+              
+          </div>
+      </div>
+
+    <div class="card signup-form w-75 mx-auto"> 
+
+      <div class="card-header text-center"> 
+        Reservation Information
+      </div>
+
+      <div class="card-body">
+
+        <form id="add-reservation" class="signup">
+
+          <div class="form-row d-block">
+
+          
+
+            <div class="form-row">
+
+              <div class="form-group col-md-6 ">
+                  <label for="startDate">Start Date:</label>
+                  <input type="datetime-local" class="form-control" id="startDate" value="2022-01-08T22:00:00">
+              </div>
+
+              <div class="form-group col-md-6 ">
+                <label for="endDate">End Date:</label>
+                <input type="datetime-local" class="form-control" id="endDate" value="2022-01-08T22:00:00">
+            </div>
+
+            </div> 
+
+          </div> 
+
+
+
+          <div class="form-row d-block">
+
+          <div class="form-group">
+            <label for="address2-input">Message</label>
+            <input
+              type="text"
+              class="form-control"
+              id="text-input"
+              placeholder="Apartment, studio, or floor"
+            />
+          </div>
+
+          </div>
+
+          
+          <div class="form-row d-block">
+
+            <div class="form-group">
+              <label for="roomNumber-input">Room Number</label>
+              <input
+                type="text"
+                class="form-control"
+                id="room-input"
+                placeholder="Apartment, studio, or floor"
+              />
+            </div>
+  
+            </div>
+
+
+          <button type="submit" id="add-room-btn" class="btn btn-dark add-room-btn">Book Reservation</button>
+        </form>
+
+      </div> 
+
+   </div> 
+
+   <div class="card-footer">
+      
+    </div>
+
+  </div> 
+
+  <!--End outer-->
+  </div> 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"
+  ></script>
+  
+  <script type="text/javascript" src="js/addreservation.js"></script>
+  <% include ../partials/footer.ejs %>
+</html>
