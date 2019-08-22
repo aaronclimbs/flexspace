@@ -17,7 +17,8 @@ module.exports = function(app) {
   });
 
   app.get("/api/users/:id", function(req, res) {
-    if (req.user.isAdmin || req.user.id === req.params.id) {
+    console.log('request.user' + JSON.stringify(req.user));
+    if (req.user.isAdmin || req.user.id == req.params.id) {
       db.User.findByPk(req.params.id)
         .then(function(result) {
           res.json(result);
@@ -32,7 +33,8 @@ module.exports = function(app) {
   });
 
   app.put("/api/users/:id", function(req, res) {
-    if (req.user.isAdmin || req.user.id === req.params.id) {
+
+    if (req.user.isAdmin || req.user.id == req.params.id) {
       db.User.update({
         email: req.body.email,
         first: req.body.first,
@@ -59,7 +61,7 @@ module.exports = function(app) {
   });
 
   app.put("/api/users/:id/reset", function(req, res) {
-    if (req.user.isAdmin || req.user.id === req.params.id) {
+    if (req.user.isAdmin || req.user.id == req.params.id) {
       db.User.update(
         {
           password: req.body.password
@@ -86,7 +88,7 @@ module.exports = function(app) {
   });
 
   app.delete("/api/users/:id", function(req, res) {
-    if (req.user.isAdmin || req.user.id === req.params.id) {
+    if (req.user.isAdmin || req.user.id == req.params.id) {
       db.User.destroy({
         where: {
           id: req.params.id
