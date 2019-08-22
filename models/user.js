@@ -60,7 +60,8 @@ module.exports = function(sequelize, DataTypes) {
     secAnswer: {
       type: DataTypes.STRING,
      allowNull: false
-    }
+    },
+
 
 
   });
