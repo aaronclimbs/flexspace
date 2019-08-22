@@ -15,7 +15,11 @@ module.exports = function(sequelize, DataTypes) {
         end_date: {
             type: DataTypes.DATE,
             allowNull: false
-        }
+        },
+        duration: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
     });
 
 

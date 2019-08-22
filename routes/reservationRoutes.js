@@ -1,6 +1,7 @@
 var db = require("../models");
 
-
+var Sequelize = require('sequelize')
+var Op=Sequelize.Op
 module.exports = function(app) {
 
 
@@ -28,6 +29,29 @@ module.exports = function(app) {
       db.Reservation.findOne({
         where: {
           id: req.params.id
+        }
+      })
+        .then(function(dbReservation) {
+          res.json(dbReservation);
+        });
+    });
+
+    app.get("/api/reservations/:roomid/:date", function(req, res) {
+      var st =req.params.date 
+      var et = req.params.date 
+
+      console.log ("start " + st)
+      console.log ("start " + et)
+
+      db.Reservation.findAll({
+    
+
+        where: {
+          RoomId: req.params.roomid,
+          start_date: {
+            [Op.lt]:et,
+            [Op.gt]:st
+          }
         }
       })
         .then(function(dbReservation) {
