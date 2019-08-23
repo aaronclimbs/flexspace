@@ -341,6 +341,32 @@ section{
     margin: 0 auto 0 auto;
   }
 
+.room-thumb {
+  height:75px;
+  width:125px;
+  padding-bottom:5px;
+  padding-top:5px;
+
+}
+
+.modal-title {
+  color:  #072752;
+}
+
+.modal-room-card-body, .modal-room-card , .modal-room-photo{
+  width:450px;
+}
+
+
+
+.modal-room-photo{
+  height:250;
+}
+
+
+
+
+
 
 
 

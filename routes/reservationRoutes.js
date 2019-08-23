@@ -36,28 +36,54 @@ module.exports = function(app) {
         });
     });
 
-    app.get("/api/reservations/:roomid/:date", function(req, res) {
-      var st =req.params.date 
-      var et = req.params.date 
-
-      console.log ("start " + st)
-      console.log ("start " + et)
+    app.get("/api/reservationsbyroomdate/:roomid/:date", function(req, res) {
+     
 
       db.Reservation.findAll({
     
 
         where: {
           RoomId: req.params.roomid,
-          start_date: {
-            [Op.lt]:et,
-            [Op.gt]:st
-          }
+          start_date: req.params.date
         }
       })
         .then(function(dbReservation) {
           res.json(dbReservation);
         });
     });
+
+    app.get("/api/reservationsbyroom/:roomid/", function(req, res) {
+     
+
+      db.Reservation.findAll({
+    
+
+        where: {
+          RoomId: req.params.roomid,
+          
+        }
+      })
+        .then(function(dbReservation) {
+          res.json(dbReservation);
+        });
+    });
+
+    app.get("/api/reservationsbyuser/:userid/", function(req, res) {
+     
+
+      db.Reservation.findAll({
+    
+
+        where: {
+          UserID: req.params.userid,
+          
+        }
+      })
+        .then(function(dbReservation) {
+          res.json(dbReservation);
+        });
+    });
+  
   
     app.post("/api/reservations", function(req, res) {
       console.log(req.body);
