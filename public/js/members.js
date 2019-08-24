@@ -58,7 +58,15 @@ var i=0;
     resDur.attr("id", "reservation-duration"+i)
     resDur.text(element.duration + " hr")
 
-    rowDiv.append(resName,roomName, resDate, resTime, resDur)
+    resCost=$("<td>")
+    resCost.text("$" + element.duration * element.Room.hourlyRate)
+
+    resDel=$("<td>")
+    resDel.addClass("del-res")
+    resDel.html('<i class="fa fa-trash" ></i>')
+    resDel.attr("id", element.id)
+
+    rowDiv.append(resName,roomName, resDate, resTime, resDur, resCost, resDel)
 
   i++
   })
@@ -98,10 +106,15 @@ var i=0;
       roomResCount=$("<td>")
       roomResCount.attr("id", "room-res-count"+i)
       roomResCount.text(element.Reservations.length)
+
+      roomDel=$("<td>")
+    roomDel.addClass("del-room")
+    roomDel.html('<i class="fa fa-trash" ></i>')
+    roomDel.attr("id", element.id)
   
       
   
-      rowDiv.append(roomImg, roomName, roomLoc, roomResCount)
+      rowDiv.append(roomImg, roomName, roomLoc, roomResCount, roomDel)
   
     i++
     })
@@ -121,15 +134,11 @@ var i=0;
 
     $(document).on ("click", ".get-room-info", function (event)  {
       event.preventDefault();
-var roomid = this.id
+      var roomid = this.id
       console.log("Id from click is " + this.id)
       $("#room-name").empty(); 
       jQuery.noConflict();
      
-
-      
-      console.log ("Get room info clicked")
-
       $.get("/api/rooms/" + roomid, function(roomdata) {
 
         $("#modal-room-name").text(roomdata.roomName)
@@ -189,16 +198,46 @@ var roomid = this.id
      $("#show-room-modal").modal("toggle");
 
 
-
-
-
-
-
-      
-
+/* end get*/
       })
-      
-    })
 
+/*end click*/
+})
+      
+
+$(document).on ("click", ".del-res", function (event)  {
+  console.log("Delete clicked")
+  event.preventDefault();
+var resid = this.id 
+
+$.ajax({
+method: "DELETE",
+url: "api/reservations/" + resid
+})
+.then(function() {
+console.log("Reservation ID "+ resid)
+location.reload(true)
+});
+
+})
+
+$(document).on ("click", ".del-room", function (event)  {
+  console.log("Delete clicked")
+  event.preventDefault();
+var roomid = this.id 
+
+$.ajax({
+method: "DELETE",
+url: "api/rooms/" + roomid
+})
+.then(function() {
+console.log("Room Id "+ roomid)
+location.reload(true)
+});
+
+})
+
+ 
+/* end doc*/
 })
 

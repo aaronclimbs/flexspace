@@ -60,7 +60,8 @@ module.exports = function(sequelize, DataTypes) {
             }
         });
         Room.hasMany(models.Reservation, {
-            onDelete: "cascade"
+            onDelete: "cascade",
+            hooks: true
         });
     };
 

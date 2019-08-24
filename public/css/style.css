@@ -12,6 +12,11 @@
   
 }
 
+.logo-img{
+  padding-left:0px;
+  padding-right:0px;
+}
+
 .logo:link {
   color:#072752;
   text-decoration: none;
@@ -20,8 +25,8 @@
 .nav-link {
   font-family: 'Quantum', Arial, Helvetica, sans-serif;
   color:#072752;
-margin-right:2px;
-  font-size:16px; 
+ margin-right:2px;
+  font-size:24px; 
   padding-left:5px;
   padding-right:5px; 
 }

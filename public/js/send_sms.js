@@ -10,6 +10,8 @@ client.messages
     .create({
         body: 'FlexSpace rocks!',
         from: '+12056495728',
-        to: '+12029755455'
+        to: '+12028343267'
     })
     .then(message => console.log(message.sid));
+
+    //to: '+12029755455'
