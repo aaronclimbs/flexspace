@@ -1,6 +1,7 @@
 var db = require("../models");
 
-
+var Sequelize = require('sequelize')
+var Op=Sequelize.Op
 module.exports = function(app) {
 
 
@@ -34,6 +35,60 @@ module.exports = function(app) {
           res.json(dbReservation);
         });
     });
+
+    app.get("/api/reservationsbyroomdate/:roomid/:date", function(req, res) {
+     
+
+      db.Reservation.findAll({
+    
+
+        where: {
+          RoomId: req.params.roomid,
+          start_date: req.params.date
+        },
+        
+        
+      include: [db.Room]
+      })
+        .then(function(dbReservation) {
+          res.json(dbReservation);
+        });
+    });
+
+    app.get("/api/reservationsbyroom/:roomid/", function(req, res) {
+     
+
+      db.Reservation.findAll({
+    
+
+        where: {
+          RoomId: req.params.roomid,
+          
+        },
+        
+      include: [db.Room]
+      })
+        .then(function(dbReservation) {
+          res.json(dbReservation);
+        });
+    });
+
+    app.get("/api/reservationsbyuser/:userid/", function(req, res) {
+     
+
+      db.Reservation.findAll({
+    
+
+        where: {
+          UserID: req.params.userid,
+          
+        }
+      })
+        .then(function(dbReservation) {
+          res.json(dbReservation);
+        });
+    });
+  
   
     app.post("/api/reservations", function(req, res) {
       console.log(req.body);

@@ -139,7 +139,11 @@ module.exports = function(app) {
             }
           ]
         }
-      ]
+      ],
+      order: [
+        ['start_date', 'ASC'],
+        ['start_time', 'ASC'],
+    ],
     }).then(function(dbRes) {
       res.json(dbRes);
     });
@@ -151,6 +155,7 @@ module.exports = function(app) {
       where: {
         userID: req.user.id
       },
+
       include: [db.Reservation]
     }).then(function(dbRoom) {
       res.json(dbRoom);

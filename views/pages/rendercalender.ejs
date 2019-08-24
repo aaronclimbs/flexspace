@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <% include ../partials/head.ejs %>
+    
+  </head>
+  <% include ../partials/nav.ejs %>
+  <div class="container member mx-auto">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h2>Welcome <span class="member-name"></span></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card ">
+      <div class="card-header text-center" id="cal-room-name">
+      
+      </div>
+      <div class="card-body text-center" >
+            <div class="card-header text-center" id="res-header">
+      
+            </div>
+
+            <div class="row">
+                <div class="col-md-3" id="res-form">
+                    <form>
+                            <div class="form-group row">
+                                    <label for="res-date-input" class=" col-form-label">Reservation Date</label>
+                                    <div class="">
+                                      <input class="form-control" type="date" value="2019-08-19" id="res-date-input">
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                        <label for="res-time-input" class=" col-form-label">Reservation Time</label>
+                                        <div class="">
+                                          <input class="form-control" type="time" value="13:45:00" id="res-time-input">
+                                        </div>
+                                      </div>
+
+                                      <div class="form-group row">
+                                      <label class="" for="res-dur-input">Meeting Duration</label>
+                                      <select class="custom-select " id="res-dur-input">
+                                        <option selected>Choose...</option>
+                                        <option value="1">One hour</option>
+                                        <option value="2">Two hours</option>
+                                        <option value="3">Three hours</option>
+                                        <option value="4">Four hours</option>
+                                        <option value="5">Five hours</option>
+                                        <option value="6">Six hours</option>
+                                        <option value="7">Seven hours</option>
+                                        <option value="8">Eight hours</option>
+                                        
+                                      </select>
+                                      </div>
+                                      <div class="form-group row">
+                                      <button id="res-search" class="btn btn-dark">Search</button> 
+                                      </div>
+                                      <div class="form-group row">
+                                      <button  id="res-now" class="btn btn-dark">Reserve Now</button>
+                                      </div>
+                  </form>
+
+                </div>
+
+                <div class="col-md-9" id="reservation-render">
+
+                </div>
+            </div>
+      
+      </div>
+      <div class="card-footer text-center">
+      
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../js/rendercalender.js"></script>
+  <% include ../partials/footer.ejs %>
+</html>
+
+

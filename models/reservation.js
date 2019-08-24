@@ -9,13 +9,21 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
         },
         start_date: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
+            allowNull: false
+        },
+        start_time: {
+            type:DataTypes.TIME,
             allowNull: false
         },
         end_date: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             allowNull: false
-        }
+        },
+        duration: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
     });
 
 
