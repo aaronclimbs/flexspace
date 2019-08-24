@@ -1,13 +1,12 @@
 <html>
   <head>
     <% include ../partials/head.ejs %>
-
   </head>
   <% include ../partials/nav.ejs %>
   <div class="container member mx-auto">
     <div class="row text-center">
       <div class="col-md-12">
-        <h2>Welcome <span class="member-name"></span></h2>
+        <h2>Welcome <%=user.name%></h2>
       </div>
     </div>
   </div>
@@ -19,162 +18,188 @@
       </div>
       <div class="card-body text-center">
         <section class="search-box page-section" id="search">
-
           <!-- Modal used to display search errors -->
-          <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Error</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <h3></h3>
-                    <p>No results found. Please adjust your search parameters</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary modal-btn" data-dismiss="modal">Close</button>
-
-                  </div>
+          <div
+            class="modal fade"
+            id="search-modal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Error</h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <h3></h3>
+                  <p>No results found. Please adjust your search parameters</p>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary modal-btn"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
                 </div>
               </div>
             </div>
+          </div>
 
-
-              <!-- Modal used to book room-->
-          <div class="modal fade" id="book-modal" tabindex="-1" role="dialog" aria-labelledby="bookmodal" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="bookmodal">Book a room</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                      <form>
-                          <h6 id="bookRoomID"></h6>
-                          <h6 id="bookRoomName"></h6>
-                          <div class="row">
-                              <div class="col">
-                                    <label for="datepicker">Reservation Date</label>
-                                <input type="text" id="datepicker" width="250" class="form-control " placeholder="Reservation Date">
-                                <label for="datepicker" class="pt-2">Reservation Time</label>
-                                <input type="text" id="timepicker" width="250" class="form-control " placeholder="Reservation Time">
-
-                            </div>
-
-                            </div>
-
-                        </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary float-left">Search</button>
-                    <button type="button" class="btn btn-secondary modal-btn" data-dismiss="modal">Cancel</button>
-
-                  </div>
+          <!-- Modal used to book room-->
+          <div
+            class="modal fade"
+            id="book-modal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="bookmodal"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="bookmodal">Book a room</h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
-              </div>
-            </div>
-
-              <div class="container">
-                      <div class="row">
-                        <div class="col-lg-12 text-center">
-
-
-                        </div>
-
+                <div class="modal-body">
+                  <form>
+                    <h6 id="bookRoomID"></h6>
+                    <h6 id="bookRoomName"></h6>
+                    <div class="row">
+                      <div class="col">
+                        <label for="datepicker">Reservation Date</label>
+                        <input
+                          type="text"
+                          id="datepicker"
+                          width="250"
+                          class="form-control "
+                          placeholder="Reservation Date"
+                        />
+                        <label for="datepicker" class="pt-2"
+                          >Reservation Time</label
+                        >
+                        <input
+                          type="text"
+                          id="timepicker"
+                          width="250"
+                          class="form-control "
+                          placeholder="Reservation Time"
+                        />
                       </div>
-                      <div class="container" id="search-bar">
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary float-left">
+                    Search
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary modal-btn"
+                    data-dismiss="modal"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
 
-                                      <div class="row justify-content-center">
-                                              <div class="col-lg-2 col-md-2 col-sm-12 p-0">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-center"></div>
+            </div>
+            <div class="container" id="search-bar">
+              <div class="row justify-content-center">
+                <div class="col-lg-2 col-md-2 col-sm-12 p-0"></div>
 
-                                                  </div>
+                <div class="col-lg-2 col-md-2 col-sm-12 p-0">
+                  <select class="form-control search-slt" id="state-select">
+                    <option state="ALL">All Locations</option>
+                    <option state="DC">Washington DC</option>
+                    <option state="MD">Maryland</option>
+                    <option state="VA">Virginia</option>
+                  </select>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-12 p-0">
+                  <select class="form-control search-slt" id="type-select">
+                    <option type="ALL">All Types</option>
+                    <option type="large">Large Conference</option>
+                    <option type="medium">Medium Conference</option>
+                    <option type="huddle">Huddle Room</option>
+                    <option type="ofice">Office</option>
+                  </select>
+                </div>
 
-                                              <div class="col-lg-2 col-md-2 col-sm-12 p-0">
-                                                      <select class="form-control search-slt" id="state-select">
-                                                              <option state="ALL">All Locations</option>
-                                                              <option state="DC">Washington DC</option>
-                                                              <option state="MD">Maryland</option>
-                                                              <option state="VA">Virginia</option>
-
-                                                          </select>
-                                              </div>
-                                              <div class="col-lg-2 col-md-2 col-sm-12 p-0">
-                                                      <select class="form-control search-slt" id="type-select">
-                                                              <option type="ALL">All Types</option>
-                                                              <option type="large">Large Conference</option>
-                                                              <option type="medium">Medium Conference</option>
-                                                              <option type="huddle">Huddle Room</option>
-                                                              <option type="ofice">Office</option>
-
-                                                          </select>
-                                              </div>
-
-                                              <div class="col-lg-2 col-md-2 col-sm-12 p-0 text-right">
-                                                <button type="button" class="btn btn-secondary w-100" id="search-btn">Search</button>
-                                            </div>
-                                              <div class="col-lg-2 col-md-2 col-sm-12 p-0">
-
-                                                  </div>
-
-                                      </div>
-
-                     </div>
-
-
+                <div class="col-lg-2 col-md-2 col-sm-12 p-0 text-right">
+                  <button
+                    type="button"
+                    class="btn btn-secondary w-100"
+                    id="search-btn"
+                  >
+                    Search
+                  </button>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-12 p-0"></div>
+              </div>
+            </div>
+          </div>
 
           <div class="container-fluid">
-              <div class="row" id="results-header">
-                  <div class="col-md-12">
-
-                      <nav aria-label="search navigation" id="pag-nav">
-                          <span class="d-inline-block"><ul class="pagination justify-content-left w-25 ">
-                              <li class="pr-2">Results</li>
-
-                          </ul>
-                         </span>
-                         <span class="d-inline-block">
-                          <ul class="pagination justify-content-right " id="search-nav">
-
-
-                          </ul>
-                          </span>
-                      </nav>
-                  </div>
-
-          </div>
-
-          <div class="row">
-              <div class="col-md-12 results-block" id="results">
-
+            <div class="row" id="results-header">
+              <div class="col-md-12">
+                <nav aria-label="search navigation" id="pag-nav">
+                  <span class="d-inline-block"
+                    ><ul class="pagination justify-content-left w-25 ">
+                      <li class="pr-2">Results</li>
+                    </ul>
+                  </span>
+                  <span class="d-inline-block">
+                    <ul
+                      class="pagination justify-content-right "
+                      id="search-nav"
+                    ></ul>
+                  </span>
+                </nav>
               </div>
+            </div>
 
-
+            <div class="row">
+              <div class="col-md-12 results-block" id="results"></div>
+            </div>
           </div>
-      </div>
 
-      <!--End Search Section-->
-      </section>
+          <!--End Search Section-->
+        </section>
       </div>
       <div class="card-footer text-center">
-
-        <br>
-        Have a room to list? Click <a class="search-link" href="/addroom">Here</a>
+        <br />
+        Have a room to list? Click
+        <a class="search-link" href="/addroom">Here</a>
       </div>
     </div>
   </div>
 
-
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/viewrooms.js"></script>
   <% include ../partials/footer.ejs %>
+</body>
 </html>
-
 
 <!--Add user login param to show in Welcome -->
