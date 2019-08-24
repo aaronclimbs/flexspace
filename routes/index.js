@@ -1,7 +1,7 @@
 module.exports = {
-    auth: require('./authRoutes'),
-    view: require('./viewRoutes'),
-    room: require('./roomRoutes'),
-    reservation: require('./reservationRoutes'),
-    user: require('./userRoutes')
-}
+  auth: require("./authRoutes"),
+  room: require("./roomRoutes"),
+  reservation: require("./reservationRoutes"),
+  user: require("./userRoutes"),
+  view: require("./viewRoutes")
+};
