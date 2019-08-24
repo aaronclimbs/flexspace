@@ -12,7 +12,12 @@ $(document).ready(function () {
 var resStart=0
 var today= "2019-08-28"
 
-/*moment().format("YYYY-MM-DD")*/
+
+
+$.get("/api/rooms/" + urlRoomID , function(roomInfo) {
+    $("#cal-room-name").text(roomInfo.roomName)
+
+})
 
 console.log("Today is " + today)
 console.log("Room id is " + urlRoomID)
@@ -57,8 +62,12 @@ function generateDay () {
     var resDay=  moment(today).format( "dddd")
     var resDisplayDate=moment(today).format( "MMMM Do YYYY")
     var resDate=moment(today).format( "YYYY/MM/DD")
+
+    if (reservations.length === 0) {
+     var resStart =0
+    } else {
     var resStart = moment((reservations[0].start_date + " " +reservations[0].start_time)).format( "HH")
-    $("#cal-room-name").text(reservations[0].Room.roomName)
+    }
     
     console.log("converted date day is " + resDay)
     console.log("converted date time is " + resStart)
@@ -70,7 +79,7 @@ function generateDay () {
      var resDiv=$("<div>");
      resDiv.addClass("card reservation-card");
      resDiv.attr("id", "res-day");
-     resDiv.attr("value", reservations[0].roomId);
+     //resDiv.attr("value", reservations[0].roomId);
 
      $("#reservation-render").append(resDiv);
 
