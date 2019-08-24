@@ -55,9 +55,13 @@ module.exports = function(app) {
   app.get("/addroom", function(req, res, next) {
     // If the user already has an account send them to the members page
     var ejsObj = { pageTitle: "FlexSpace", user: req.user, script: "addroom" };
+    if (!req.user) {
 
-    return res.redirect("/login");
-    next();
+      return res.redirect("/login");
+      next();
+    }
+
+
     res.render("pages/addroom", ejsObj);
   });
 
@@ -68,9 +72,10 @@ module.exports = function(app) {
       user: req.user,
       script: "viewrooms"
     };
-
-    return res.redirect("/login");
-    next();
+    if (!req.user) {
+      return res.redirect("/login");
+      next();
+    }
 
     res.render("pages/viewrooms", ejsObj);
   });
@@ -98,6 +103,17 @@ module.exports = function(app) {
     res.render("pages/about", ejsObj);
   });
 
+  app.get("/user/:id", function(req, res) {
+    // If the user already has an account send them to the members page
+    var ejsObj = {
+      pageTitle: "User Information",
+      user: req.user,
+      script: "user"
+    };
+    console.log(JSON.stringify(req.user));
+
+    res.render("pages/user", ejsObj);
+  });
 
 
   app.get("/rendercalender", function(req, res, next) {
@@ -109,7 +125,7 @@ module.exports = function(app) {
     
     var ejsObj = { pageTitle: "FlexSpace",
                    loggedIn: true };
-    
+
 
     } else {
       var ejsObj = { pageTitle: "FlexSpace",
@@ -119,6 +135,17 @@ module.exports = function(app) {
       next()
 
     }*/
+    var ejsObj = {
+      pageTitle: "Reservations",
+      user: req.user,
+      script: "reservations"
+    };
+
+    if (!req.user) {
+      return res.redirect("/login");
+      next();
+    }
+
     res.render("pages/rendercalender", ejsObj);
   });
 
