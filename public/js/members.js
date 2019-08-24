@@ -58,7 +58,13 @@ var i=0;
     resDur.attr("id", "reservation-duration"+i)
     resDur.text(element.duration + " hr")
 
-    rowDiv.append(resName,roomName, resDate, resTime, resDur)
+    resCost=$("<td>")
+    resCost.text("$" + element.duration * element.Room.hourlyRate)
+
+    resDel=$("<td>")
+    resDel.html('<i class="fa fa-trash" ></i>')
+
+    rowDiv.append(resName,roomName, resDate, resTime, resDur, resCost, resDel)
 
   i++
   })
