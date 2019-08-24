@@ -17,7 +17,8 @@ const userData = [
     secQuestion: "What is your favorite Movie",
     secAnswer: "goodfellas",
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
+    isAdmin: false
   },
   {
     email: "kevin@kevin.com",
@@ -33,7 +34,8 @@ const userData = [
     secQuestion: "What is your favorite Movie",
     secAnswer: "Avengers",
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
+    isAdmin: false
   },
   {
     email: "kevin@steele.com",
@@ -49,7 +51,8 @@ const userData = [
     secQuestion: "What is your favorite Movie",
     secAnswer: "Avengers",
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
+    isAdmin: false
   },
   {
     email: "javierjpagan@gmail.com",
@@ -65,7 +68,8 @@ const userData = [
     secQuestion: "What is your favorite Movie",
     secAnswer: "Inception",
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
+    isAdmin: false
   },
   {
     email: "test@test.com",
@@ -81,7 +85,8 @@ const userData = [
     secQuestion: "What is your favorite Book",
     secAnswer: "Harry Potter",
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
+    isAdmin: true
   },
   {
     email: "kevin@test.com",
@@ -97,7 +102,8 @@ const userData = [
     secQuestion: "What was yo first pet's Name",
     secAnswer: "Dog",
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
+    isAdmin: false
   },
   {
     email: "jim@jim.com",
@@ -113,7 +119,8 @@ const userData = [
     secQuestion: "What is your favorite Book",
     secAnswer: "Fahrenheit 451",
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
+    isAdmin: false
   },
   {
     email: "tim@tim.com",
@@ -129,7 +136,8 @@ const userData = [
     secQuestion: "What is your favorite Movie",
     secAnswer: "Avengers",
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
+    isAdmin: false
   },
   {
     email: "aaron@test.com",
@@ -145,7 +153,8 @@ const userData = [
     secQuestion: "What is your favorite Movie",
     secAnswer: "Avengers",
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
+    isAdmin: true
   }
 ];
 

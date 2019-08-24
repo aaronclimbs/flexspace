@@ -2,7 +2,6 @@
   <head>
     <% include ../partials/head.ejs %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.js"></script>
-   
   </head>
   <% include ../partials/nav.ejs %>
   <div class="container member mx-auto">
@@ -13,19 +12,14 @@
     </div>
   </div>
 
-
-
   <div class="container login-form">
-      <div id="loading">
-          <div id="loadingcontent">
-              
-              <p id="loadingspinner">
-                  Logging in...sending 0s and 1s
-               
-              </p>
-              
-          </div>
+    <div id="loading">
+      <div id="loadingcontent">
+        <p id="loadingspinner">
+          Logging in...sending 0s and 1s
+        </p>
       </div>
+    </div>
     <div class="row">
       <div class="col-md-6 mx-auto">
         <div class="container">
@@ -53,7 +47,10 @@
                     placeholder="Password"
                   />
                 </div>
-                <button type="submit " class="btn btn-dark float-left login-btn">
+                <button
+                  type="submit "
+                  class="btn btn-dark float-left login-btn"
+                >
                   Login
                 </button>
               </form>
@@ -70,8 +67,6 @@
       </div>
     </div>
   </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/login.js"></script>
   <% include ../partials/footer.ejs %>
+
 </html>

@@ -2,36 +2,113 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <% include ../partials/head %>
-</head>
-<body class="container">
+  </head>
+  <body class="container">
+    <header>
+      <% include ../partials/nav %>
+    </header>
 
-<header>
-    <% include ../partials/header %>
-</header>
+    <main>
+      <div class="container member">
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="jumbotron">
+              <h2 class="display-4 text-dark">Welcome!</h2>
+            </div>
+          </div>
 
-<main>
-<div class="row">
-    <div class="col-sm-8">    
-        <div class="jumbotron">
-            <h1>This is great</h1>
-            <p>Welcome to templating using EJS</p>
+          <div class="col-sm-4">
+            <h2>The Team</h2>
+            <p class="lead">
+              The work behind the spaces.
+            </p>
+            <ul class="list-group mt-2 text-dark">
+              <li class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Kevin Steele</h5>
+                </div>
+                <p class="mb-1">
+                  Edit this...
+                </p>
+                <div class="d-flex justify-content-between mx-3">
+                  <div>
+                    <i class="fab fa-github"></i>
+                    <a href=""> </a>
+                  </div>
+
+                  <div>
+                    <i class="fas fa-envelope-open"></i>
+                    <a href="mailto:"> send a message</a>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">David Pomarede</h5>
+                </div>
+                <p class="mb-1">
+                  Edit this...
+                </p>
+                <div class="d-flex justify-content-between mx-3">
+                  <div>
+                    <i class="fab fa-github"></i>
+                    <a href=""> </a>
+                  </div>
+
+                  <div>
+                    <i class="fas fa-envelope-open"></i>
+                    <a href="mailto:"> send a message</a>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Javier Pagan</h5>
+                </div>
+                <p class="mb-1">
+                  Edit this...
+                </p>
+                <div class="d-flex justify-content-between mx-3">
+                  <div>
+                    <i class="fab fa-github"></i>
+                    <a href=""> </a>
+                  </div>
+
+                  <div>
+                    <i class="fas fa-envelope-open"></i>
+                    <a href="mailto:"> send a message</a>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Aaron Keisler</h5>
+                </div>
+                <p class="mb-1">
+                  Edit this...
+                </p>
+                <div class="d-flex justify-content-between mx-3">
+                  <div>
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/brityank"> @brityank</a>
+                  </div>
+
+                  <div>
+                    <i class="fas fa-envelope-open"></i>
+                    <a href="mailto:aaron@keisler.dev"> send a message</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
-    </div>
+      </div>
+    </main>
 
-    <div class="col-sm-4">        
-        <div class="well">
-            <h3>Look I'm A Sidebar!</h3>
-        </div>
-    </div>
-
-</div>
-</main>
-
-<footer>
-    <% include ../partials/footer %>
-</footer>
-
-</body>
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+  </body>
 </html>

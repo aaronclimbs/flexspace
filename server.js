@@ -33,12 +33,10 @@ app.use(morgan("dev"));
 app.set("view engine", "ejs");
 
 // Requiring our routes
-var routes = require("./routes/index");
-for (route in routes) {
-  routes[route](app)
+var routeDir = require("./routes/index");
+for (route in routeDir) {
+  routeDir[route](app);
 }
-
-
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {

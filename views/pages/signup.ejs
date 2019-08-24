@@ -1,36 +1,36 @@
 <html>
   <head>
     <% include ../partials/head.ejs %>
-    
+
   </head>
   <% include ../partials/nav.ejs %>
-  <div class="container member mx-auto"> 
+  <div class="container member mx-auto">
 
     <div class="row text-center">
       <div class="col-md-12">
-        <h2>Welcome <span class="member-name"></span></h2>
+        <h2 class="display-3">Welcome <span class="member-name"></span></h2>
       </div>
     </div>
-  
 
-  
-  <div class="container"> 
+
+
+  <div class="container">
       <div id="loading">
           <div id="loadingcontent">
-              
+
               <p id="loadingspinner">
                  Processing Signup...sending 0s and 1s
-               
+
               </p>
-              
+
           </div>
       </div>
 
-    <div class="card signup-form w-75 mx-auto"> 
+    <div class="card signup-form w-75 mx-auto">
 
-      <div class="card-header text-center"> 
+      <h4 class="card-header text-center text-dark">
         New Member Signup
-      </div>
+      </h4>
 
       <div class="card-body">
 
@@ -45,7 +45,7 @@
             <div class="form-row">
 
               <div class="form-group col-md-6 ">
-                <label for="email-input">Email</label>
+                <label for="email-input"><i class="fas fa-envelope"></i> Email</label>
                 <input
                   type="email"
                   class="form-control"
@@ -55,20 +55,20 @@
               </div>
 
               <div class="form-group col-md-6 ">
-                <label for="first-input">Phone Number</label>
+                <label for="first-input"><i class="fas fa-phone"></i> Phone Number</label>
                 <input
                   type="text"
                   class="form-control"
                   id="phone-input"
-                  placeholder="Phone Number"
+                  placeholder="Phone"
                 />
               </div>
 
-            </div> 
+            </div>
 
             <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="password-input">Password</label>
+              <label for="password-input"><i class="fas fa-lock"></i> Password</label>
               <input
                 type="password"
                 class="form-control"
@@ -100,22 +100,22 @@
               <span class="sr-only">Error:</span> <span class="msg"></span>
             </div>
 
-          </div> 
+          </div>
 
             <div class="form-row">
 
               <div class="form-group col-md-6 ">
-                <label for="sec-question-input">Security Question</label>
+                <label for="sec-question-input"><i class="fas fa-user-lock"></i> Security Question</label>
                 <select id="sec-question-input" class="form-control">
                   <option>Choose a security question</option>
-                  <option value="What is your favorite Book"
-                    >What is your favorite Book</option
+                  <option value="What is your favorite book"
+                    >What is your favorite book?</option
                   >
-                  <option value="What is your favorite Movie"
-                    >What is your favorite Movie</option
+                  <option value="What is your favorite movie"
+                    >What is your favorite movie?</option
                   >
-                  <option value="What was yo first pet's Name"
-                    >What was your first pet's Name</option
+                  <option value="What was your first pet's name"
+                    >What was your first pet's name?</option
                   >
                 </select>
               </div>
@@ -130,9 +130,9 @@
                 />
               </div>
 
-            </div> 
+            </div>
 
-          </div> 
+          </div>
 
           <div class="form-row d-block">
 
@@ -148,7 +148,7 @@
                   type="text"
                   class="form-control"
                   id="first-input"
-                  placeholder="First Name"
+                  placeholder="First"
                 />
               </div>
 
@@ -158,7 +158,7 @@
                   type="text"
                   class="form-control"
                   id="last-input"
-                  placeholder="Last Name"
+                  placeholder="Last"
                 />
               </div>
 
@@ -167,7 +167,7 @@
           <div class="form-row d-block">
 
           <div class="form-group">
-            <label for="address-input">Address</label>
+            <label for="address-input"><i class="fas fa-address-book"></i> Address</label>
             <input
               type="text"
               class="form-control"
@@ -196,7 +196,7 @@
 
             <div class="form-group col-md-6">
               <label for="city-input">City</label>
-              <input type="text" class="form-control" id="city-input" />
+              <input type="text" class="form-control" id="city-input" placeholder="City" />
             </div>
 
             <div class="form-group col-md-4">
@@ -211,7 +211,7 @@
 
             <div class="form-group col-md-2">
               <label for="zip-input">Zip</label>
-              <input type="text" class="form-control" id="zip-input" />
+              <input type="text" class="form-control" id="zip-input" placeholder="Zip" />
             </div>
 
           </div>
@@ -219,31 +219,18 @@
           <button type="submit" class="btn btn-dark signup-btn">Sign Up</button>
         </form>
 
-      </div> 
+      </div>
 
-   </div> 
+   </div>
 
    <div class="card-footer">
       <p class="text-center">Already a member? Login <a class="login-link" href="/login">here</a>
       </p>
     </div>
 
-  </div> 
+  </div>
 
   <!--End outer-->
-  </div> 
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"
-  ></script>
-  <script type="text/javascript" src="js/signup.js"></script>
+  </div>
   <% include ../partials/footer.ejs %>
 </html>
