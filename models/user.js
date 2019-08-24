@@ -19,51 +19,53 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     first: {
-       type: DataTypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
     last: {
       type: DataTypes.STRING,
-     allowNull: false
+      allowNull: false
     },
 
     address: {
       type: DataTypes.STRING,
-     allowNull: false
+      allowNull: false
     },
     address2: {
       type: DataTypes.STRING,
-     allowNull: true
+      allowNull: true
     },
     city: {
       type: DataTypes.STRING,
-     allowNull: false
+      allowNull: false
     },
 
     state: {
       type: DataTypes.STRING,
-     allowNull: false
+      allowNull: false
     },
 
     zip: {
       type: DataTypes.STRING,
-     allowNull: false
+      allowNull: false
     },
     phone: {
       type: DataTypes.STRING,
-     allowNull: false
+      allowNull: false
     },
     secQuestion: {
       type: DataTypes.STRING,
-     allowNull: false
+      allowNull: false
     },
     secAnswer: {
       type: DataTypes.STRING,
-     allowNull: false
+      allowNull: false
     },
-
-
-
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull: false
+    }
   });
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function(password) {
@@ -72,9 +74,12 @@ module.exports = function(sequelize, DataTypes) {
   // Hooks are automatic methods that run during various phases of the User Model lifecycle
   // In this case, before a User is created, we will automatically hash their password
   User.hook("beforeCreate", function(user) {
-    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+    user.password = bcrypt.hashSync(
+      user.password,
+      bcrypt.genSaltSync(10),
+      null
+    );
   });
-
 
   User.associate = function(models) {
     User.hasMany(models.Room, {
@@ -84,7 +89,6 @@ module.exports = function(sequelize, DataTypes) {
       onDelete: "cascade"
     });
   };
-
 
   return User;
 };
