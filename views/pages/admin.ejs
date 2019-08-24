@@ -2,5 +2,31 @@
   <head>
     <% include ../partials/head.ejs %>
   </head>
-  <% include ../partials/nav.ejs %> <% include ../partials/footer.ejs %>
+  <body>
+    <% include ../partials/nav.ejs %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Email</th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%users.forEach(user => {%>
+        <tr>
+          <td scope="row">user.Id</td>
+          <td>user.email</td>
+          <td>
+            <button type="button" class="btn btn-outline-danger delete">
+              <i class="fas fa-trash"></i>
+              Delete
+            </button>
+          </td>
+        </tr>
+        <%})%>
+      </tbody>
+    </table>
+    <% include ../partials/footer.ejs %>
+  </body>
 </html>
