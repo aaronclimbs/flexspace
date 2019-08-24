@@ -45,7 +45,10 @@ module.exports = function(app) {
         where: {
           RoomId: req.params.roomid,
           start_date: req.params.date
-        }
+        },
+        
+        
+      include: [db.Room]
       })
         .then(function(dbReservation) {
           res.json(dbReservation);
@@ -61,7 +64,9 @@ module.exports = function(app) {
         where: {
           RoomId: req.params.roomid,
           
-        }
+        },
+        
+      include: [db.Room]
       })
         .then(function(dbReservation) {
           res.json(dbReservation);
