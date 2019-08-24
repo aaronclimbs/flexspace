@@ -1,4 +1,5 @@
 const Promise = require("bluebird");
+const moment = require("moment");
 
 const db = require("./models");
 
@@ -120,7 +121,7 @@ const userData = [
     secAnswer: "Fahrenheit 451",
     createdAt: new Date(),
     updatedAt: new Date(),
-    isAdmin: false
+    isAdmin: true
   },
   {
     email: "tim@tim.com",
@@ -182,8 +183,8 @@ const roomData = [
     roomURL:
       "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     roomType: "medium",
-    address2: "4389 Hillcrest Circle",
-    address3: "Number 303",
+    address1: "4389 Hillcrest Circle",
+    address2: "Number 303",
     city: "Arlington",
     state_us: "VA",
     zip: "22201",
@@ -199,8 +200,8 @@ const roomData = [
     roomURL:
       "https://images.pexels.com/photos/277572/pexels-photo-277572.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     roomType: "huddle",
-    address3: "1675 Emily Drive",
-    address4: "Ring the bell",
+    address1: "1675 Emily Drive",
+    address2: "Ring the bell",
     city: "Kensington",
     state_us: "MD",
     zip: "20815",
@@ -216,8 +217,8 @@ const roomData = [
     roomURL:
       "https://images.pexels.com/photos/1098982/pexels-photo-1098982.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     roomType: "office",
-    address4: "3481 Hall Street",
-    address5: "bla bla",
+    address1: "3481 Hall Street",
+    address2: "bla bla",
     city: "Washington",
     state_us: "DC",
     zip: "20001",
@@ -233,8 +234,8 @@ const roomData = [
     roomURL:
       "https://images.pexels.com/photos/1743555/pexels-photo-1743555.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     roomType: "huddle",
-    address5: "2855 Sardis Station",
-    address6: "don't knock",
+    address1: "2855 Sardis Station",
+    address2: "don't knock",
     city: "Ballston",
     state_us: "VA",
     zip: "22201",
@@ -250,8 +251,8 @@ const roomData = [
     roomURL:
       "https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     roomType: "office",
-    address6: "762 Lake Floyd Circle",
-    address7: "Apt. 3B",
+    address1: "762 Lake Floyd Circle",
+    address2: "Apt. 3B",
     city: "Washington",
     state_us: "DC",
     zip: "20001",
@@ -267,8 +268,8 @@ const roomData = [
     roomURL:
       "https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     roomType: "office",
-    address7: "667 East Avenue",
-    address8: "Just come in",
+    address1: "667 East Avenue",
+    address2: "Just come in",
     city: "Bethesda",
     state_us: "MD",
     zip: "20815",
@@ -284,8 +285,8 @@ const roomData = [
     roomURL:
       "https://images.pexels.com/photos/275484/pexels-photo-275484.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     roomType: "huddle",
-    address8: "1382 Froe Street",
-    address9: "testtest",
+    address1: "1382 Froe Street",
+    address2: "testtest",
     city: "Alexandria",
     state_us: "VA",
     zip: "22201",
@@ -301,8 +302,8 @@ const roomData = [
     roomURL:
       "https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     roomType: "large",
-    address9: "2022 Thompson Street",
-    address10: "Apt. 34",
+    address1: "2022 Thompson Street",
+    address2: "Apt. 34",
     city: "Crystal City",
     state_us: "VA",
     zip: "22201",
@@ -318,8 +319,8 @@ const roomData = [
     roomURL:
       "https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     roomType: "medium",
-    address10: "3913 Timberbrook Lane",
-    address11: "Apt. 233",
+    address1: "3913 Timberbrook Lane",
+    address2: "Apt. 233",
     city: "Washington",
     state_us: "DC",
     zip: "20001",
@@ -335,8 +336,8 @@ const roomData = [
     roomURL:
       "https://images.pexels.com/photos/267507/pexels-photo-267507.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     roomType: "huddle",
-    address11: "4486 American Drive",
-    address12: "Ring twice",
+    address1: "4486 American Drive",
+    address2: "Ring twice",
     city: "Silver Spring",
     state_us: "MD",
     zip: "20815",
@@ -352,8 +353,8 @@ const roomData = [
     roomURL:
       "https://images.pexels.com/photos/260689/pexels-photo-260689.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     roomType: "office",
-    address12: "4774 Hayhurst Lane",
-    address13: "Apt. 7",
+    address1: "4774 Hayhurst Lane",
+    address2: "Apt. 7",
     city: "Washington",
     state_us: "DC",
     zip: "20001",
@@ -368,8 +369,12 @@ const roomData = [
 const reservationData = [
   {
     text: "testing",
-    start_date: "2019-08-28",
-    end_date: "2019-08-28",
+    start_date: moment()
+      .add("4", "days")
+      .format("Y-MM-DD"),
+    end_date: moment()
+      .add("4", "days")
+      .format("Y-MM-DD"),
     start_time: "09:00",
     duration: 1,
     createdAt: new Date(),
@@ -379,8 +384,12 @@ const reservationData = [
   },
   {
     text: "test2",
-    start_date: "2019-08-28",
-    end_date: "2019-08-28",
+    start_date: moment()
+      .add("4", "days")
+      .format("Y-MM-DD"),
+    end_date: moment()
+      .add("4", "days")
+      .format("Y-MM-DD"),
     start_time: "10:00",
     duration: 2,
     createdAt: new Date(),
@@ -390,8 +399,12 @@ const reservationData = [
   },
   {
     text: "test3",
-    start_date: "2019-08-28",
-    end_date: "2019-08-28",
+    start_date: moment()
+      .add("4", "days")
+      .format("Y-MM-DD"),
+    end_date: moment()
+      .add("4", "days")
+      .format("Y-MM-DD"),
     start_time: "09:00",
     duration: 3,
     createdAt: new Date(),
@@ -401,8 +414,12 @@ const reservationData = [
   },
   {
     text: "test4",
-    start_date: "2019-08-28",
-    end_date: "2019-08-28",
+    start_date: moment()
+      .add("4", "days")
+      .format("Y-MM-DD"),
+    end_date: moment()
+      .add("4", "days")
+      .format("Y-MM-DD"),
     start_time: "17:00",
     duration: 1,
     createdAt: new Date(),
@@ -412,8 +429,12 @@ const reservationData = [
   },
   {
     text: "test5",
-    start_date: "2019-08-28",
-    end_date: "2019-08-28",
+    start_date: moment()
+      .add("4", "days")
+      .format("Y-MM-DD"),
+    end_date: moment()
+      .add("4", "days")
+      .format("Y-MM-DD"),
     start_time: "09:00",
     duration: 2,
     createdAt: new Date(),
@@ -423,8 +444,12 @@ const reservationData = [
   },
   {
     text: "test10",
-    start_date: "2019-08-30",
-    end_date: "2019-08-30",
+    start_date: moment()
+      .add("6", "days")
+      .format("Y-MM-DD"),
+    end_date: moment()
+      .add("6", "days")
+      .format("Y-MM-DD"),
     start_time: "09:00",
     duration: 2,
     createdAt: new Date(),
@@ -434,8 +459,12 @@ const reservationData = [
   },
   {
     text: "test11",
-    start_date: "2019-08-29",
-    end_date: "2019-08-29",
+    start_date: moment()
+      .add("5", "days")
+      .format("Y-MM-DD"),
+    end_date: moment()
+      .add("5", "days")
+      .format("Y-MM-DD"),
     start_time: "09:00",
     duration: 2,
     createdAt: new Date(),
@@ -445,8 +474,12 @@ const reservationData = [
   },
   {
     text: "test6",
-    start_date: "2019-08-28",
-    end_date: "2019-08-28",
+    start_date: moment()
+      .add("2", "days")
+      .format("Y-MM-DD"),
+    end_date: moment()
+      .add("2", "days")
+      .format("Y-MM-DD"),
     start_time: "13:00",
     duration: 3,
     createdAt: new Date(),
@@ -456,8 +489,12 @@ const reservationData = [
   },
   {
     text: "test7",
-    start_date: "2019-08-28",
-    end_date: "2019-08-28",
+    start_date: moment()
+      .add("4", "days")
+      .format("Y-MM-DD"),
+    end_date: moment()
+      .add("4", "days")
+      .format("Y-MM-DD"),
     start_time: "10:00",
     duration: 1,
     createdAt: new Date(),
@@ -467,9 +504,13 @@ const reservationData = [
   },
   {
     text: "test8",
-    start_date: "2019-08-28",
-    start_time:"17:00",
-    end_date: "2019-08-28",
+    start_date: moment()
+      .add("4", "days")
+      .format("Y-MM-DD"),
+    start_time: "17:00",
+    end_date: moment()
+      .add("4", "days")
+      .format("Y-MM-DD"),
     duration: 1,
     createdAt: new Date(),
     updatedAt: new Date(),
@@ -478,9 +519,13 @@ const reservationData = [
   },
   {
     text: "test10",
-    start_date: "2019-08-28",
+    start_date: moment()
+      .add("3", "days")
+      .format("Y-MM-DD"),
     start_time: "19:00",
-    end_date: "2019-08-28",
+    end_date: moment()
+      .add("3", "days")
+      .format("Y-MM-DD"),
     duration: 1,
     createdAt: new Date(),
     updatedAt: new Date(),
