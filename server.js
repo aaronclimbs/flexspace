@@ -4,6 +4,8 @@ var session = require("express-session");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 
+
+
 // Require middleware logger 'morgan'
 var morgan = require("morgan");
 

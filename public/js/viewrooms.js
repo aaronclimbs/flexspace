@@ -110,8 +110,8 @@ for (i=0; i < roomSearch.length; i++) {
        
 
        var bookRoom=$("<button>")
-       bookRoom.attr("id", roomSearch[i].roomID)
-       bookRoom.addClass("bookme");
+       bookRoom.attr("id", roomSearch[i].id)
+       bookRoom.addClass("check-room");
        bookRoom.attr("owner-id", roomSearch[i].roomOwnerID)
        bookRoom.attr("roomname", roomSearch[i].roomName)
        bookRoom.text("Check Availability")
@@ -125,7 +125,15 @@ for (i=0; i < roomSearch.length; i++) {
       
 })
 
+$(document).on ("click", ".check-room", function (event)  {
+    event.preventDefault();
+var roomid = this.id
 
+console.log( "Room ID being sent in URL is "+ roomid)
+
+window.location = "/rendercalender/?variable=" + roomid;
+
+})
 
 
 

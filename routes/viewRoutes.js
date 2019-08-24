@@ -75,6 +75,7 @@ module.exports = function(app) {
     res.render("pages/viewrooms", ejsObj);
   });
 
+
   app.get("/contact", function(req, res) {
     // If the user already has an account send them to the members page
     var ejsObj = {
@@ -97,7 +98,31 @@ module.exports = function(app) {
     res.render("pages/about", ejsObj);
   });
 
-  app.get("*", function(req, res) {
+
+
+  app.get("/rendercalender", function(req, res, next) {
+
+    var ejsObj = { pageTitle: "FlexSpace",
+    loggedIn: true };
+    // If the user already has an account send them to the members page
+    /*if (req.user) {
+    
+    var ejsObj = { pageTitle: "FlexSpace",
+                   loggedIn: true };
+    
+
+    } else {
+      var ejsObj = { pageTitle: "FlexSpace",
+      loggedIn: false };
+
+      return res.redirect("/login");
+      next()
+
+    }*/
+    res.render("pages/rendercalender", ejsObj);
+  });
+
+    app.get("*", function(req, res) {
     // If the user already has an account send them to the members page
     var ejsObj = {
       pageTitle: "Not Found",
@@ -107,4 +132,5 @@ module.exports = function(app) {
 
     res.render("pages/error", ejsObj);
   });
+
 };
