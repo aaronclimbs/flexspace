@@ -106,10 +106,15 @@ var i=0;
       roomResCount=$("<td>")
       roomResCount.attr("id", "room-res-count"+i)
       roomResCount.text(element.Reservations.length)
+
+      roomDel=$("<td>")
+    roomDel.addClass("del-room")
+    roomDel.html('<i class="fa fa-trash" ></i>')
+    roomDel.attr("id", element.id)
   
       
   
-      rowDiv.append(roomImg, roomName, roomLoc, roomResCount)
+      rowDiv.append(roomImg, roomName, roomLoc, roomResCount, roomDel)
   
     i++
     })
@@ -211,6 +216,22 @@ url: "api/reservations/" + resid
 })
 .then(function() {
 console.log("Reservation ID "+ resid)
+location.reload(true)
+});
+
+})
+
+$(document).on ("click", ".del-room", function (event)  {
+  console.log("Delete clicked")
+  event.preventDefault();
+var roomid = this.id 
+
+$.ajax({
+method: "DELETE",
+url: "api/rooms/" + roomid
+})
+.then(function() {
+console.log("Room Id "+ roomid)
 location.reload(true)
 });
 

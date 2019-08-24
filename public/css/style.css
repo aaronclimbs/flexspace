@@ -12,6 +12,11 @@
   
 }
 
+.logo-img{
+  padding-left:0px;
+  padding-right:0px;
+}
+
 .logo:link {
   color:#072752;
   text-decoration: none;

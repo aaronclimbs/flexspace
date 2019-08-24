@@ -31,8 +31,9 @@ module.exports = function(sequelize, DataTypes) {
 
         Reservation.belongsTo(models.Room, {
             foreignKey: {
-                allowNull: false
-            }
+                allowNull: false,
+                
+            }, 
         });
         Reservation.belongsTo(models.User, {
             foreignKey: {
