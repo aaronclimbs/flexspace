@@ -62,7 +62,9 @@ var i=0;
     resCost.text("$" + element.duration * element.Room.hourlyRate)
 
     resDel=$("<td>")
+    resDel.addClass("del-res")
     resDel.html('<i class="fa fa-trash" ></i>')
+    resDel.attr("id", element.id)
 
     rowDiv.append(resName,roomName, resDate, resTime, resDur, resCost, resDel)
 
@@ -127,15 +129,11 @@ var i=0;
 
     $(document).on ("click", ".get-room-info", function (event)  {
       event.preventDefault();
-var roomid = this.id
+      var roomid = this.id
       console.log("Id from click is " + this.id)
       $("#room-name").empty(); 
       jQuery.noConflict();
      
-
-      
-      console.log ("Get room info clicked")
-
       $.get("/api/rooms/" + roomid, function(roomdata) {
 
         $("#modal-room-name").text(roomdata.roomName)
@@ -195,16 +193,30 @@ var roomid = this.id
      $("#show-room-modal").modal("toggle");
 
 
-
-
-
-
-
-      
-
+/* end get*/
       })
-      
-    })
 
+/*end click*/
+})
+      
+
+$(document).on ("click", ".del-res", function (event)  {
+  console.log("Delete clicked")
+  event.preventDefault();
+var resid = this.id 
+
+$.ajax({
+method: "DELETE",
+url: "api/reservations/" + resid
+})
+.then(function() {
+console.log("Reservation ID "+ resid)
+location.reload(true)
+});
+
+})
+
+ 
+/* end doc*/
 })
 
