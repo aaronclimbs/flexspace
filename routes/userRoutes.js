@@ -35,6 +35,7 @@ module.exports = function(app) {
   app.put("/api/users/:id", function(req, res) {
 
     if (req.user.isAdmin || req.user.id == req.params.id) {
+      console.log(JSON.stringify(req.body));
       db.User.update({
         email: req.body.email,
         first: req.body.first,
@@ -47,6 +48,11 @@ module.exports = function(app) {
         phone: req.body.phone,
         secQuestion: req.body.secQuestion,
         secAnswer: req.body.secAnswer
+      },
+      {
+        where: {
+          id: req.params.id
+        }
       })
         .then(function(result) {
           res.json(result);

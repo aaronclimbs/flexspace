@@ -103,6 +103,17 @@ module.exports = function(app) {
     res.render("pages/about", ejsObj);
   });
 
+  app.get("/user/:id", function(req, res) {
+    // If the user already has an account send them to the members page
+    var ejsObj = {
+      pageTitle: "User Information",
+      user: req.user,
+      script: "user"
+    };
+    console.log(JSON.stringify(req.user));
+
+    res.render("pages/user", ejsObj);
+  });
 
 
   app.get("/rendercalender", function(req, res, next) {

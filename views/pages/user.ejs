@@ -1,0 +1,233 @@
+<html>
+  <head>
+    <% include ../partials/head.ejs %>
+  </head>
+  
+  <body>
+  <% include ../partials/nav.ejs %>
+  <div class="container member mx-auto">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h2>Welcome <span class="member-name"></span></h2>
+      </div>
+    </div>
+  </div>
+
+<form></form>
+<div class="container">
+        <div id="loading">
+            <div id="loadingcontent">
+  
+                <p id="loadingspinner">
+                   Processing Signup...sending 0s and 1s
+  
+                </p>
+  
+            </div>
+        </div>
+  
+      <div class="card user-form w-75 mx-auto">
+  
+        <h4 class="card-header text-center text-dark">
+          Update User Information
+        </h4>
+  
+        <div class="card-body">
+  
+          <form class="user">
+  
+            <div class="form-row d-block">
+  
+              <div class="card-header text-center pass-header mt-0">
+                Password and Security
+              </div>
+  
+              <div class="form-row">
+  
+                <div class="form-group col-md-6 ">
+                  <label for="email-input"><i class="fas fa-envelope"></i> Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email-input"
+                    value="<%=user.email%>"
+                  />
+                </div>
+  
+                <div class="form-group col-md-6 ">
+                  <label for="first-input"><i class="fas fa-phone"></i> Phone Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="phone-input"
+                    value="<%=user.phone%>"
+                  />
+                </div>
+  
+              </div>
+  
+              <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="password-input"><i class="fas fa-lock"></i> Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password-input"
+                  placeholder="Password"
+                />
+              </div>
+  
+              <div class="form-group col-md-6">
+                <label for="confirm-password-input">Confirm Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirm-password-input"
+                  placeholder="Confirm Password"
+                />
+              </div>
+  
+              <div
+                style="display: none"
+                id="alert"
+                class="alert alert-danger"
+                role="alert"
+              >
+                <span
+                  class="glyphicon glyphicon-exclamation-sign"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Error:</span> <span class="msg"></span>
+              </div>
+  
+            </div>
+  
+              <div class="form-row">
+  
+                <div class="form-group col-md-6 ">
+                  <label for="sec-question-input"><i class="fas fa-user-lock"></i> Security Question</label>
+                  <select id="sec-question-input" class="form-control">
+                    <option>Choose a security question</option>
+                    <option value="What is your favorite book"
+                      >What is your favorite book?</option
+                    >
+                    <option value="What is your favorite movie"
+                      >What is your favorite movie?</option
+                    >
+                    <option value="What was your first pet's name"
+                      >What was your first pet's name?</option
+                    >
+                  </select>
+                </div>
+  
+                <div class="form-group col-md-6">
+                  <label for="sec-question-answer">Answer</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="sec-question-answer"
+                    value="<%=user.secAnswer%>"
+                  />
+                </div>
+  
+              </div>
+  
+            </div>
+  
+            <div class="form-row d-block">
+  
+              <div class="card-header text-center acct-header mt-3">
+                Account Information
+              </div>
+  
+              <div class="form-row">
+  
+                <div class="form-group col-md-6 ">
+                  <label for="first-input">First Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="first-input"
+                    value="<%=user.first%>"
+                  />
+                </div>
+  
+                <div class="form-group col-md-6">
+                  <label for="last-input">Last Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="last-input"
+                    value="<%=user.last%>"
+                  />
+                </div>
+  
+              </div>
+  
+            <div class="form-row d-block">
+  
+            <div class="form-group">
+              <label for="address1-input"><i class="fas fa-address-book"></i> Address</label>
+              <input
+                type="text"
+                class="form-control"
+                id="address1-input"
+                value="<%=user.address%>"
+              />
+            </div>
+  
+            </div>
+  
+            <div class="form-row d-block">
+  
+            <div class="form-group">
+              <label for="address2-input">Address 2</label>
+              <input
+                type="text"
+                class="form-control"
+                id="address2-input"
+                value="<%=user.address2%>"
+                placeholder="Apartment, studio, or floor"
+              />
+            </div>
+  
+            </div>
+  
+            <div class="form-row">
+  
+              <div class="form-group col-md-6">
+                <label for="city-input">City</label>
+                <input type="text" class="form-control" id="city-input" value="<%=user.city%>" />
+              </div>
+  
+              <div class="form-group col-md-4">
+                <label for="state-input">State</label>
+                <select id="state-input" class="form-control">
+                  <option>Choose...</option>
+                  <option value="DC">DC</option>
+                  <option value="MD">MD</option>
+                  <option value="VA">VA</option>
+                </select>
+              </div>
+  
+              <div class="form-group col-md-2">
+                <label for="zip-input">Zip</label>
+                <input type="text" class="form-control" id="zip-input" value="<%=user.phone%>" />
+              </div>
+  
+            </div>
+  
+            <button type="submit" class="btn btn-dark signup-btn" id="update-btn" data-id="<%=user.id%>">Update</button>
+          </form>
+  
+        </div>
+  
+     </div>
+
+
+
+
+
+<% include ../partials/footer.ejs %>
+</body>
+</html>
