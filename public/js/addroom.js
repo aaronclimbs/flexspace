@@ -7,7 +7,7 @@ $(document).ready(function() {
     var capacityInput = $("input#capacity-input");
     var roomURLInput = $("input#room-url-input");
     var roomTypeInput = $("#room-type-input");
-    var address1Input = $("input#address-input");
+    var address1Input = $("input#address1-input");
     var address2Input = $("input#address2-input");
     var cityInput = $("input#city-input");
     var stateInput = $("#state-input");

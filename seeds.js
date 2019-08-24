@@ -86,7 +86,7 @@ const userData = [
     secAnswer: "Harry Potter",
     createdAt: new Date(),
     updatedAt: new Date(),
-    isAdmin: true
+    isAdmin: false
   },
   {
     email: "kevin@test.com",

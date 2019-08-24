@@ -8,7 +8,7 @@ $(document).ready(function() {
   var passwordInput = $("input#password-input");
   var firstInput = $("input#first-input");
   var lastInput = $("input#last-input");
-  var addressInput = $("input#address-input");
+  var address1Input = $("input#address1-input");
   var address2Input = $("input#address2-input");
   var cityInput = $("input#city-input");
   var stateInput = $("#state-input");
@@ -28,7 +28,7 @@ $(document).ready(function() {
       password: passwordInput.val().trim(),
       first: firstInput.val().trim(),
       last: lastInput.val().trim(),
-      address: addressInput.val().trim(),
+      address: address1Input.val().trim(),
       address2: address2Input.val().trim(),
       city: cityInput.val().trim(),
       state: stateInput.val().trim(),
@@ -51,7 +51,7 @@ $(document).ready(function() {
     passwordInput.val("");
     firstInput.val("");
     lastInput.val("");
-    addressInput.val("");
+    address1Input.val("");
     address2Input.val("");
     cityInput.val("");
     stateInput.val("");
