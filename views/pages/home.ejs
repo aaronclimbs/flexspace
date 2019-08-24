@@ -25,12 +25,12 @@
         <div class="carousel-inner" role="listbox">
           <!-- Slide One - Set the background image for this slide in the line below -->
           <div
-            class="carousel-item active"
+            class="carousel-item"
             style="background-image: url(../images/landingpage1.jpg)"
           >
             <div class="carousel-caption d-none d-md-block">
               <h2 class="display-4">List Rooms</h2>
-              <p class="lead">List your available rooms</p>
+              <p class="lead">List your available rooms.</p>
             </div>
           </div>
           <!-- Slide Two - Set the background image for this slide in the line below -->
@@ -40,7 +40,7 @@
           >
             <div class="carousel-caption d-none d-md-block">
               <h2 class="display-4">Find Rooms</h2>
-              <p class="lead">Find a confernce room in the DMV area</p>
+              <p class="lead">Find a conference room in the DMV area.</p>
             </div>
           </div>
           <!-- Slide Two - Set the background image for this slide in the line below -->
@@ -50,14 +50,15 @@
           >
             <div class="carousel-caption d-none d-md-block">
               <h2 class="display-4">Reserve Rooms</h2>
-              <p class="lead">Reserve a room on demand</p>
+              <p class="lead">Reserve a room on demand.</p>
             </div>
           </div>
           <!-- Slide Three - Set the background image for this slide in the line below -->
           <div
-            class="carousel-item"
+            class="carousel-item active"
             style="background-image: url(../images/landingpage3.jpg)"
           >
+          <h1 class="headline">A flexible way to meet potential customers, grow your network or have a non-traditional space for work related events.</h1>
             <div class="carousel-caption d-none d-md-block">
               <h2 class="display-4">Meet</h2>
               <p class="lead">Meeting spaces simplified!</p>
@@ -83,6 +84,7 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
+
 
       <!-- Card Testing -->
       <section class="details-card">
@@ -147,7 +149,109 @@
         </div>
       </section>
       <!-- End Card Testing -->
+
+ 
+
+      <!--Contact Form-->
+      <section class="mb-4" id="contactForm">
+          <h2 class="h1-responsive font-weight-bold text-center my-4">
+            <i class="fas fa-chevron-left"></i> Contact us /<i
+              class="fas fa-chevron-right"
+            ></i>
+          </h2>
+          <p class="text-center w-responsive mx-auto mb-7">
+            Do you have any questions? Please do not hesitate to contact us
+            directly. Our team will come back to you as soon as possible.
+          </p>
+  
+          <div class="row">
+            <div class="col-md-9 mb-md-0 mb-5 test">
+              <form
+                id="contact-form"
+                name="contact-form"
+                action="/contact"
+                method="POST"
+              >
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="md-form mb-0">
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        class="form-control"
+                      />
+                      <label for="name" class="">Your name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="md-form mb-0">
+                      <input
+                        type="text"
+                        id="email"
+                        name="email"
+                        class="form-control"
+                      />
+                      <label for="email" class="">Your email</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="md-form mb-0">
+                      <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        class="form-control"
+                      />
+                      <label for="subject" class="">Subject</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="md-form">
+                      <textarea
+                        type="text"
+                        id="message"
+                        name="message"
+                        rows="4"
+                        class="form-control md-textarea"
+                      ></textarea>
+                      <label for="message">Your message</label>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">Send</button>
+              </div>
+              <div class="status"></div>
+            </div>
+            <div class="col-md-3 text-center" id="contactInfo">
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <i class="fas fa-map-marker-alt fa-2x"></i>
+                  <p class="mt-1">800 13th St NW, Washington, DC 20005, USA</p>
+                </li>
+  
+                <li>
+                  <i class="fas fa-phone mt-1 fa-2x"></i>
+                  <p class="mt-1">+1 202 985 5454</p>
+                </li>
+  
+                <li>
+                  <i class="fas fa-envelope mt-1 fa-2x"></i>
+                  <p class="mt-1">contact@flexspace.com</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
     </header>
+
+
 
     <% include ../partials/footer.ejs %>
     <!-- <script>
