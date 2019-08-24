@@ -1,5 +1,6 @@
 $(document).ready(function () { 
 
+
     $.urlParam = function(name){
         var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
         return results[1] || 0;
@@ -40,7 +41,7 @@ for( h=8; h < 22; h++ ) {
 
     if (meetingTime === h) {
         console.log("Meeting found at " + h)
-        $("#meeting-details"+h).text(reservations[m].text)
+        $("#meeting-details"+h).text("Reserved")
 
         for (d=0; d < reservations[m].duration; d++) {
 
@@ -62,6 +63,7 @@ function generateDay () {
     var resDay=  moment(today).format( "dddd")
     var resDisplayDate=moment(today).format( "MMMM Do YYYY")
     var resDate=moment(today).format( "YYYY/MM/DD")
+    $("#res-header").text(resDay + " "+ resDisplayDate)
 
     if (reservations.length === 0) {
      var resStart =0
@@ -83,12 +85,12 @@ function generateDay () {
 
      $("#reservation-render").append(resDiv);
 
-     var resHeader=$("<div>")
+     /*var resHeader=$("<div>")
      resHeader.addClass("card-header")
-     resHeader.attr("id", "res-header")
-     resHeader.text(resDay + " "+ resDisplayDate)
+     resHeader.attr("id", "res-header")*/
+     
 
-     $("#res-day").append(resHeader);
+     /*$("#res-day").append(resHeader);*/
 
      var bodyDiv=$("<div>");
      bodyDiv.addClass("card-body res-card-body");
@@ -164,5 +166,3 @@ var timeDiv =$("<div>")
 
 
 })
-
-    
