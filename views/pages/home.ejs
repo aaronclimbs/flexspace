@@ -1,139 +1,156 @@
 <html>
+  <head>
+    <% include ../partials/head.ejs %>
+  </head>
 
-<head>
-  <% include ../partials/head.ejs %>
-  <link rel="stylesheet" type="text/css" href="../css/style.css">
-</head>
+  <body>
+    <% include ../partials/nav.ejs %>
 
-<body>
-  <% include ../partials/nav.ejs %>
-
-
-  <header>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url(../images/landingpage1.jpg)">
-          <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4">List Rooms</h2>
-            <p class="lead">List your available rooms</p>
+    <header>
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide"
+        data-ride="carousel"
+      >
+        <ol class="carousel-indicators">
+          <li
+            data-target="#carouselExampleIndicators"
+            data-slide-to="0"
+            class="active"
+          ></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <!-- Slide One - Set the background image for this slide in the line below -->
+          <div
+            class="carousel-item active"
+            style="background-image: url(../images/landingpage1.jpg)"
+          >
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="display-4">List Rooms</h2>
+              <p class="lead">List your available rooms</p>
+            </div>
+          </div>
+          <!-- Slide Two - Set the background image for this slide in the line below -->
+          <div
+            class="carousel-item"
+            style="background-image: url('../images/landingpage2.jpg')"
+          >
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="display-4">Find Rooms</h2>
+              <p class="lead">Find a confernce room in the DMV area</p>
+            </div>
+          </div>
+          <!-- Slide Two - Set the background image for this slide in the line below -->
+          <div
+            class="carousel-item"
+            style="background-image: url('../images/landingpage4.jpg')"
+          >
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="display-4">Reserve Rooms</h2>
+              <p class="lead">Reserve a room on demand</p>
+            </div>
+          </div>
+          <!-- Slide Three - Set the background image for this slide in the line below -->
+          <div
+            class="carousel-item"
+            style="background-image: url(../images/landingpage3.jpg)"
+          >
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="display-4">Meet</h2>
+              <p class="lead">Meeting spaces simplified!</p>
+            </div>
           </div>
         </div>
-        <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('../images/landingpage2.jpg')">
-          <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4">Find Rooms</h2>
-            <p class="lead">Find a confernce room in the DMV area</p>
-          </div>
-        </div>
-        <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('../images/landingpage4.jpg')">
-          <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4">Reserve Rooms</h2>
-            <p class="lead">Reserve a room on demand </p>
-          </div>
-        </div>
-        <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url(../images/landingpage3.jpg)">
-          <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4">Meet</h2>
-            <p class="lead">Meeting spaces simplified!</p>
-          </div>
-        </div>
+        <a
+          class="carousel-control-prev"
+          href="#carouselExampleIndicators"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#carouselExampleIndicators"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
 
-
-
-    <!-- Card Testing -->
-    <section class="details-card">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card-content">
-              <div class="card-img">
-                <img src="https://i.pinimg.com/originals/2b/0f/0f/2b0f0fb7dd3ad0cc2d3f8d1c7e82d294.jpg"
-                  class="card-img-top img-fluid" alt="">
-              </div>
-              <div class="card-desc">
-                <h3>Conference Rooms</h3>
-                <p>We offer a variety of different conference rooms to meet your business and/or culture. For your group
-                  or company's presentations, meeting or special events.</p>
+      <!-- Card Testing -->
+      <section class="details-card">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card-content">
+                <div class="card-img">
+                  <img
+                    src="https://i.pinimg.com/originals/2b/0f/0f/2b0f0fb7dd3ad0cc2d3f8d1c7e82d294.jpg"
+                    class="card-img-top img-fluid"
+                    alt=""
+                  />
+                </div>
+                <div class="card-desc">
+                  <h3>Conference Rooms</h3>
+                  <p>
+                    We offer a variety of different conference rooms to meet
+                    your business and/or culture. For your group or company's
+                    presentations, meeting or special events.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card-content">
-              <div class="card-img">
-                <img src="https://assets.regus.com/images/nwp/homepage-product-office-space.jpg"
-                  class="card-img-top img-fluid" alt="">
-              </div>
-              <div class="card-desc">
-                <h3>Private Offices</h3>
-                <p>A wide range of private offices. Furnished, move-in ready, open doors or closed doors to meet your
-                  needs.</p>
+            <div class="col-md-4">
+              <div class="card-content">
+                <div class="card-img">
+                  <img
+                    src="https://assets.regus.com/images/nwp/homepage-product-office-space.jpg"
+                    class="card-img-top img-fluid"
+                    alt=""
+                  />
+                </div>
+                <div class="card-desc">
+                  <h3>Private Offices</h3>
+                  <p>
+                    A wide range of private offices. Furnished, move-in ready,
+                    open doors or closed doors to meet your needs.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card-content">
-              <div class="card-img">
-                <img
-                  src="https://www.ambiencedore.com/wp-content/uploads/2015/11/Modern_industrial_budget_desks_open_space.jpg"
-                  class="card-img-top img-fluid" alt="">
-
-              </div>
-              <div class="card-desc">
-                <h3>Open Spaces</h3>
-                <p>Open concept space is perfect for many business uses as well as networking!</p>
+            <div class="col-md-4">
+              <div class="card-content">
+                <div class="card-img">
+                  <img
+                    src="https://www.ambiencedore.com/wp-content/uploads/2015/11/Modern_industrial_budget_desks_open_space.jpg"
+                    class="card-img-top img-fluid"
+                    alt=""
+                  />
+                </div>
+                <div class="card-desc">
+                  <h3>Open Spaces</h3>
+                  <p>
+                    Open concept space is perfect for many business uses as well
+                    as networking!
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- End Card Testing -->
+      </section>
+      <!-- End Card Testing -->
+    </header>
 
-
-
-  </header>
-
-
-  <!-- Optional JavaScript -->
-  <script type="text/javascript" src="../../public/js/slideanimation.js"></script>
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
-  <script type="text/javascript" src="../../public/js/members.js"></script>
-
-
-
-
-  <% include ../partials/footer.ejs %>
-  <!--<script type="text/javascript" src="js/home.js"></script>-->
-
-  <script>
+    <% include ../partials/footer.ejs %>
+    <!-- <script>
     var isloggedIn = ( < %= loggedIn % > );
     console.log("User logged in? " + isloggedIn)
 
@@ -146,7 +163,6 @@
       $("#logout").hide()
       $("#myDashboard").hide();
     };
-  </script>
-</body>
-
+  </script> -->
+  </body>
 </html>
