@@ -110,10 +110,22 @@ module.exports = function(app) {
         });
     });
   
-    app.delete("/api/reservations/:id", function(req, res) {
+    // app.delete("/api/reservations/:id", function(req, res) {
+    //   db.Reservation.destroy({
+    //     where: {
+    //       id: req.params.id
+    //     }
+    //   })
+    //     .then(function(dbReservation) {
+    //       res.json(dbReservation);
+    //     });
+    // });
+
+
+    app.delete("/api/reservations/:roomid", function(req, res) {
       db.Reservation.destroy({
         where: {
-          id: req.params.id
+          RoomId: req.params.roomid
         }
       })
         .then(function(dbReservation) {
