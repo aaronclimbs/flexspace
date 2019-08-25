@@ -67,11 +67,11 @@ module.exports = function(app) {
       });
   });
 
-  app.put("/api/rooms", function(req, res) {
+  app.put("/api/rooms/:id", function(req, res) {
     db.Room.update(req.body,
       {
         where: {
-          id: req.body.id
+          id: req.params.id
         }
       })
       .then(function(dbRoom) {
