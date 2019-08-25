@@ -138,11 +138,6 @@ module.exports = function(app) {
   });
 
   app.get("/rendercalender", function(req, res, next) {
-    var ejsObj = {
-      pageTitle: "FlexSpace",
-      user: req.user,
-      messages: req.flash()
-    };
     // If the user already has an account send them to the members page
     /*if (req.user) {
 
