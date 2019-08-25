@@ -63,7 +63,7 @@ var i=0;
 
     resDel=$("<td>")
     resDel.addClass("del-res")
-    resDel.html('<i class="fa fa-trash" ></i>')
+    resDel.html('<i class="fas fa-calendar-times"></i>')
     resDel.attr("id", element.id)
 
     rowDiv.append(resName,roomName, resDate, resTime, resDur, resCost, resDel)
