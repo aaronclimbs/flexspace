@@ -67,12 +67,12 @@ var i=0;
     resDel=$("<span>")
     resDel.addClass("del-res float-left pr-4")
     resDel.html('<i class="fas fa-calendar-times"></i>')
-    resDel.attr("id", element.id)
+    resDel.attr("del-id", element.id)
 
     resUpd=$("<span>")
-    resUpd.addClass("upd-res ")
+    resUpd.addClass("update-res ")
     resUpd.html('<i class="fas fa-edit"></i>')
-    resUpd.attr("id", element.id)
+    resUpd.attr("upd-id", element.id)
 
     rowDiv.append(resName,roomName, resDate, resTime, resDur, resCost, resUpdDel)
     resUpdDel.append(resDel, resUpd)
@@ -229,6 +229,32 @@ console.log("Reservation ID "+ resid)
 location.reload(true)
 });
 
+})
+
+$(document).on ("click", ".update-res", function (event)  {
+  console.log("Update link clicked")
+  event.preventDefault();
+  var resid = this.id
+  console.log("Id from click is " + this.id)
+  $("#room-name").empty(); 
+  jQuery.noConflict();
+  $("#show-res-modal").modal("toggle");
+ 
+  $.get("/api/reservtions/" + resid, function(resupddata) {
+
+    
+
+    console.log("Room data from link click is " + resupddata)
+
+    
+
+ $("#show-res-modal").modal("toggle");
+
+
+/* end get*/
+  })
+
+/*end click*/
 })
 
 $(document).on ("click", ".del-room", function (event)  {
