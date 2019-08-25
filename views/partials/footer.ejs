@@ -2,9 +2,17 @@
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous"
+></script>
 
 <script type="text/javascript" src="/js/<%=script%>.js"></script>
+<script>
+  $(".alert.alert-success")
+    .fadeTo(2000, 500)
+    .slideUp(500, function() {
+      $("alert").slideUp(500);
+    });
+</script>
 <!-- <% if (script === "home") {%>
 <script type="javascript" src="../../public/js/slideanimation.js"></script>
 <%}%> -->
