@@ -112,9 +112,13 @@ var i=0;
     roomDel.html('<i class="fa fa-trash" ></i>')
     roomDel.attr("id", element.id)
   
+    roomUpdate=$("<td>")
+    roomUpdate.addClass("update-room")
+    roomUpdate.html('<i class="fa fa-pen" ></i>')
+    roomUpdate.attr("id", element.id)
       
   
-      rowDiv.append(roomImg, roomName, roomLoc, roomResCount, roomDel)
+      rowDiv.append(roomImg, roomName, roomLoc, roomResCount, roomDel, roomUpdate)
   
     i++
     })
@@ -192,8 +196,16 @@ var i=0;
          var roomCapacity=$("<li>");
          roomCapacity.addClass("list-group-item")
          roomCapacity.text("Capacity: " + roomdata.roomCapacity)
+
+         var editRoom=$("<button>")
+         editRoom.attr("id", roomSearch[i].id)
+         editRoom.addClass("update-room");
+         editRoom.attr("owner-id", roomSearch[i].roomOwnerID)
+         editRoom.attr("roomname", roomSearch[i].roomName)
+         editRoom.text("Edit")
+  
  
-     $("#roomInfo").append(roomType, roomCapacity)
+     $("#roomInfo").append(roomType, roomCapacity, editRoom)
 
      $("#show-room-modal").modal("toggle");
 
@@ -246,13 +258,17 @@ $.ajax({
         location.reload(true)
         });
     });
-
-
-
-
-
 })
 
+$(document).on ("click", ".update-room", function (event)  {
+  event.preventDefault();
+var roomid = this.id
+
+console.log( "Room ID being sent in URL is "+ roomid)
+
+window.location = "/updateroom/?variable=" + roomid;
+
+})
  
 /* end doc*/
 })
