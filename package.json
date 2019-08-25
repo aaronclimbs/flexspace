@@ -13,6 +13,7 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "bluebird": "^3.5.5",
+    "connect-flash": "^0.1.1",
     "dotenv": "^8.1.0",
     "ejs": "2.6.2",
     "ejs-lint": "^0.3.0",
