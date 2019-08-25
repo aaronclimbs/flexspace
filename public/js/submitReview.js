@@ -6,6 +6,9 @@
  * For more Yii related demos visit http://demos.krajee.com
  */
 
+$(document).ready(function() {
+console.log("Javascript is loaded for Submit Review");
+
 (function ($) {
     var DEFAULT_MIN = 0;
     var DEFAULT_MAX = 5;
@@ -408,3 +411,5 @@
         }
     });
 }(jQuery));
+
+})
