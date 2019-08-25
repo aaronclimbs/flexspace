@@ -225,15 +225,31 @@ $(document).on ("click", ".del-room", function (event)  {
   console.log("Delete clicked")
   event.preventDefault();
 var roomid = this.id 
+console.log(this.id);
 
+  // console.log(resUrl);
 $.ajax({
-method: "DELETE",
-url: "api/rooms/" + roomid
-})
-.then(function() {
-console.log("Room Id "+ roomid)
-location.reload(true)
-});
+  method: "DELETE",
+  url: "api/reservations/" + roomid
+  })
+  .then(function(err) {
+    if (err) {
+      console.log("error deleting reservations");
+    }
+      console.log('deleted RESERVATIONS from roomID:' + roomid);
+      $.ajax({
+        method: "DELETE",
+        url: "api/rooms/" + roomid
+        })
+        .then(function() {
+        console.log("Room Id "+ roomid)
+        location.reload(true)
+        });
+    });
+
+
+
+
 
 })
 
@@ -241,3 +257,45 @@ location.reload(true)
 /* end doc*/
 })
 
+
+
+// $(document).on("click", ".del-room", handleRoomDelete);
+// // console.log("Delete clicked")
+// // event.preventDefault();
+
+// var roomid = this.id 
+//   function deleteRoomsReservations(roomid) {
+
+//     $.ajax({
+//       method: "DELETE",
+//       url: "/api/reservations/" + roomid
+//     })
+//       .then(function(err) {
+//         if (err) {
+//           console.log("error deleting reservations");
+//         }
+//           console.log('deleted RESERVATIONS from roomID:' + roomid);
+//       });
+
+
+//     $.ajax({
+//       method: "DELETE",
+//       url: "/api/rooms/" + roomid
+//     })
+//       .then(function(err) {
+//         if (err) {
+//           console.log("error deleting reservations");
+//         }
+//           console.log('deleted ROOM where ID: ' + roomid);
+//       });
+//   }
+
+//   function handleRoomDelete() {
+// // console.log(roomid);
+//     var currentRoom = $(this)
+//       .parent()
+//       .parent()
+//       .data("room");
+//       console.log(JSON.stringify(this));
+//     deleteRoomsReservations(currentRoom.id);
+//   }
