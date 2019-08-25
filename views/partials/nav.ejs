@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
   <div class="container">
-    <a class="logo " href="/">Flex<img src="../images/spinner3.gif" />Space </a>
+    <a class="logo " href="/">Fle<img src="../images/spinner3.gif" />Space</a>
 
     <button
       class="navbar-toggler"
@@ -26,39 +26,39 @@
 
         <% if (typeof user !== 'undefined' && user.isAdmin) {%>
         <li class="nav-item">
-          <a class="nav-link" id="console" href="/admin">Admin Console</a>
+          <a class="nav-link" id="console" href="/admin">admin console</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="logout" href="/logout">Logout</a>
+          <a class="nav-link" id="logout" href="/logout">logout</a>
         </li>
         <%} else if (typeof user !== 'undefined' && !user.isAdmin) {%>
         <li class="nav-item">
-          <a class="nav-link" id="myDashboard" href="/members">My Dashboard</a>
+          <a class="nav-link" id="myDashboard" href="/members">my dashboard</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="manage" href="/user/<%=user.id%>"
-            >Manage My Account</a
+            >my account</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Support</a>
+          <a class="nav-link" href="#">support</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="logout" href="/logout">Logout</a>
+          <a class="nav-link" id="logout" href="/logout">logout</a>
         </li>
         <%} else {%>
         <li>
-          <a class="nav-link" id="about" href="/about">About</a>
+          <a class="nav-link" id="about" href="/about">about</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="signup" href="/signup">Signup</a>
+          <a class="nav-link" id="signup" href="/signup">signup</a>
         </li>
         <li class="nav-item">
           <!-- Add #contact -->
-          <a class="nav-link" href="#contact">Contact</a>
+          <a class="nav-link" href="#contact">contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="login" href="/login">Login</a>
+          <a class="nav-link" id="login" href="/login">login</a>
         </li>
         <%}%>
       </ul>
