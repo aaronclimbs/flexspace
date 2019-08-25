@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+const { check, validationResult } = require("express-validator");
 
 var delay = (function() {
   var timer;
@@ -16,6 +17,10 @@ module.exports = function(app) {
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     delay(function() {
+      req.flash(
+        "success",
+        "You have been authenticated. Welcome to Flexspace."
+      );
       res.json("/members");
     }, 2000);
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
@@ -26,34 +31,45 @@ module.exports = function(app) {
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
-  app.post("/api/signup", function(req, res) {
-    console.log(req.body);
-
-    delay(function() {
-      db.User.create({
-        email: req.body.email,
-        password: req.body.password,
-        first: req.body.first,
-        last: req.body.last,
-        address: req.body.address,
-        address2: req.body.address2,
-        city: req.body.city,
-        state: req.body.state,
-        zip: req.body.zip,
-        phone: req.body.phone,
-        secQuestion: req.body.secQuestion,
-        secAnswer: req.body.secAnswer
-      })
-        .then(function() {
-          res.redirect(307, "/api/login");
+  app.post(
+    "/api/signup",
+    [
+      // username must be an email
+      check("email").isEmail(),
+      // password must be at least 5 chars long
+      check("password").isLength({ min: 5 })
+    ],
+    function(req, res) {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.array() });
+      }
+      delay(function() {
+        db.User.create({
+          email: req.body.email,
+          password: req.body.password,
+          first: req.body.first,
+          last: req.body.last,
+          address: req.body.address,
+          address2: req.body.address2,
+          city: req.body.city,
+          state: req.body.state,
+          zip: req.body.zip,
+          phone: req.body.phone,
+          secQuestion: req.body.secQuestion,
+          secAnswer: req.body.secAnswer
         })
-        .catch(function(err) {
-          console.log(err);
-          res.json(err);
-          // res.status(422).json(err.errors[0].message);
-        });
-    }, 2000);
-  });
+          .then(function() {
+            res.redirect(307, "/api/login");
+          })
+          .catch(function(err) {
+            console.log(err);
+            res.json(err);
+            // res.status(422).json(err.errors[0].message);
+          });
+      }, 2000);
+    }
+  );
 
   app.post("/api/addroom", function(req, res) {
     console.log(req.body);
@@ -87,6 +103,7 @@ module.exports = function(app) {
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();
+    req.flash("success", "You have been logged out.");
     res.redirect("/login");
   });
 
@@ -140,10 +157,7 @@ module.exports = function(app) {
           ]
         }
       ],
-      order: [
-        ['start_date', 'ASC'],
-        ['start_time', 'ASC'],
-    ],
+      order: [["start_date", "ASC"], ["start_time", "ASC"]]
     }).then(function(dbRes) {
       res.json(dbRes);
     });
