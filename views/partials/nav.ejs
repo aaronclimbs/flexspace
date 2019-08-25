@@ -36,7 +36,9 @@
           <a class="nav-link" id="myDashboard" href="/members">My Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="manage" href="/user/<%=user.id%>">Manage My Account</a>
+          <a class="nav-link" id="manage" href="/user/<%=user.id%>"
+            >Manage My Account</a
+          >
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Support</a>
@@ -63,3 +65,6 @@
     </div>
   </div>
 </nav>
+<div id="messages">
+  <% include messages %>
+</div>
