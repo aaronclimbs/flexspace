@@ -84,6 +84,19 @@ module.exports = function(app) {
     res.render("pages/addroom", ejsObj);
   });
 
+  app.get("/updateroom", function(req, res, next) {
+    // If the user already has an account send them to the members page
+    var ejsObj = { pageTitle: "FlexSpace", user: req.user, script: "updateroom" };
+    if (!req.user) {
+
+      return res.redirect("/login");
+      next();
+    }
+
+
+    res.render("pages/updateroom", ejsObj);
+  });
+
   app.get("/viewrooms", function(req, res, next) {
     // If the user already has an account send them to the members page
     var ejsObj = {
@@ -168,7 +181,27 @@ module.exports = function(app) {
     res.render("pages/rendercalender", ejsObj);
   });
 
+
+
+  app.get("/updateroom", function(req, res, next) {
+    var ejsObj = { pageTitle: "FlexSpace",
+    loggedIn: true };
+
+    var ejsObj = {
+      pageTitle: "Update Room",
+      user: req.user,
+      script: "updateroom"
+    };
+    if (!req.user) {
+      return res.redirect("/login");
+      next();
+    }
+    res.render("pages/members", ejsObj);
+  });
+
+
   app.get("*", function(req, res) {
+
     // If the user already has an account send them to the members page
     var ejsObj = {
       pageTitle: "Not Found",
