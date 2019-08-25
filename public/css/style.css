@@ -49,6 +49,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  text-shadow: 3px 2px black;
 }
 
 
