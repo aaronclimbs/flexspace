@@ -133,11 +133,11 @@ module.exports = function(app) {
         });
     });*/
   
-    app.put("/api/reservations", function(req, res) {
+    app.put("/api/updatereservation/:id", function(req, res) {
       db.Reservation.update(req.body,
         {
           where: {
-            id: req.body.id
+            id: req.params.id
           }
         })
         .then(function(dbReservation) {
