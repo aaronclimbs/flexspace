@@ -92,21 +92,40 @@ module.exports = function(app) {
   
     app.post("/api/reservations", function(req, res) {
       console.log(req.body);
+
+      console.log("Infor to submit" + req.body.roomID + " " + req.body.resDate + " " + req.body.resTime + " " + req.body.resDur + " " + req.user.id)
+
       db.Reservation.create({
-        roomID: req.body.roomID,
-        renterID: req.user.email,
-        startDate: req.body.startDate,
-        endDate:req.body.endDate
+        RoomId: req.body.roomID,
+        start_date: req.body.resDate,
+        end_date: req.body.resDate,
+        start_time: req.body.resTime,
+        duration: req.body.resDur,
+        text: req.body.resText,
+        UserId: req.user.id
+     
       })
         .then(function(dbReservation) {
           res.json(dbReservation);
         });
     });
   
-    app.delete("/api/reservations/:id", function(req, res) {
+    // app.delete("/api/reservations/:id", function(req, res) {
+    //   db.Reservation.destroy({
+    //     where: {
+    //       id: req.params.id
+    //     }
+    //   })
+    //     .then(function(dbReservation) {
+    //       res.json(dbReservation);
+    //     });
+    // });
+
+
+    app.delete("/api/reservations/:roomid", function(req, res) {
       db.Reservation.destroy({
         where: {
-          id: req.params.id
+          RoomId: req.params.roomid
         }
       })
         .then(function(dbReservation) {

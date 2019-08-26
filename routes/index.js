@@ -3,6 +3,6 @@ module.exports = {
   room: require("./roomRoutes"),
   reservation: require("./reservationRoutes"),
   user: require("./userRoutes"),
-  // admin: require("./adminRoutes"),
+  admin: require("./adminRoutes"),
   view: require("./viewRoutes")
 };

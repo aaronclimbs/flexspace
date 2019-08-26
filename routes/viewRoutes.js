@@ -7,7 +7,12 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function(app) {
   app.get("/", function(req, res) {
     // If the user already has an account send them to the members page
-    var ejsObj = { pageTitle: "FlexSpace", user: req.user, script: "home" };
+    var ejsObj = {
+      pageTitle: "FlexSpace",
+      user: req.user,
+      script: "home",
+      messages: req.flash()
+    };
     res.render("pages/home", ejsObj);
   });
 
@@ -17,7 +22,12 @@ module.exports = function(app) {
       return res.redirect("/members");
       next();
     }
-    var ejsObj = { pageTitle: "Signup", user: req.user, script: "signup" };
+    var ejsObj = {
+      pageTitle: "Signup",
+      user: req.user,
+      script: "signup",
+      messages: req.flash()
+    };
     res.render("pages/signup", ejsObj);
   });
 
@@ -27,7 +37,12 @@ module.exports = function(app) {
       return res.redirect("/members");
       next();
     }
-    var ejsObj = { pageTitle: "Login", user: req.user, script: "login" };
+    var ejsObj = {
+      pageTitle: "Login",
+      user: req.user,
+      script: "login",
+      messages: req.flash()
+    };
     res.render("pages/login", ejsObj);
   });
 
@@ -37,7 +52,8 @@ module.exports = function(app) {
     var ejsObj = {
       pageTitle: "Members",
       user: req.user,
-      script: "members"
+      script: "members",
+      messages: req.flash()
     };
     // TODO: Check if user is admin/renter/owner and return appropriate data
     // TODO: Can we programmatically add a property to users that lists how many rooms they have added?
@@ -54,13 +70,16 @@ module.exports = function(app) {
 
   app.get("/addroom", function(req, res, next) {
     // If the user already has an account send them to the members page
-    var ejsObj = { pageTitle: "FlexSpace", user: req.user, script: "addroom" };
+    var ejsObj = {
+      pageTitle: "FlexSpace",
+      user: req.user,
+      script: "addroom",
+      messages: req.flash()
+    };
     if (!req.user) {
-
       return res.redirect("/login");
       next();
     }
-
 
     res.render("pages/addroom", ejsObj);
   });
@@ -70,7 +89,8 @@ module.exports = function(app) {
     var ejsObj = {
       pageTitle: "FlexSpace",
       user: req.user,
-      script: "viewrooms"
+      script: "viewrooms",
+      messages: req.flash()
     };
     if (!req.user) {
       return res.redirect("/login");
@@ -80,13 +100,13 @@ module.exports = function(app) {
     res.render("pages/viewrooms", ejsObj);
   });
 
-
   app.get("/contact", function(req, res) {
     // If the user already has an account send them to the members page
     var ejsObj = {
       pageTitle: "Contact",
       user: req.user,
-      script: "contact"
+      script: "contact",
+      messages: req.flash()
     };
 
     res.render("pages/contact", ejsObj);
@@ -121,7 +141,8 @@ module.exports = function(app) {
     var ejsObj = {
       pageTitle: "About",
       user: req.user,
-      script: "about"
+      script: "about",
+      messages: req.flash()
     };
 
     res.render("pages/about", ejsObj);
@@ -132,21 +153,18 @@ module.exports = function(app) {
     var ejsObj = {
       pageTitle: "User Information",
       user: req.user,
-      script: "user"
+      script: "user",
+      messages: req.flash()
     };
     console.log(JSON.stringify(req.user));
 
     res.render("pages/user", ejsObj);
   });
 
-
   app.get("/rendercalender", function(req, res, next) {
-
-    var ejsObj = { pageTitle: "FlexSpace",
-    loggedIn: true };
     // If the user already has an account send them to the members page
     /*if (req.user) {
-    
+
     var ejsObj = { pageTitle: "FlexSpace",
                    loggedIn: true };
 
@@ -162,7 +180,8 @@ module.exports = function(app) {
     var ejsObj = {
       pageTitle: "Reservations",
       user: req.user,
-      script: "reservations"
+      script: "reservations",
+      messages: req.flash()
     };
 
     if (!req.user) {
@@ -173,15 +192,15 @@ module.exports = function(app) {
     res.render("pages/rendercalender", ejsObj);
   });
 
-    app.get("*", function(req, res) {
+  app.get("*", function(req, res) {
     // If the user already has an account send them to the members page
     var ejsObj = {
       pageTitle: "Not Found",
       user: req.user,
-      script: "error"
+      script: "error",
+      messages: req.flash()
     };
 
     res.render("pages/error", ejsObj);
   });
-
 };

@@ -150,19 +150,54 @@ var timeDiv =$("<div>")
 }
 
 
+/*end gen day function*/
+})
 
+$(document).on ("click", "#res-now", function (event)  {
+    event.preventDefault();
+
+    var resDate = $("#res-date-input");   
+    var resTime = $("#res-time-input");  
+    var resDur = $("#res-dur-input");  
+    var resText = $("#res-text-input"); 
+
+    var resData = {
+        resDate: resDate.val().trim(),
+        resTime: resTime.val().trim(),
+        resDur: resDur.val().trim(),
+        resText: resText.val().trim(),
+        roomID: urlRoomID
+
+    }
+
+    console.log("reservation data is " + resData.resDate + " " + resData.resTime+ " " + resData.resDur+ " " + resData.roomID + " " + resData.resText)
+
+    addRes( resData.resDate, resData.resTime, resData.resText, resData.resDur, resData.roomID)
+
+    function addRes(resDate, resTime, resText, resDur, roomID) {
+        $.post("/api/reservations", {
+          resDate: resDate,
+          resTime: resTime,
+          resDur: resDur,
+          resText:resText,
+          roomID: roomID
+          
+          
+          
+    
+        }).then(function(data) {
+       location.reload(true)
+        })
+      }    
+
+
+
+
+
+/* end click */
 })
 
 
-  
-
-
-        
-       
-
-
-
-
-
+/*end doc*/
 
 })
