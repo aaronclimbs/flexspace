@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     $.get("/api/user_data").then(function(userdata) {
     
-      $(".member-name").text(userdata.id);
+      $(".member-name").text(userdata.first);
       //$("#logMsg").text("Logged In").css("display", "unset");
       $("#login").css("display", "none");
       $("#signup").css("display", "none");
@@ -62,7 +62,7 @@ var i=0;
     resCost.text("$" + element.duration * element.Room.hourlyRate)
 
     resUpdDel=$("<td>")
-    resUpdDel
+    
 
     resDel=$("<span>")
     resDel.addClass("del-res float-left pr-4")
@@ -70,7 +70,7 @@ var i=0;
     resDel.attr("id", element.id)
 
     resUpd=$("<span>")
-    resUpd.addClass("upd-res ")
+    resUpd.addClass("update-res")
     resUpd.html('<i class="fas fa-edit"></i>')
     resUpd.attr("id", element.id)
 
@@ -122,9 +122,13 @@ var i=0;
     roomDel.html('<i class="fa fa-trash" ></i>')
     roomDel.attr("id", element.id)
   
+    roomUpdate=$("<td>")
+    roomUpdate.addClass("update-room")
+    roomUpdate.html('<i class="fa fa-pen" ></i>')
+    roomUpdate.attr("id", element.id)
       
   
-      rowDiv.append(roomImg, roomName, roomLoc, roomResCount, roomDel)
+      rowDiv.append(roomImg, roomName, roomLoc, roomResCount, roomDel, roomUpdate)
   
     i++
     })
@@ -141,6 +145,42 @@ var i=0;
  
     
     /*Clickable actions */
+
+    $(document).on ("click", ".del-res", function (event)  {
+      console.log("Launch modal clicked")
+      event.preventDefault();
+      jQuery.noConflict();
+    var resid = this.id 
+
+    $("#confirm-res-del-btn").attr("value", resid)
+
+    $("#res-del-info").text("Are you sure you want to delete this reservation?")
+    
+    $("#confirm-res-del-modal").modal("toggle");
+
+
+    $(document).on ("click", "#confirm-res-del-btn", function (event)  {
+      console.log("Confrim Delete clicked")
+      event.preventDefault();
+    
+    
+    
+    console.log("Reservation ID " + resid)
+    
+    $.ajax({
+    method: "DELETE",
+    url: "api/reservations/" + resid
+    })
+    .then(function() {
+    console.log("Reservation ID "+ resid)
+    location.reload(true)
+    });
+    
+    })
+    
+    
+    
+    })
 
     $(document).on ("click", ".get-room-info", function (event)  {
       event.preventDefault();
@@ -202,6 +242,14 @@ var i=0;
          var roomCapacity=$("<li>");
          roomCapacity.addClass("list-group-item")
          roomCapacity.text("Capacity: " + roomdata.roomCapacity)
+
+        /* var editRoom=$("<button>")
+         editRoom.attr("id", roomdata.id)
+         editRoom.addClass("update-room");
+         editRoom.attr("owner-id", roomdata.roomOwnerID)
+         editRoom.attr("roomname", roomdata.roomName)
+         editRoom.text("Edit")*/
+  
  
      $("#roomInfo").append(roomType, roomCapacity)
 
@@ -215,20 +263,104 @@ var i=0;
 })
       
 
-$(document).on ("click", ".del-res", function (event)  {
-  console.log("Delete clicked")
+
+
+
+$(document).on ("click", ".update-res", function (event)  {
+  console.log("Update link clicked")
+  
   event.preventDefault();
-var resid = this.id 
+  var resid = this.id
+  console.log("Id from click is " + resid)
+ 
+ 
+ 
+ 
+  $.get("/api/reservations/" + resid).then(function(updatedata) {
 
-$.ajax({
-method: "DELETE",
-url: "api/reservations/" + resid
+  console.log("Room data from link click is " +JSON.stringify(updatedata))
+
+var date = moment(updatedata.start_date).format("YYYY-MM-DD")
+var time =updatedata.start_time
+var text= updatedata.text
+var dur = updatedata.duration
+
+var ampm =moment(date + " " +time).format("A")
+
+var hour = time.slice(0,2)
+var min = time.slice(3,5)
+
+
+console.log("Slice time is " + hour + " " + min + " " + ampm)
+
+console.log("Date is " + date)
+console.log("Time is " + time)
+console.log("Text is " + text)
+console.log("Dur is " + dur)
+
+  $("#res-date-input").val(date)
+  $("#res-hh-input").val(hour)
+  $("#res-mm-input").val(min)
+  $("#res-text-input").val(text)
+  $("#res-dur-input").val(dur)
+  $("#am-pm").text(ampm)
+
+ $("#show-res-modal").modal("toggle");
+
+ $(document).on ("click", "#update-res-btn", function (event)  {
+  console.log("Update Button clicked")
+  event.preventDefault();
+
+ var newDate = $("#res-date-input").val()
+ var newTime = $("#res-hh-input").val() + ":" +$("#res-mm-input").val()
+ var newDur = $("#res-dur-input").val()
+ var newText = $("#res-text-input").val().trim()
+
+ console.log("New res info being submitted is " + newDate + " " + newTime + " " + newDur + " " + newText) 
+
+ var updatedRes = {
+  id:resid,
+  start_date: newDate,
+  start_time: newTime,
+  duration: newDur,
+  text: newText
+
+ }
+
+ updateRes ( updatedRes.id, updatedRes.start_date,updatedRes.start_time,updatedRes.duration,updatedRes.text)
+
+ function updateRes(id, date, time, dur, text) {
+  $.ajax({
+    type:"PUT",
+    url: "/api/updatereservation/" + id,
+    data: { 
+    id: id,
+    start_date: date,
+    start_time:time,
+    duration:dur,
+    text:text
+
+      },
+      datatype: 'application/json',
+      success: function(result) {
+          console.log(result);
+          location.reload(false)
+          //window.location.replace("?variable=" + thisRoomId);
+      },
+     
+  });
+
+ 
+
+ }
+
+/* end update button click*/ 
 })
-.then(function() {
-console.log("Reservation ID "+ resid)
-location.reload(true)
-});
 
+/* end get*/
+  })
+
+/*end click*/
 })
 
 $(document).on ("click", ".del-room", function (event)  {
@@ -237,75 +369,60 @@ $(document).on ("click", ".del-room", function (event)  {
 var roomid = this.id 
 console.log(this.id);
 
-  // console.log(resUrl);
-$.ajax({
-  method: "DELETE",
-  url: "api/reservations/" + roomid
-  })
-  .then(function(err) {
-    if (err) {
-      console.log("error deleting reservations");
-    }
-      console.log('deleted RESERVATIONS from roomID:' + roomid);
-      $.ajax({
-        method: "DELETE",
-        url: "api/rooms/" + roomid
-        })
-        .then(function() {
-        console.log("Room Id "+ roomid)
-        location.reload(true)
-        });
+
+/* Get the reservation for the room */
+
+$.get("/api/reservationsbyroom/" + roomid, function(resdata) { 
+
+  console.log("Reservation data length is " + resdata.length)
+
+  if (resdata.length !== 0) {
+
+  for (i =0; i< resdata.length; i++) {
+
+    $.ajax({
+      method: "DELETE",
+      url: "api/reservations/" + resdata[i].id
+      })
+      .then(function() {
+      console.log("Reservation ID deleted was "+ resid)
+      
+      });
+
+
+  }
+}
+
+  $.ajax({
+    method: "DELETE",
+    url: "api/rooms/" + roomid
+    })
+    .then(function() {
+    console.log("Room ID deleted was"+ roomid)
+    
     });
 
 
+location.reload(true)
 
 
-
+//*end get*/
+})
+/*end click*/
 })
 
+$(document).on ("click", ".update-room", function (event)  {
+  event.preventDefault();
+var roomid = this.id
+
+console.log( "Room ID being sent in URL is "+ roomid)
+
+window.location = "/updateroom/?variable=" + roomid;
+
+})
  
 /* end doc*/
 })
 
 
 
-// $(document).on("click", ".del-room", handleRoomDelete);
-// // console.log("Delete clicked")
-// // event.preventDefault();
-
-// var roomid = this.id 
-//   function deleteRoomsReservations(roomid) {
-
-//     $.ajax({
-//       method: "DELETE",
-//       url: "/api/reservations/" + roomid
-//     })
-//       .then(function(err) {
-//         if (err) {
-//           console.log("error deleting reservations");
-//         }
-//           console.log('deleted RESERVATIONS from roomID:' + roomid);
-//       });
-
-
-//     $.ajax({
-//       method: "DELETE",
-//       url: "/api/rooms/" + roomid
-//     })
-//       .then(function(err) {
-//         if (err) {
-//           console.log("error deleting reservations");
-//         }
-//           console.log('deleted ROOM where ID: ' + roomid);
-//       });
-//   }
-
-//   function handleRoomDelete() {
-// // console.log(roomid);
-//     var currentRoom = $(this)
-//       .parent()
-//       .parent()
-//       .data("room");
-//       console.log(JSON.stringify(this));
-//     deleteRoomsReservations(currentRoom.id);
-//   }

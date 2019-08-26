@@ -14,7 +14,7 @@ module.exports = function(app) {
         });
     });
   
-    app.get("/api/Reservations/type/:reservationType", function(req, res) {
+    /*app.get("/api/Reservations/type/:reservationType", function(req, res) {
       db.Reservation.findAll({
         where: {
           reservationType: req.params.type
@@ -23,7 +23,7 @@ module.exports = function(app) {
         .then(function(dbReservation) {
           res.json(dbReservation);
         });
-    });
+    });*/
   
     app.get("/api/reservations/:id", function(req, res) {
       db.Reservation.findOne({
@@ -93,7 +93,7 @@ module.exports = function(app) {
     app.post("/api/reservations", function(req, res) {
       console.log(req.body);
 
-      console.log("Infor to submit" + req.body.roomID + " " + req.body.resDate + " " + req.body.resTime + " " + req.body.resDur + " " + req.user.id)
+      console.log("Info to submit" + req.body.roomID + " " + req.body.resDate + " " + req.body.resTime + " " + req.body.resDur + " " + req.user.id)
 
       db.Reservation.create({
         RoomId: req.body.roomID,
@@ -110,19 +110,19 @@ module.exports = function(app) {
         });
     });
   
-    // app.delete("/api/reservations/:id", function(req, res) {
-    //   db.Reservation.destroy({
-    //     where: {
-    //       id: req.params.id
-    //     }
-    //   })
-    //     .then(function(dbReservation) {
-    //       res.json(dbReservation);
-    //     });
-    // });
+     app.delete("/api/reservations/:id", function(req, res) {
+       db.Reservation.destroy({
+        where: {
+          id: req.params.id
+        }
+     })
+        .then(function(dbReservation) {
+          res.json(dbReservation);
+        });
+     });
 
 
-    app.delete("/api/reservations/:roomid", function(req, res) {
+    /*app.delete("/api/reservations/:roomid", function(req, res) {
       db.Reservation.destroy({
         where: {
           RoomId: req.params.roomid
@@ -131,13 +131,13 @@ module.exports = function(app) {
         .then(function(dbReservation) {
           res.json(dbReservation);
         });
-    });
+    });*/
   
-    app.put("/api/reservations", function(req, res) {
+    app.put("/api/updatereservation/:id", function(req, res) {
       db.Reservation.update(req.body,
         {
           where: {
-            id: req.body.id
+            id: req.params.id
           }
         })
         .then(function(dbReservation) {

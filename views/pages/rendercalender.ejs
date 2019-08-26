@@ -17,15 +17,15 @@
       <div class="card-header text-center" id="cal-room-name">
       
       </div>
-      <div class="card-body text-center" >
+      <div class="container card-body text-center" >
             <div class="card-header text-center" id="res-header">
       
             </div>
 
-            <div class="row">
-                <div class="col-md-3" id="res-form">
+            <div class="container row">
+                <div class="col-md-3 mt-2" id="res-form">
                     <form>
-                            <div class="form-group row">
+                            <div class="form-group row ">
                                     <label for="res-date-input" class=" col-form-label">Reservation Date</label>
                                     <div class="">
                                       <input class="form-control" type="date" value="2019-08-19" id="res-date-input">
@@ -33,14 +33,48 @@
                                   </div>
 
                                   <div class="form-group row">
-                                        <label for="res-time-input" class=" col-form-label">Reservation Time</label>
-                                        <div class="">
-                                          <input class="form-control" type="time" value="13:45:00" id="res-time-input">
+                                       
+
+                                      
+                                      <label class="" for="res-dur-input">Reservation Time</label>
+
+                                        <div class="form-group row ml-1">
+
+                                        <div class="form-group col pl-0 pr-0">
+                                            <select class="custom-select " id="res-hh-input">
+                                              <option selected>HH</option>
+                                              <option value="08">08</option>
+                                              <option value="09">09</option>
+                                              <option value="10">10</option>
+                                              <option value="11">11</option>
+                                              <option value="12">12</option>
+                                              <option value="13">01</option>
+                                              <option value="14">02</option>
+                                              <option value="15">03</option>
+                                              <option value="16">04</option>
+                                              <option value="17">05</option>
+                                              <option value="18">06</option>
+                                              <option value="19">07</option>
+                                              <option value="20">08</option>
+                                              <option value="21">09</option>
+                                            </select>
                                         </div>
-                                      </div>
+
+                                        <div class="form-group col pl-0">
+                                            <select class="custom-select " id="res-mm-input">
+                                              <option selected>MM</option>
+                                              <option value="00">00</option>
+                                              <option value="30">30</option>
+                                  
+                                            </select>
+                                         </div>
+
+                                          </div>
+
+                                    </div>
 
                                       <div class="form-group row">
-                                      <label class="" for="res-dur-input">Meeting Duration</label>
+                                      <label class="" for="res-dur-input">Reservation Duration</label>
                                       <select class="custom-select " id="res-dur-input">
                                         <option selected>Choose...</option>
                                         <option value="1">One hour</option>
@@ -62,7 +96,7 @@
                                       </div>
                                  
                                       <div class="form-group row">
-                                      <button id="res-search" class="btn btn-dark">Search</button> 
+                                      <button id="upd-search" class="btn btn-dark"> Update Search</button> 
                                       </div>
                                       <div class="form-group row">
                                       <button  id="res-now" class="btn btn-dark">Reserve Now</button>
@@ -83,9 +117,39 @@
     </div>
   </div>
 
+
+            <!-- Modal for Res Del -->
+
+                    
+            <div class="modal fade" id="meeting-conflict-modal" tabindex="-1" role="dialog" aria-labelledby="meeting-conflict-modal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title"id="modal-room-name">Meeting Conflict</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body justify-content-center" id="meeting-conflict-info">
+                        
+                        There is a meeting conflict. Please adjust your meeting times or search for another room.
+                            
+  
+                           
+                          
+                    </div>
+                    <div class="modal-footer">
+                     
+                      <button type="button" id="conflict-close" class="btn btn-secondary modal-btn" data-dismiss="modal">Close</button>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="../../js/rendercalender.js"></script>
-  <% include ../partials/footer.ejs %>
+  <% include ../partials/calfooter.ejs %>
 </html>
 
 
