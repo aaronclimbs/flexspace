@@ -29,7 +29,7 @@ html {
   font-family: 'Quantum', Arial, Helvetica, sans-serif;
   color:#072752;
  margin-right:2px;
-  font-size:18px;
+  font-size:20px;
   padding-left:5px;
   padding-right:5px;
 }
@@ -407,4 +407,35 @@ section#contactInfo {
 
 .modal-body {
   color: #072752;
+}
+
+#res-hh-input {
+  width:75px;
+}
+
+#res-mm-input {
+  width:75px;
+}
+
+.res-hour {
+  padding-left:0px;
+}
+
+#res-day {
+  border: 0px;
+}
+
+#show-res-modal {
+  width:400px;
+
+  left:30%;
+}
+
+.modal-header, .modal-footer {
+  background-color: #072752;
+ 
+}
+
+.modal-title {
+  color:white;
 }

@@ -520,8 +520,7 @@ const reservationData = [
   {
     text: "test10",
     start_date: moment()
-      .add("3", "days")
-      .format("Y-MM-DD"),
+    .format("Y-MM-DD"),
     start_time: "19:00",
     end_date: moment()
       .add("3", "days")
@@ -529,7 +528,7 @@ const reservationData = [
     duration: 1,
     createdAt: new Date(),
     updatedAt: new Date(),
-    RoomId: "3",
+    RoomId: "5",
     UserId: "4"
   }
 ];
