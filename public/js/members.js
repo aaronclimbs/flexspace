@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     $.get("/api/user_data").then(function(userdata) {
     
-      $(".member-name").text(userdata.id);
+      $(".member-name").text(userdata.first);
       //$("#logMsg").text("Logged In").css("display", "unset");
       $("#login").css("display", "none");
       $("#signup").css("display", "none");
@@ -146,6 +146,42 @@ var i=0;
     
     /*Clickable actions */
 
+    $(document).on ("click", ".del-res", function (event)  {
+      console.log("Launch modal clicked")
+      event.preventDefault();
+      jQuery.noConflict();
+    var resid = this.id 
+
+    $("#confirm-res-del-btn").attr("value", resid)
+
+    $("#res-del-info").text("Are you sure you want to delete this reservation?")
+    
+    $("#confirm-res-del-modal").modal("toggle");
+
+
+    $(document).on ("click", "#confirm-res-del-btn", function (event)  {
+      console.log("Confrim Delete clicked")
+      event.preventDefault();
+    
+    
+    
+    console.log("Reservation ID " + resid)
+    
+    $.ajax({
+    method: "DELETE",
+    url: "api/reservations/" + resid
+    })
+    .then(function() {
+    console.log("Reservation ID "+ resid)
+    location.reload(true)
+    });
+    
+    })
+    
+    
+    
+    })
+
     $(document).on ("click", ".get-room-info", function (event)  {
       event.preventDefault();
       var roomid = this.id
@@ -207,15 +243,15 @@ var i=0;
          roomCapacity.addClass("list-group-item")
          roomCapacity.text("Capacity: " + roomdata.roomCapacity)
 
-         var editRoom=$("<button>")
+        /* var editRoom=$("<button>")
          editRoom.attr("id", roomdata.id)
          editRoom.addClass("update-room");
          editRoom.attr("owner-id", roomdata.roomOwnerID)
          editRoom.attr("roomname", roomdata.roomName)
-         editRoom.text("Edit")
+         editRoom.text("Edit")*/
   
  
-     $("#roomInfo").append(roomType, roomCapacity, editRoom)
+     $("#roomInfo").append(roomType, roomCapacity)
 
      $("#show-room-modal").modal("toggle");
 
@@ -227,31 +263,17 @@ var i=0;
 })
       
 
-$(document).on ("click", ".del-res", function (event)  {
-  console.log("Delete clicked")
-  event.preventDefault();
-var resid = this.id 
 
-console.log("Reservation ID " + resid)
 
-$.ajax({
-method: "DELETE",
-url: "api/reservations/" + resid
-})
-.then(function() {
-console.log("Reservation ID "+ resid)
-location.reload(true)
-});
-
-})
 
 $(document).on ("click", ".update-res", function (event)  {
   console.log("Update link clicked")
+  
   event.preventDefault();
   var resid = this.id
   console.log("Id from click is " + resid)
  
-  jQuery.noConflict();
+ 
  
  
   $.get("/api/reservations/" + resid).then(function(updatedata) {
@@ -263,6 +285,13 @@ var time =updatedata.start_time
 var text= updatedata.text
 var dur = updatedata.duration
 
+var ampm =moment(date + " " +time).format("A")
+
+var hour = time.slice(0,2)
+var min = time.slice(3,5)
+
+
+console.log("Slice time is " + hour + " " + min + " " + ampm)
 
 console.log("Date is " + date)
 console.log("Time is " + time)
@@ -270,9 +299,11 @@ console.log("Text is " + text)
 console.log("Dur is " + dur)
 
   $("#res-date-input").val(date)
-  $("#res-time-input").val(time)
+  $("#res-hh-input").val(hour)
+  $("#res-mm-input").val(min)
   $("#res-text-input").val(text)
   $("#res-dur-input").val(dur)
+  $("#am-pm").text(ampm)
 
  $("#show-res-modal").modal("toggle");
 
@@ -281,9 +312,11 @@ console.log("Dur is " + dur)
   event.preventDefault();
 
  var newDate = $("#res-date-input").val()
- var newTime = $("#res-time-input").val()
+ var newTime = $("#res-hh-input").val() + ":" +$("#res-mm-input").val()
  var newDur = $("#res-dur-input").val()
  var newText = $("#res-text-input").val().trim()
+
+ console.log("New res info being submitted is " + newDate + " " + newTime + " " + newDur + " " + newText) 
 
  var updatedRes = {
   id:resid,
@@ -311,7 +344,7 @@ console.log("Dur is " + dur)
       datatype: 'application/json',
       success: function(result) {
           console.log(result);
-          location.reload(true)
+          location.reload(false)
           //window.location.replace("?variable=" + thisRoomId);
       },
      
