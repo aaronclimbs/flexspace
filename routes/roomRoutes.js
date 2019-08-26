@@ -67,7 +67,9 @@ module.exports = function(app) {
       });
   });
 
-  app.put("/api/rooms/:id", function(req, res) {
+  app.put("/api/updateroom/:id", function(req, res) {
+
+  
     db.Room.update(req.body,
       {
         where: {
@@ -75,7 +77,12 @@ module.exports = function(app) {
         }
       })
       .then(function(dbRoom) {
+        req.flash(
+          "success",
+          "Room sucessfully updated"
+        );
         res.json(dbRoom);
+        
       });
   });
 

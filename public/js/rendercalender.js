@@ -11,7 +11,9 @@ $(document).ready(function () {
     var urlRoomID=$.urlParam('variable')
    
 var resStart=0
-var today= "2019-08-28"
+var today= moment().format("YYYY-MM-DD")
+
+$("#res-date-input").val(today)
 
 
 

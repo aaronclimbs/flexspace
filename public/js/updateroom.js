@@ -78,14 +78,33 @@ console.log(roomInfo);
       $("#city-input").val(roomInfo.city);
       $("#state-input").val(roomInfo.state_us);
       $("#zip-input").val(roomInfo.zip);
-      console.log($("#zip-input"));
+      //console.log($("#zip-input"));
 
-      updateRoomForm.on("submit", function(event) {
-        $("#loading").fadeIn();
+      $("#update-room").on("submit", function(event) {
+        event.preventDefault();
+        console.log("Update room clicked")
+       
         // var roomid = this.id;
         // console.log(roomid);
-        console.log("Add room clicked")
-        event.preventDefault();
+
+        //var updateRoomForm = $("#update-room");
+        var roomInput = $("#room-input");
+        var capacityInput = $("#capacity-input");
+        var roomURLInput = $("#room-url-input");
+        var roomTypeInput = $("#room-type-input");
+        var address1Input = $("#address1-input");
+        var address2Input = $("#address2-input");
+        var cityInput = $("#city-input");
+        var stateInput = $("#state-input");
+        var zipInput = $("#zip-input");
+        var roomRateInput = $("#room-rate-input");
+        var phoneInput = $("#room-phone-input");
+
+
+
+
+        
+       
         var roomData = {
           id: roomInfo.id,
           roomName: roomInput.val().trim(),
@@ -101,11 +120,11 @@ console.log(roomInfo);
           roomRate:roomRateInput.val().trim(),
         };
       
-        console.log("room Data is "+ JSON.stringify(roomData))
+        console.log("room Data being updated is "+ JSON.stringify(roomData))
         // If we have an email and password, run the signUpUser function
         addRoom(roomData.id, roomData.roomName, roomData.roomCapacity, roomData.roomURL, roomData.roomType,roomData.address1,roomData.address2, roomData.city,roomData.state_us,roomData.zip,roomData.contactPhone, roomData.roomRate);
         // thisRoomId.val("");
-        roomInput.val("");
+        /*roomInput.val("");
         capacityInput.val("");
         roomURLInput.val("");
         roomTypeInput.val("");
@@ -115,7 +134,7 @@ console.log(roomInfo);
         stateInput.val("");
         zipInput.val("");
         phoneInput.val("");
-        roomRateInput.val("");
+        roomRateInput.val("");*/
        
       });
 
@@ -126,18 +145,7 @@ console.log(roomInfo);
 console.log("Room id is " + urlRoomID)
 
 
-var updateRoomForm = $("#update-room");
-var roomInput = $("input#room-input");
-var capacityInput = $("input#capacity-input");
-var roomURLInput = $("input#room-url-input");
-var roomTypeInput = $("#room-type-input");
-var address1Input = $("input#address1-input");
-var address2Input = $("input#address2-input");
-var cityInput = $("input#city-input");
-var stateInput = $("#state-input");
-var zipInput = $("input#zip-input");
-var roomRateInput = $("input#room-rate-input");
-var phoneInput = $("input#room-phone-input");
+
 
 
 
@@ -146,7 +154,7 @@ var phoneInput = $("input#room-phone-input");
 function addRoom(thisRoomId, roomName, roomCapacity, roomURL, roomType, address1, address2, city, state_us, zip, contactPhone, roomRate) {
   $.ajax({
     type:"PUT",
-    url: "/api/rooms/" + thisRoomId,
+    url: "/api/updateroom/" + thisRoomId,
     data: { 
     roomName: roomName,
     roomCapacity: roomCapacity,
@@ -158,21 +166,19 @@ function addRoom(thisRoomId, roomName, roomCapacity, roomURL, roomType, address1
     state_us:state_us,
     zip:zip,
     contactPhone:contactPhone,
-    roomRate:roomRate,
+    hourlyRate: roomRate,
       },
       datatype: 'application/json',
       success: function(result) {
           console.log(result);
-          window.location.replace("?variable=" + thisRoomId);
+          location.reload(true)
+          //window.location.replace("?variable=" + thisRoomId);
       },
-      error: handleLoginErr
+     
   });
 }
 
-function handleLoginErr(err) {
-  $("#alert").text(err.responseJSON);
-  $("#alert").fadeIn(500);
-}
+
 });
 
 // // Does a post to the signup route. If successful, we are redirected to the members page

@@ -514,8 +514,8 @@ const reservationData = [
     duration: 1,
     createdAt: new Date(),
     updatedAt: new Date(),
-    RoomId: "6",
-    UserId: "8"
+    RoomId: "3",
+    UserId: "6"
   },
   {
     text: "test10",

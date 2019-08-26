@@ -402,3 +402,9 @@ section#contactInfo {
 .modal-room-photo{
   height:250;
 }
+
+/* update reservation css */
+
+.modal-body {
+  color: #072752;
+}

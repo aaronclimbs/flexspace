@@ -99,7 +99,7 @@
               </div>
             </div>
 
-             <!-- Modal used to display Room Info-->
+             <!-- Modal used to display Res Info-->
           <div class="modal fade" id="show-res-modal" tabindex="-1" role="dialog" aria-labelledby="show-room-modal" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -110,6 +110,49 @@
                     </button>
                   </div>
                   <div class="modal-body justify-content-center" id="res-details">
+
+                      <form>
+                          <div class="form-group row">
+                                  <label for="res-date-input" class=" col-form-label">Reservation Date</label>
+                                  <div class="">
+                                    <input class="form-control" type="date" value="2019-08-19" id="res-date-input">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row">
+                                      <label for="res-time-input" class=" col-form-label">Reservation Time</label>
+                                      <div class="">
+                                        <input class="form-control" type="time" value="13:45:00" id="res-time-input">
+                                      </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                    <label class="" for="res-dur-input">Meeting Duration</label>
+                                    <select class="custom-select " id="res-dur-input">
+                                      <option selected>Choose...</option>
+                                      <option value="1">One hour</option>
+                                      <option value="2">Two hours</option>
+                                      <option value="3">Three hours</option>
+                                      <option value="4">Four hours</option>
+                                      <option value="5">Five hours</option>
+                                      <option value="6">Six hours</option>
+                                      <option value="7">Seven hours</option>
+                                      <option value="8">Eight hours</option>
+                                      
+                                    </select>
+                                    </div>
+                                    
+
+                                    <div class="form-group row">
+                                      <label for="res-text-input">Reservation details</label>
+                                      <textarea class="form-control" id="res-text-input" rows="2"></textarea>
+                                    </div>
+                               
+                                    <div class="form-group row">
+                                    <button id="update-res-btn" class="btn btn-dark">Update</button> 
+                                    </div>
+                                   
+                </form>
                       
                       
                           
@@ -118,7 +161,7 @@
                         
                   </div>
                   <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary float-left">Text me this!</button>
+ 
                     <button type="button" class="btn btn-secondary modal-btn" data-dismiss="modal">Close</button>
                     
                   </div>
