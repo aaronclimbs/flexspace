@@ -58,7 +58,10 @@
               <tr>
                 <th>User ID</th>
                 <th>Email</th>
-                <th>Options</th>
+                <th>Rooms</th>
+                <th>Reservations</th>
+                <th>Revenue</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -66,6 +69,9 @@
               <tr>
                 <td scope="row"><%=user.id%></td>
                 <td><%=user.email%></td>
+                <td><%=user.rooms%></td>
+                <td><%=user.reservations%></td>
+                <td><%=user.revenue%></td>
                 <td>
                   <button
                     data-id="<%=user.id%>"
@@ -96,15 +102,19 @@
                 <th>Room ID</th>
                 <th>Name</th>
                 <th>Type</th>
-                <th>Options</th>
+                <th>Owner</th>
+                <th>Reservations</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
               <%rooms.forEach(room => {%>
               <tr>
                 <td scope="row"><%=room.id%></td>
-                <td><%=room.roomName%></td>
-                <td><%=room.roomType%></td>
+                <td><%=room.name%></td>
+                <td><%=room.type%></td>
+                <td><%=room.owner%></td>
+                <td><%=room.reservations%></td>
                 <td>
                   <button
                     data-id="<%=room.id%>"
