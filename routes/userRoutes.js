@@ -17,7 +17,7 @@ module.exports = function(app) {
   });
 
   app.get("/api/users/:id", function(req, res) {
-    console.log('request.user' + JSON.stringify(req.user));
+    console.log("request.user" + JSON.stringify(req.user));
     if (req.user.isAdmin || req.user.id == req.params.id) {
       db.User.findByPk(req.params.id)
         .then(function(result) {
@@ -32,28 +32,51 @@ module.exports = function(app) {
     }
   });
 
-  app.put("/api/users/:id", function(req, res) {
+  app.get("/api/users4owner/:id", function(req, res) {
+    console.log('request.user' + JSON.stringify(req.user));
+    // if (req.user.isAdmin || req.user.id == req.params.id) {
+      db.User.findByPk(req.params.id)
+        .then(function(result) {
+          var showResBooking = {
+            first: result.first, 
+            last: result.last, 
+            email: result.email, 
+            phone: result.phone
+          }
+          res.json(showResBooking);
+        })
+        .catch(function(err) {
+          console.log(err);
+          res.json(err);
+        });
+    // } else {
+    //   res.json({});
+    // }
+  });
 
+  app.put("/api/users/:id", function(req, res) {
     if (req.user.isAdmin || req.user.id == req.params.id) {
       console.log(JSON.stringify(req.body));
-      db.User.update({
-        email: req.body.email,
-        first: req.body.first,
-        last: req.body.last,
-        address: req.body.address,
-        address2: req.body.address2,
-        city: req.body.city,
-        state: req.body.state,
-        zip: req.body.zip,
-        phone: req.body.phone,
-        secQuestion: req.body.secQuestion,
-        secAnswer: req.body.secAnswer
-      },
-      {
-        where: {
-          id: req.params.id
+      db.User.update(
+        {
+          email: req.body.email,
+          first: req.body.first,
+          last: req.body.last,
+          address: req.body.address,
+          address2: req.body.address2,
+          city: req.body.city,
+          state: req.body.state,
+          zip: req.body.zip,
+          phone: req.body.phone,
+          secQuestion: req.body.secQuestion,
+          secAnswer: req.body.secAnswer
+        },
+        {
+          where: {
+            id: req.params.id
+          }
         }
-      })
+      )
         .then(function(result) {
           res.json(result);
         })

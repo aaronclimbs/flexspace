@@ -46,16 +46,28 @@
         <li class="nav-item">
           <a class="nav-link" id="logout" href="/logout">logout</a>
         </li>
+        <%} else if (script === "home") {%>
+          <li>
+              <a class="nav-link" id="about" href="/about">about</a>
+            </li>
+
+            <li class="nav-item">
+              <!-- Add #contact -->
+              <a class="nav-link" href="#contactForm">contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="signup" href="/signup">signup</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="login" href="/login">login</a>
+            </li>
+
         <%} else {%>
         <li>
           <a class="nav-link" id="about" href="/about">about</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="signup" href="/signup">signup</a>
-        </li>
-        <li class="nav-item">
-          <!-- Add #contact -->
-          <a class="nav-link" href="#contact">contact</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="login" href="/login">login</a>
@@ -65,6 +77,5 @@
     </div>
   </div>
 </nav>
-<div id="messages">
-  <% include messages %>
-</div>
+<% include messages %>
+
