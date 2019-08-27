@@ -44,7 +44,7 @@ $(document).ready(function() {
 
     // If we have an email and password we run the loginUser function and clear the form
     loginUser(userData.email, userData.password);
-    emailInput.val("");
+   // emailInput.val("");
     passwordInput.val("");
   });
 
@@ -56,9 +56,20 @@ $(document).ready(function() {
     }).then(function(data) {
       window.location.replace(data);
       // If there's an error, log the error
-    }).catch(function(err) {
-      console.log(err);
-    });
+    }).catch(handleLoginErr);
   }
+
+
+
+  function handleLoginErr(err) {
+    $("#loading").hide();
+    console.log("erro is" + JSON.stringify(err))
+    console.log(err.responseJSON)
+    var error=JSON.stringify(err)
+ 
+   $("#error-info").text("Login failure. ");
+   
+  }
+
 
 });
