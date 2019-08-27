@@ -489,9 +489,11 @@ const reservationData = [
   },
   {
     text: "test7",
-    start_date: "2019-08-23",
+    start_date: moment()
+      .add("-2", "days")
+      .format("Y-MM-DD"),
     end_date: moment()
-      .add("4", "days")
+      .add("-2", "days")
       .format("Y-MM-DD"),
     start_time: "10:00",
     duration: 1,
@@ -517,10 +519,12 @@ const reservationData = [
   },
   {
     text: "test10",
-    start_date: "2019-08-23",
+    start_date: moment()
+      .add("-3", "days")
+      .format("Y-MM-DD"),
     start_time: "19:00",
     end_date: moment()
-      .add("3", "days")
+      .add("-3", "days")
       .format("Y-MM-DD"),
     duration: 1,
     createdAt: new Date(),
