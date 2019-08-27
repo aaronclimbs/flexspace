@@ -174,7 +174,7 @@ $(document).on ("click", "#res-now", function (event)  {
     var resHH= parseInt($("#res-hh-input").val()) 
 
     var resDate = $("#res-date-input").val();   
-    var resTime = $("#res-hh-input").val() + ":" + $("#res-mm-input").val();  
+    var resTime = $("#res-hh-input").val() + ":00"
     var resDur = $("#res-dur-input").val();  
     var resText = $("#res-text-input").val(); 
 
