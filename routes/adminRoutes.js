@@ -15,12 +15,13 @@ module.exports = function(app) {
       const rooms = db.Room.findAll({
         include: [db.User, db.Reservation]
       }).then(data => {
-        console.log(JSON.stringify(data));
         return data;
       });
-      const reservations = db.Reservation.findAll().then(data => {
-        return data;
-      });
+      const reservations = db.Reservation.findAll({ include: [db.Room] }).then(
+        data => {
+          return data;
+        }
+      );
 
       const revenueData = db.User.findAll({
         include: [
@@ -34,7 +35,6 @@ module.exports = function(app) {
           }
         ]
       }).then(data => {
-        console.log(JSON.stringify(data, null, 2));
         return data;
       });
       Promise.all([revenueData, rooms, reservations]).then(data => {
@@ -73,9 +73,21 @@ module.exports = function(app) {
           };
         });
 
+        // reservations/name
+
+        const resEjs = data[2].map(res => {
+          return {
+            id: res.id,
+            roomName: res.Room.roomName,
+            start_date: res.start_date,
+            start_time: res.start_time,
+            duration: res.duration
+          };
+        });
+
         ejsObj.users = revenueEjs;
         ejsObj.rooms = roomEjs;
-        ejsObj.reservations = data[2];
+        ejsObj.reservations = resEjs;
         return res.render("pages/admin", ejsObj);
       });
     }

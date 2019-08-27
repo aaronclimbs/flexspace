@@ -143,16 +143,18 @@
             <thead>
               <tr>
                 <th>Reservation ID</th>
+                <th>Room</th>
                 <th>Start Date</th>
                 <th>Start Time</th>
                 <th>Duration</th>
-                <th>Options</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
               <%reservations.forEach(reservation => {%>
               <tr>
                 <td scope="row"><%=reservation.id%></td>
+                <td><%=reservation.roomName%></td>
                 <td><%=reservation.start_date%></td>
                 <td><%=reservation.start_time%></td>
                 <td><%=reservation.duration%></td>
