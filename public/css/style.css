@@ -110,6 +110,12 @@ font-weight: bold;
   margin-bottom:10px;
 }
 
+.search-text {
+  font-size:24px
+}
+
+
+
 .form-group {
   margin-bottom:5px;
   margin-top:0px;
@@ -119,12 +125,11 @@ font-weight: bold;
   color:#072752;
 }
 
-.search-link{
-  color:#072752;
-  text-decoration: underline;
+
+.members-title {
+  font-size:20px;
+  font-weight:bold;
 }
-
-
 
 label {
   margin-bottom:5px;
