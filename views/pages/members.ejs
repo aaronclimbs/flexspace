@@ -198,12 +198,7 @@
                                       </div>
 
                                       <div class="form-group col pl-0">
-                                          <select class="custom-select " id="res-mm-input">
-                                            <option selected>MM</option>
-                                            <option value="00">00</option>
-                                            <option value="30">30</option>
-                                
-                                          </select>
+                                          <input class="form-control" type="text" placeholder="00" readonly>
                                        </div>
 
                                        <div class="form-group col pl-0 pt-2" id="am-pm">
@@ -258,6 +253,35 @@
                 </div>
               </div>
             </div>
+
+              <!-- Modal for Res Del -->
+
+                    
+              <div class="modal fade" id="meeting-conflict-modal" tabindex="-1" role="dialog" aria-labelledby="meeting-conflict-modal" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title"id="modal-room-name">Meeting Conflict</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body justify-content-center" id="meeting-conflict-info">
+                          
+                          There is a meeting conflict. Please adjust your meeting times or search for another room.
+                              
+    
+                             
+                            
+                      </div>
+                      <div class="modal-footer">
+                       
+                        <button type="button" id="conflict-close" class="btn btn-secondary modal-btn" data-dismiss="modal">Close</button>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
   <% include ../partials/footer.ejs %>
   </body>

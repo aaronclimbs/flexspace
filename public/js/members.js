@@ -317,8 +317,10 @@ console.log("Dur is " + dur)
   console.log("Update Button clicked")
   event.preventDefault();
 
+  var resHH= parseInt($("#res-hh-input").val())  
+
  var newDate = $("#res-date-input").val()
- var newTime = $("#res-hh-input").val() + ":" +$("#res-mm-input").val()
+ var newTime = $("#res-hh-input").val() + ":00" 
  var newDur = $("#res-dur-input").val()
  var newText = $("#res-text-input").val().trim()
 
@@ -333,7 +335,104 @@ console.log("Dur is " + dur)
 
  }
 
- updateRes ( updatedRes.id, updatedRes.start_date,updatedRes.start_time,updatedRes.duration,updatedRes.text)
+  checkConflict()
+
+    function checkConflict () {
+
+        
+        $.get("/api/reservationsbyroomdate/" + updatedata.RoomId +"/" +newDate, function(reservations) {
+            console.log("Number of reservations is " + reservations.length)
+            if( reservations.length === 0) {
+                console.log("No reservation found, go ahead and process")
+
+                updateRes ( updatedRes.id, updatedRes.start_date,updatedRes.start_time,updatedRes.duration,updatedRes.text)
+    
+    
+        } else {
+            var resHours =[]
+            for (z=0; z < newDur; z++) {
+                resHours.push(resHH + z)
+            }
+            console.log("The hours for this reservation are " + resHours)
+
+            for (m=0; m < reservations.length; m++) {
+                for( h=8; h < 22; h++ ) {
+                var meetingTime = parseInt(moment ((reservations[m].start_date + " " +reservations[m].start_time )).format("H"))
+                console.log("Meeting time is " + meetingTime)
+            
+                    if (meetingTime === h) {
+                    console.log("Meeting found at " + h)
+                  
+                    var roomBookedhours =[]
+            
+                        for (d=0; d < reservations[m].duration; d++) {
+
+                            roomBookedhours.push(h+d)
+            
+                        
+                    }
+    
+                   
+                }
+            
+            }
+            
+            }
+
+            console.log("Rooms booked hours are " + roomBookedhours)
+
+            var conflict=false
+
+            for (y=0; y< resHours.length; y++) {
+
+                checkConflict=roomBookedhours.includes(resHours[y])
+
+                if (checkConflict) {
+                    conflict =true
+                }
+
+        }
+
+        if (conflict) {
+            console.log("There is a meeting conflict")
+            
+            
+            $("#meeting-conflict-modal").modal("toggle")
+            $(document).on("click","#conflict-close", (function(event) { 
+                event.preventDefault()
+            
+            
+            }))
+          
+
+            
+
+        } else {
+            console.log("No meeting conflict")
+            updateRes ( updatedRes.id, updatedRes.start_date,updatedRes.start_time,updatedRes.duration,updatedRes.text)
+        }
+
+
+/* end else*/
+        }
+
+
+        
+       
+    /*end get */
+    })
+
+
+
+
+
+
+/* end check conflict*/
+    }
+
+
+
+
 
  function updateRes(id, date, time, dur, text) {
   $.ajax({
