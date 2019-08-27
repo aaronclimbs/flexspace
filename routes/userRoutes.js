@@ -112,4 +112,17 @@ module.exports = function(app) {
       res.json({});
     }
   });
+
+  // check if user exists
+  app.get("/api/users/login/:email", (req, res) => {
+    const logins = db.User.findAll({}).then(data => {
+      return data;
+    });
+    Promise.resolve(logins).then(data => {
+      const matches = data.filter(user => user.email === req.params.email);
+      res.json({
+        match: matches.length >= 1 ? true : false
+      });
+    });
+  });
 };
