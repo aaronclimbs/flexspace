@@ -126,7 +126,7 @@ module.exports = function(app) {
   });
   
   // Review route test
-  app.get("/review", function(req, res) {
+  app.get("/reviews", function(req, res) {
     // If the user already has an account send them to the members page
     var ejsObj = {
       pageTitle: "Reviews",
