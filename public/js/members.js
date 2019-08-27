@@ -114,21 +114,29 @@ var i=0;
       roomLoc.text(element.city + ", " + element.state_us)
 
       roomResCount=$("<td>")
-      roomResCount.attr("id", "room-res-count"+i)
-      roomResCount.text(element.Reservations.length)
+      roomResCount.addClass("get-res-info")
+      roomResCount.attr("id", element.id)
+      roomResCount.html('<a href="#" id="'+element.id+'">'+element.Reservations.length)
 
-      roomDel=$("<td>")
-    roomDel.addClass("del-room")
+
+      roomUpdDel=$("<td>")
+
+
+      
+      roomDel=$("<span>")
+    roomDel.addClass("del-room float-left pr-4")
     roomDel.html('<i class="fa fa-trash" ></i>')
     roomDel.attr("id", element.id)
   
-    roomUpdate=$("<td>")
+    roomUpdate=$("<span>")
     roomUpdate.addClass("update-room")
     roomUpdate.html('<i class="fa fa-pen" ></i>')
     roomUpdate.attr("id", element.id)
       
   
-      rowDiv.append(roomImg, roomName, roomLoc, roomResCount, roomDel, roomUpdate)
+      rowDiv.append(roomImg, roomName, roomLoc, roomResCount,roomUpdDel)
+
+      roomUpdDel.append(roomDel, roomUpdate)
   
     i++
     })
@@ -262,7 +270,6 @@ var i=0;
 /*end click*/
 })
       
-
 
 
 
@@ -421,6 +428,76 @@ window.location = "/updateroom/?variable=" + roomid;
 
 })
  
+
+
+// GET RES INFO:
+    // get-res-info
+
+    $(document).on ("click", ".get-res-info", function (event)  {
+      event.preventDefault();
+      var roomid = this.id
+      
+      console.log("Id from click is " + this.id)
+      $("#reservations-list").empty(); 
+      jQuery.noConflict();
+     
+      $.get("/api/reservationsbyroom/" + roomid, function(resdata) {
+    
+        $("#reservations-list").text(resdata.roomName)
+    
+        console.log("Room data from link click is " + JSON.stringify(resdata));
+    
+        var resDiv=$("<div>");
+        resDiv.addClass("card modal-res-card");
+        resDiv.attr("id", "reservation");
+        // resDiv.attr("value", "Reservations for this room: ");
+        $("#reservations-list").append(resDiv);
+    
+        var bodyDiv=$("<div>");
+        bodyDiv.addClass("card-body modal-room-card-body");
+        bodyDiv.attr("id", "card-body");
+        bodyDiv.html("<i>Reservations for this room: </i><br>");
+        $("#reservation").append(bodyDiv);
+    
+        var resInfo=$("<ul>")
+        resInfo.addClass("list-group list-group-flush")
+        resInfo.attr("id", "resInfo")
+        $("#reservation").append(resInfo)
+    
+        var bookingText;
+        for (let i = 0;i<resdata.length; i++) {
+
+          $.get("/api/users4owner/" + resdata[i].UserId, function(usrdata) {
+            var bookingText2 = [];
+            bookingText2 = {first: usrdata.first, last: usrdata.last, phone: usrdata.phone, email: usrdata.email};
+            // console.log([{first: usrdata.first, last: usrdata.last, phone: usrdata.phone, email: usrdata.email}])
+            // console.log(bookingText2[i]);
+            // console.log("resdata: " + resdata[i].id + resdata[i].start_date + resdata[i].start_time + resdata[i].duration);
+            var reservationItem=$("<li>");
+            reservationItem.addClass("list-group-item")
+            reservationItem.attr("id", "item"+i)
+  
+            bookingText = "Booked: " + resdata[i].start_date + " at " + resdata[i].start_time + " for " + resdata[i].duration + " hour(s), <i>Booked by: " + bookingText2.first + " " + bookingText2.last + " Phone: " + bookingText2.phone + " Email: " + bookingText2.email + "</i>";
+            // console.log(bookingText);
+            reservationItem.html(bookingText)
+            $("#resInfo").append(reservationItem)
+          });
+
+
+        }
+    
+    
+        $("#show-room-res-modal").modal("toggle");
+    
+      })
+    })
+    
+
+
+
+
+
+
 /* end doc*/
 })
 
