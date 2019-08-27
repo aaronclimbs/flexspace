@@ -336,6 +336,7 @@ $(document).on ("click", ".update-res", function (event)  {
   console.log("Update link clicked")
   
   event.preventDefault();
+  jQuery.noConflict();
   var resid = this.id
   console.log("Id from click is " + resid)
  
@@ -347,7 +348,7 @@ $(document).on ("click", ".update-res", function (event)  {
   console.log("Room data from link click is " +JSON.stringify(updatedata))
 
 var date = moment(updatedata.start_date).format("YYYY-MM-DD")
-var time =updatedata.start_time
+var time = moment( updatedata.start_date+ " " +  updatedata.start_time).format("HH:MM")
 var text= updatedata.text
 var dur = updatedata.duration
 
@@ -384,7 +385,21 @@ console.log("Dur is " + dur)
  var newDur = $("#res-dur-input").val()
  var newText = $("#res-text-input").val().trim()
 
+ console.log("Old info was " + date+ " " + time+ " " + dur+ " " + text) 
+
+ convertedTime=moment(newDate+ " " + newTime).format("HH:MM")
+
+
  console.log("New res info being submitted is " + newDate + " " + newTime + " " + newDur + " " + newText) 
+
+ if (date===newDate) {
+   console.log("Dates match")
+ }
+
+ if (time === convertedTime) {
+  console.log("Times match")
+
+ }
 
  var updatedRes = {
   id:resid,
@@ -395,7 +410,8 @@ console.log("Dur is " + dur)
 
  }
 
- if (date === newDate && time === newTime && dur === newDur) {
+
+ if (date === newDate && time === convertedTime && dur == newDur) {
   updateRes ( updatedRes.id, updatedRes.start_date,updatedRes.start_time,updatedRes.duration,updatedRes.text)
 
  } else { 
