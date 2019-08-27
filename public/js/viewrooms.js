@@ -100,7 +100,12 @@ for (i=0; i < roomSearch.length; i++) {
         roomCapacity.addClass("list-group-item")
         roomCapacity.text("Capacity: " + roomSearch[i].roomCapacity)
 
-    $("#roomInfo" +i).append(roomType, roomCapacity)
+        var roomReview=$("<li>");
+        roomReview.addClass("list-group-item")
+        roomReview.text("Reviews")
+        // Reviews link needs to be added
+
+    $("#roomInfo" +i).append(roomType, roomCapacity, roomReview)
       
       var bookDiv=$("<div>");
       bookDiv.addClass("card-body")
