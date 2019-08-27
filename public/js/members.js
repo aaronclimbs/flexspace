@@ -117,18 +117,24 @@ var i=0;
       roomResCount.attr("id", "room-res-count"+i)
       roomResCount.text(element.Reservations.length)
 
-      roomDel=$("<td>")
-    roomDel.addClass("del-room")
+      roomUpdDel=$("<td>")
+
+
+      
+      roomDel=$("<span>")
+    roomDel.addClass("del-room float-left pr-4")
     roomDel.html('<i class="fa fa-trash" ></i>')
     roomDel.attr("id", element.id)
   
-    roomUpdate=$("<td>")
+    roomUpdate=$("<span>")
     roomUpdate.addClass("update-room")
     roomUpdate.html('<i class="fa fa-pen" ></i>')
     roomUpdate.attr("id", element.id)
       
   
-      rowDiv.append(roomImg, roomName, roomLoc, roomResCount, roomDel, roomUpdate)
+      rowDiv.append(roomImg, roomName, roomLoc, roomResCount,roomUpdDel)
+
+      roomUpdDel.append(roomDel, roomUpdate)
   
     i++
     })

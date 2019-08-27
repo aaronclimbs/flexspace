@@ -8,16 +8,31 @@
   <div class="container member mt-0 mb-0 ml-auto mr-auto">
     <div class="row text-center">
       <div class="col-md-12">
-        <h2>Welcome <span class="member-name"></span></h2>
+        <h2>Welcome <span class="member-name pr-2" ></span> 
+          <a href="/viewrooms"> <i class="fas fa-lg fa-search  fa-lg"></i></a>  
+
+           For a room
+        </h2>
+
+      
       </div>
+
+      
+
     </div>
   </div>
 
   <div class="container">
+
     <div class="card ">
-      <div class="card-header text-center">
-        My Reservations
+      <div class="card-header text-center members-title">
+
+        
+            My Reservations
+        
       </div>
+     
+
       <div class="card-body text-center" >
         <h5 class="card-title d-none">No reservations found</h5>
 
@@ -38,9 +53,11 @@
            </tbody>
            </table>
       </div>
-      <div class="card-header text-center">
+
+      <div class="card-header text-center members-title">
        Rooms I Manage
       </div>
+
       <div class="card-body text-center" >
         <h5 class="card-title d-none">No reservations found</h5>
 
@@ -51,7 +68,7 @@
                 <th scope="col">Room Name</th>
                 <th scope="col">Room Location</th>
                 <th scope="col">Active Reservations</th>
-                <th scope="col">Delete</th>
+                <th scope="col">Update</th>
               </tr>
             </thead>
             <tbody id="my-rooms">
@@ -60,13 +77,16 @@
              </table>
       </div>
       
-      <div class="card-footer text-center">
-        Need a room? Search <a class="search-link" href="/viewrooms">Here</a>
-        <br />
-        Have a room to list? Click
-        <a class="search-link" href="/addroom">Here</a>
+      <div class="card-footer text-center members-title">
+         
+
+          <a href="/addroom"> <i class="fas fa-plus-square fa-lg"></i></a>  
+ A room 
+        <a class="search-link" href="/addroom"></a>
       </div>
+
     </div>
+
   </div>
 
 
