@@ -553,10 +553,21 @@ console.log("Dur is " + dur)
 
 $(document).on ("click", ".del-room", function (event)  {
   console.log("Delete clicked")
+  jQuery.noConflict();
   event.preventDefault();
 var roomid = this.id 
 console.log(this.id);
 
+$("#confirm-res-del-btn").attr("value", roomid)
+
+$("#res-del-info").text("Are you sure you want to delete this room? It will delete all reservations")
+
+$("#confirm-res-del-modal").modal("toggle");
+
+
+$(document).on ("click", "#confirm-res-del-btn", function (event)  {
+  console.log("Confrim Delete clicked")
+  event.preventDefault();
 
 /* Get the reservation for the room */
 
@@ -595,6 +606,8 @@ location.reload(true)
 
 
 //*end get*/
+})
+
 })
 /*end click*/
 })
