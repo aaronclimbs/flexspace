@@ -17,7 +17,7 @@ $(document).ready(function() {
   
   
 
- $.get("/api/reservations/" , function(resdata) {
+ $.get("/api/reservationsbyuser/" +userdata.id, function(resdata) {
 
 var i=0;
 
@@ -62,7 +62,6 @@ var i=0;
     resCost.text("$" + element.duration * element.Room.hourlyRate)
 
     resUpdDel=$("<td>")
-    
 
     resDel=$("<span>")
     resDel.addClass("del-res float-left pr-4")
@@ -74,8 +73,9 @@ var i=0;
     resUpd.html('<i class="fas fa-edit"></i>')
     resUpd.attr("id", element.id)
 
+
     rowDiv.append(resName,roomName, resDate, resTime, resDur, resCost, resUpdDel)
-    resUpdDel.append(resDel, resUpd)
+      resUpdDel.append(resDel, resUpd)
 
 
   i++
@@ -85,6 +85,65 @@ var i=0;
   
   
   })
+
+  $.get("/api/pastreservationsbyuser/" +userdata.id, function(pastresdata) {
+
+    var i=0;
+    
+    
+      pastresdata.forEach(function(element){
+    
+        pastrowDiv=$("<tr>")
+        pastrowDiv.addClass("reservationrow")
+        pastrowDiv.attr("id", "reservation-row"+i)
+    
+        $("#my-past-reservations").append(pastrowDiv)
+    
+        pastroomName=$("<td>")
+        pastroomName.addClass("get-room-info")
+        pastroomName.attr("id", element.RoomId)
+        pastroomName.html('<a href="#" id="'+element.roomId+'">'+element.Room.roomName)
+        
+      
+    
+        pastresName=$("<td>")
+        pastresName.attr("id", "reservation"+i)
+        pastresName.attr("id", element.id)
+        pastresName.text(element.text)
+    
+       
+        
+    
+        pastresDate=$("<td>")
+        pastresDate.attr("id", "reservation-date"+i)
+       pastresDate.text(moment(element.start_date).format( "MMM DD YYYY"))
+    
+        pastresTime=$("<td>")
+       pastresTime.attr("id", "reservation-time"+i)
+        pastresTime.text(moment(element.start_date+ " " + element.start_time).format("hh:mm A"))
+       
+    
+        pastresDur=$("<td>")
+       pastresDur.attr("id", "reservation-duration"+i)
+        pastresDur.text(element.duration + " hr")
+    
+        pastresCost=$("<td>")
+        pastresCost.text("$" + element.duration * element.Room.hourlyRate)
+    
+        pastReview=$("<td>")
+        pastReview.html('<a href="/submitreview" id="'+element.roomId+'">'+"Review Room")
+        
+    
+     
+    
+        pastrowDiv.append(pastresName,pastroomName, pastresDate, pastresTime, pastresDur, pastresCost, pastReview)
+       
+    
+    
+      i++
+      })
+
+  })  
 
   $.get("/api/rooms/" , function(roomdata) {
   var i=0;
@@ -336,7 +395,14 @@ console.log("Dur is " + dur)
 
  }
 
+ if (date === newDate && time === newTime && dur === newDur) {
+  updateRes ( updatedRes.id, updatedRes.start_date,updatedRes.start_time,updatedRes.duration,updatedRes.text)
+
+ } else { 
+
   checkConflict()
+
+ }  
 
     function checkConflict () {
 
