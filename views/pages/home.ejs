@@ -1,283 +1,358 @@
+
 <html>
+  <head>
+    <% include ../partials/head.ejs %>
+  </head>
 
-<head>
-  <% include ../partials/head.ejs %>
-</head>
+  <body>
+    <% include ../partials/nav.ejs %>
 
-<body>
-  <% include ../partials/nav.ejs %>
+    <header>
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide"
+        data-ride="carousel"
+      >
+        <ol class="carousel-indicators">
+          <li
+            data-target="#carouselExampleIndicators"
+            data-slide-to="0"
+            class="active"
+          ></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <!-- Slide One - Set the background image for this slide in the line below -->
+          <div
+            class="carousel-item"
+            style="background-image: url(../images/landingpage1.jpg)"
+          >
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="display-4">List Rooms</h2>
+              <p class="lead">List your available rooms.</p>
+            </div>
+          </div>
+          <!-- Slide Two - Set the background image for this slide in the line below -->
+          <div
+            class="carousel-item"
+            style="background-image: url('../images/landingpage2.jpg')"
+          >
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="display-4">Find Rooms</h2>
+              <p class="lead">Find a conference room in the DMV area.</p>
+            </div>
+          </div>
+          <!-- Slide Two - Set the background image for this slide in the line below -->
+          <div
+            class="carousel-item"
+            style="background-image: url('../images/landingpage4.jpg')"
+          >
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="display-4">Reserve Rooms</h2>
+              <p class="lead">Reserve a room on demand.</p>
+            </div>
+          </div>
+          <!-- Slide Three - Set the background image for this slide in the line below -->
+          <div
+            class="carousel-item active"
+            style="background-image: url(../images/landingpage3.jpg)"
+          >
+            <h1 class="headline">
+              A flexible way to meet potential customers, grow your network or
+              have a non-traditional space for work related events.
+            </h1>
 
-  <header>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url(../images/landingpage1.jpg)">
-          <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4">List Rooms</h2>
-            <p class="lead">List your available rooms.</p>
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="display-4">Meet</h2>
+              <p class="lead">Meeting spaces simplified!</p>
+            </div>
           </div>
         </div>
-        <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('../images/landingpage2.jpg')">
-          <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4">Find Rooms</h2>
-            <p class="lead">Find a conference room in the DMV area.</p>
-          </div>
-        </div>
-        <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('../images/landingpage4.jpg')">
-          <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4">Reserve Rooms</h2>
-            <p class="lead">Reserve a room on demand.</p>
-          </div>
-        </div>
-        <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url(../images/landingpage3.jpg)">
-          <h1 class="headline">A flexible way to meet potential customers, grow your network or have a non-traditional
-            space for work related events.</h1>
-
-          <div class="carousel-caption d-none d-md-block">
-
-            <h2 class="display-4">Meet</h2>
-            <p class="lead">Meeting spaces simplified!</p>
-          </div>
-        </div>
+        <a
+          class="carousel-control-prev"
+          href="#carouselExampleIndicators"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#carouselExampleIndicators"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
 
-
-
-
-    <!-- Features Cards -->
-    <section class="details-card">
-      <h3 id="features">Features</h3>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card-content">
-              <div class="card-img">
-                <img src="https://i.pinimg.com/originals/2b/0f/0f/2b0f0fb7dd3ad0cc2d3f8d1c7e82d294.jpg"
-                  class="card-img-top img-fluid" alt="" />
+      <!-- Features Cards -->
+      <section class="details-card">
+        <h3 id="features">Features</h3>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card-content">
+                <div class="card-img">
+                  <img
+                    src="https://i.pinimg.com/originals/2b/0f/0f/2b0f0fb7dd3ad0cc2d3f8d1c7e82d294.jpg"
+                    class="card-img-top img-fluid"
+                    alt=""
+                  />
+                </div>
+                <div class="card-desc card-body">
+                  <div class="card-title">
+                    <h3>Conference Rooms</h3>
+                  </div>
+                  <div class="card-text">
+                    <p>
+                      We offer a variety of different conference rooms to meet
+                      your business and/or culture. For your group or company's
+                      presentations, meeting or special events.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div class="card-desc">
-                <h3>Conference Rooms</h3>
-                <p>
-                  We offer a variety of different conference rooms to meet
-                  your business and/or culture. For your group or company's
-                  presentations, meeting or special events.
-                </p>
+            </div>
+            <div class="col-md-4">
+              <div class="card-content">
+                <div class="card-img">
+                  <img
+                    src="https://assets.regus.com/images/nwp/homepage-product-office-space.jpg"
+                    class="card-img-top img-fluid"
+                    alt=""
+                  />
+                </div>
+                <div class="card-desc card-body">
+                  <div class="card-title">
+                    <h3>Private Offices</h3>
+                  </div>
+                  <div class="card-text">
+                  	<p>
+                  	  A wide range of private offices. Furnished, move-in ready,
+                  	  open doors or closed doors to meet your needs.
+                  	</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card-content">
+                <div class="card-img">
+                  <img
+                    src="https://www.ambiencedore.com/wp-content/uploads/2015/11/Modern_industrial_budget_desks_open_space.jpg"
+                    class="card-img-top img-fluid"
+                    alt=""
+                  />
+                </div>
+                <div class="card-desc card-body">
+                  <div class="card-title">
+                    <h3>Open Spaces</h3>
+                  </div>
+                  <div class="card-text">
+                    <p>
+                      Open concept space is perfect for many business use as
+                      well as networking!
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card-content">
-              <div class="card-img">
-                <img src="https://assets.regus.com/images/nwp/homepage-product-office-space.jpg"
-                  class="card-img-top img-fluid" alt="" />
-              </div>
-              <div class="card-desc">
-                <h3>Private Offices</h3>
-                <p>
-                  A wide range of private offices. Furnished, move-in ready,
-                  open doors or closed doors to meet your needs.
-                </p>
-              </div>
-            </div>
-          </div>
+        </div>
+      </section>
+      <!-- End Features Cards -->
 
-          <div class="col-md-4">
-            <div class="card-content">
-              <div class="card-img">
+      <!-- Featured Testimonials -->
+      <section class="testimonials-card">
+        <h3 id="featuredTestimonials" class="text-center pb-2">
+          Featured Testimonials
+        </h3>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="card-testimonials">
+                <div class="speech-bubble">
+                  <p>
+                    I love the Georgetown room. I can get me some Cashew chicken
+                    when I'm there!
+                  </p>
+                  <h3>Gabe</h3>
+                </div>
+              </div>
+              <div class="speech-img">
                 <img
-                  src="https://www.ambiencedore.com/wp-content/uploads/2015/11/Modern_industrial_budget_desks_open_space.jpg"
-                  class="card-img-top img-fluid" alt="" />
+                  src="../images/gabe2.PNG"
+                  class="card-img-top img-fluid"
+                  alt="Gabe"
+                />
               </div>
-              <div class="card-desc">
-                <h3>Open Spaces</h3>
-                <p>
-                  Open concept space is perfect for many business use as well
-                  as networking!
-                </p>
+            </div>
+            <div class="col-md-3">
+              <div class="card-testimonial">
+                <div class="speech-bubble">
+                  <p>
+                    I love this service. Helps me get away from my students
+                    whenever I can!
+                  </p>
+                  <h3>Kirthi</h3>
+                </div>
               </div>
-
+              <div class="speech-img">
+                <img
+                  src="../images/kirthi.PNG"
+                  class="card-img-top img-fluid"
+                  alt="Kirthi"
+                />
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card-testimonial">
+                <div class="speech-bubble">
+                  <p class="pt-2">
+                    A room with working A/C? Amazing!!!
+                  </p>
+                  <h3 class="pt-2">Lawrence</h3>
+                </div>
+              </div>
+              <div class="speech-img">
+                <img
+                  src="../images/lawrence.PNG"
+                  class="card-img-top img-fluid"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card-testimonial">
+                <div class="speech-bubble">
+                  <p>
+                    I'm gonna steal these guys for my new recruiting company!
+                  </p>
+                  <h3>Harjot</h3>
+                </div>
+              </div>
+              <div class="speech-img">
+                <img
+                  src="../images/harjot.PNG"
+                  class="card-img-top img-fluid"
+                  alt="Harjot"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- End Features Cards -->
+      </section>
+      <!-- End Featured Testimonals -->
 
+      <!--Contact Form-->
+      <section class="mb-4" id="contactForm">
+        <div id="contact">
+          <h2 class="h1-responsive font-weight-bold text-center my-4">
+            <i class="fas fa-chevron-left"></i> Contact us /<i
+              class="fas fa-chevron-right"
+            ></i>
+          </h2>
+          <p class="text-center w-responsive mx-auto mb-7">
+            Do you have any questions? Please do not hesitate to contact us
+            directly. Our team will come back to you as soon as possible.
+          </p>
 
-    <!-- Featured Testimonials -->
-    <section class="testimonials-card">
-        <h3 id="featuredTestimonials" class="text-center pb-2" >Featured Testimonials</h3>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3">
-            <div class="card-testimonials">
-
-              <div class="speech-bubble">
-                <p>
-                    "I love the Georgetown room. I can get me some Cashew chicken when I'm there!" <br><strong>- Gabe</strong>
-                </p>
-                <!-- <h3>Gabe</h3> -->
-
+          <div class="row">
+            <div class="col-md-9 mb-md-0 mb-5 test">
+              <form
+                id="contact-form"
+                name="contact-form"
+                action="/contact"
+                method="POST"
+              >
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="md-form mb-0">
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        class="form-control"
+                      />
+                      <label for="name" class="">Your name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="md-form mb-0">
+                      <input
+                        type="text"
+                        id="email"
+                        name="email"
+                        class="form-control"
+                      />
+                      <label for="email" class="">Your email</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="md-form mb-0">
+                      <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        class="form-control"
+                      />
+                      <label for="subject" class="">Subject</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="md-form">
+                      <textarea
+                        type="text"
+                        id="message"
+                        name="message"
+                        rows="4"
+                        class="form-control md-textarea"
+                      ></textarea>
+                      <label for="message">Your message</label>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">Send</button>
               </div>
-
+              <div class="status"></div>
             </div>
-            <div class="speech-img">
-              <img src="../images/gabe2.PNG" class="card-img-top img-fluid" alt="Gabe" />
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card-testimonial">
+            <div class="col-md-3 text-center" id="contactInfo">
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <i class="fas fa-map-marker-alt fa-2x"></i>
+                  <p class="mt-1">800 13th St NW, Washington, DC 20005, USA</p>
+                </li>
 
-              <div class="speech-bubble">
-                <p>
-                  "I love this service. Helps me get away from my students whenever I can!" <br><strong>- Kirthi</strong>
-                </p>
-                <!-- <h3>Kirthi</h3> -->
-              </div>
+                <li>
+                  <i class="fas fa-phone mt-1 fa-2x"></i>
+                  <p class="mt-1">+1 202 985 5454</p>
+                </li>
 
-            </div>
-            <div class="speech-img">
-              <img src="../images/kirthi.PNG" class="card-img-top img-fluid" alt="Kirthi" />
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card-testimonial">
-
-              <div class="speech-bubble">
-                <p class="pt-2">
-                    "A room with working A/C? Amazing!!!"  <br><strong>- Lawrence</strong>
-                </p>
-                <!-- <h3 class="pt-2">Lawrence</h3> -->
-              </div>
-
-            </div>
-            <div class="speech-img">
-              <img src="../images/lawrence.PNG" class="card-img-top img-fluid" alt="" />
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card-testimonial">
-
-              <div class="speech-bubble">
-                <p>
-                    "I'm gonna steal these guys for my new recruiting company!" <br><strong>- Harjot</strong>
-                </p>
-                <!-- <h3>Harjot</h3> -->
-              </div>
-
-            </div>
-            <div class="speech-img">
-              <img src="../images/harjot.PNG" class="card-img-top img-fluid" alt="Harjot" />
+                <li>
+                  <i class="fas fa-envelope mt-1 fa-2x"></i>
+                  <p class="mt-1">contact@flexspace.com</p>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- End Featured Testimonals -->
+      </section>
+    </header>
 
-
-
-
-    <!--Contact Form-->
-    <section class="mb-4" id="contactForm">
-      <div id="contact">
-        <h2 class="h1-responsive font-weight-bold text-center my-4">
-          <i class="fas fa-chevron-left"></i> Contact us /<i class="fas fa-chevron-right"></i>
-        </h2>
-        <p class="text-center w-responsive mx-auto mb-7">
-          Do you have any questions? Please do not hesitate to contact us
-          directly. Our team will come back to you as soon as possible.
-        </p>
-
-        <div class="row">
-          <div class="col-md-9 mb-md-0 mb-5 test">
-            <form id="contact-form" name="contact-form" action="/contact" method="POST">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="md-form mb-0">
-                    <input type="text" id="name" name="name" class="form-control" />
-                    <label for="name" class="">Your name</label>
-
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="md-form mb-0">
-                    <input type="text" id="email" name="email" class="form-control" />
-                    <label for="email" class="">Your email</label>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="md-form mb-0">
-                    <input type="text" id="subject" name="subject" class="form-control" />
-                    <label for="subject" class="">Subject</label>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="md-form">
-                    <textarea type="text" id="message" name="message" rows="4"
-                      class="form-control md-textarea"></textarea>
-                    <label for="message">Your message</label>
-                  </div>
-                </div>
-              </div>
-
-            </form>
-            <div class="text-center">
-              <button type="submit" class="btn btn-primary">Send</button>
-
-            </div>
-            <div class="status"></div>
-          </div>
-          <div class="col-md-3 text-center" id="contactInfo">
-            <ul class="list-unstyled mb-0">
-              <li>
-                <i class="fas fa-map-marker-alt fa-2x"></i>
-                <p class="mt-1">800 13th St NW, Washington, DC 20005, USA</p>
-              </li>
-
-              <li>
-                <i class="fas fa-phone mt-1 fa-2x"></i>
-                <p class="mt-1">+1 202 985 5454</p>
-              </li>
-
-              <li>
-                <i class="fas fa-envelope mt-1 fa-2x"></i>
-                <p class="mt-1">contact@flexspace.com</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </header>
-
-
-
-  <% include ../partials/footer.ejs %>
-  <!-- <script>
+    <% include ../partials/footer.ejs %>
+    <!-- <script>
 
     var isloggedIn = ( < %= loggedIn % > );
     console.log("User logged in? " + isloggedIn)
@@ -292,6 +367,5 @@
       $("#myDashboard").hide();
     };
   </script> -->
-</body>
-
+  </body>
 </html>

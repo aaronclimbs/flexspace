@@ -111,9 +111,9 @@ var i=0;
 
 
         pastroomName.html('<a href="#" id="'+element.RoomId+'">'+element.Room.roomName)
-        
-      
-    
+
+
+
 
         pastresName=$("<td>")
         pastresName.attr("id", "reservation"+i)
@@ -139,9 +139,8 @@ var i=0;
         pastresCost=$("<td>")
         pastresCost.text("$" + element.duration * element.Room.hourlyRate)
 
-
         //$.get("/api/submitreview/" +element.RoomId, function(reviewdata) {
-    
+
         pastReview=$("<td>")
 
         pastReviewLink=$("<a>")
@@ -149,16 +148,16 @@ var i=0;
         pastReviewLink.addClass("review-click")
         pastReviewLink.text("Review Room")
 
-       
-        
-        
-    
-     
-    
+
+
+
+
+
+
         pastrowDiv.append(pastresName,pastroomName, pastresDate, pastresTime, pastresDur, pastresCost, pastReview)
-       
+
         pastReview.append(pastReviewLink)
-    
+
 
       i++
       })
@@ -168,15 +167,14 @@ var i=0;
   $.get("/api/rooms/" , function(roomdata) {
   var i=0;
 
-
   var results = JSON.stringify(roomdata)
 
-    
+
   console.log(results)
     roomdata.forEach(function(element){
 
 
-  
+
 
       rowDiv=$("<tr>")
       rowDiv.addClass("room-row")
@@ -205,19 +203,19 @@ var i=0;
       roomResCount.attr("id", element.id)
       roomResCount.html('<a href="#" id="'+element.id+'">'+element.Reservations.length)
 
-   
+
 
       roomReviews=$("<td>")
 
-     
+
 
       roomReviews.addClass("get-review-info")
       roomReviews.attr("id", element.id)
       roomReviews.html('<a href="#" id="'+element.id+'">Check Reviews')
-       
-      
 
-      
+
+
+
       roomUpdDel=$("<td>")
 
 
@@ -232,8 +230,8 @@ var i=0;
     roomUpdate.html('<i class="fa fa-pen" ></i>')
     roomUpdate.attr("id", element.id)
 
-      
-  
+
+
       rowDiv.append(roomImg, roomName, roomLoc, roomResCount,roomReviews, roomUpdDel)
 
 
@@ -241,7 +239,6 @@ var i=0;
 
     i++
     })
-
 
     })
 
@@ -662,11 +659,10 @@ window.location = "/updateroom/?variable=" + roomid;
 
 })
 
-
 $(document).on ("click", ".review-click", function (event)  {
   console.log("Update link clicked")
   console.log("id is " + this.id)
-  
+
   event.preventDefault();
   jQuery.noConflict();
   var roomid = this.id
@@ -674,28 +670,28 @@ $(document).on ("click", ".review-click", function (event)  {
 
 $("#submit-review-modal").modal("toggle")
 
-$(document).on("click","#submit-review", (function(event) { 
+$(document).on("click","#submit-review", (function(event) {
   console.log("Submit review clicked")
   event.preventDefault()
 
 
   var reviewMessage =$("#review-message").val()
   var reviewRating =$("input:radio[name='review-rating']:checked").val()
-  
-  
+
+
   var reviewData= {
       message: reviewMessage,
       rating: reviewRating,
       roomid: roomid
-  
+
   }
-  
+
   $.post("/api/submitreview/", {
       message: reviewData.message,
       rating: reviewData.rating,
       roomid: reviewData.roomid
-  
-  
+
+
     }).then(function(data) {
 
       location.reload(true)
@@ -716,13 +712,13 @@ $(document).on("click","#submit-review", (function(event) {
 $(document).on ("click", ".get-review-info", function (event)  {
   event.preventDefault();
   var roomid = this.id
-  
+
   console.log("Id from click is " + this.id)
 
   $("#reviews-list").empty()
 
   jQuery.noConflict();
- 
+
   $.get("/api/reviews/" + roomid, function(revdata) {
 
     console.log("Review data is " + JSON.stringify(revdata))
@@ -759,7 +755,7 @@ $(document).on ("click", ".get-review-info", function (event)  {
 
 
     }
-  
+
 
   })
 
