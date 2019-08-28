@@ -534,6 +534,17 @@ const reservationData = [
   }
 ];
 
+const reviewData = [
+  { message: "this is a message", rating: 5, RoomId: 2, UserId: 4 },
+  { message: "this is a message", rating: 5, RoomId: 3, UserId: 7 },
+  { message: "this is a message", rating: 4, RoomId: 5, UserId: 5 },
+  { message: "this is a message", rating: 3, RoomId: 2, UserId: 3 },
+  { message: "this is a message", rating: 2, RoomId: 3, UserId: 6 },
+  { message: "this is a message", rating: 3, RoomId: 3, UserId: 1 },
+  { message: "this is a message", rating: 4, RoomId: 1, UserId: 3 },
+  { message: "this is a message", rating: 1, RoomId: 2, UserId: 5 }
+];
+
 db.sequelize
   .sync({ force: true })
   .then(() => {
@@ -558,6 +569,12 @@ db.sequelize
   })
   .then(createdReservations => {
     console.log(`${createdReservations.length} new reservations created.`);
+  })
+  .then(() => {
+    return Promise.map(reviewData, review => db.Review.create(review));
+  })
+  .then(createdReviews => {
+    console.log(`${createdReviews.length} new reviews created.`);
   })
   .then(() => {
     console.log("Seeded successfully");
