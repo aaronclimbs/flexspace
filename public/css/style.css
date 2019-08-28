@@ -112,6 +112,9 @@ body {
 
 /* form css*/
 
+#error-info {
+  color:red;
+}
 .signup-form {
   margin-top: 25px;
 }

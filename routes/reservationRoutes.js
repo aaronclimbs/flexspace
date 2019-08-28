@@ -9,11 +9,13 @@ var today = moment().format("YYYYMMDD");
 module.exports = function(app) {
   // CRUD stuff for "Reservation" tables:
 
+
   app.get("/api/reservations/", function(req, res) {
     db.Reservation.findAll({
       where: {
         start_date: {
           [Op.gte]: today
+
         }
       }
     }).then(function(dbReservation) {
@@ -79,21 +81,34 @@ module.exports = function(app) {
     }).then(function(dbReservation) {
       res.json(dbReservation);
     });
+
+  })
+
+
+    app.get("/api/pastreservationsbyuser/:userid/", function(req, res) {
+     
+
+      db.Reservation.findAll({
+    
+
+        where: {
+          UserID: req.params.userid,
+          start_date: {
+            [Op.lt]: today
+          }
+          
+        },
+        include: [db.Room],
+       
+
+      })
+        .then(function(dbReservation) {
+          res.json(dbReservation);
+        });
+
   });
 
-  app.get("/api/pastreservationsbyuser/:userid/", function(req, res) {
-    db.Reservation.findAll({
-      where: {
-        UserID: req.params.userid,
-        start_date: {
-          [Op.lt]: today
-        }
-      },
-      include: [db.Room]
-    }).then(function(dbReservation) {
-      res.json(dbReservation);
-    });
-  });
+
 
   app.post("/api/reservations", function(req, res) {
     console.log(req.body);
