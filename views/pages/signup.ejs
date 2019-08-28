@@ -27,16 +27,8 @@
 
               <div class="form-row">
                 <div class="form-group col-md-6 ">
-                  <label for="email-input"
-                    ><i class="fas fa-envelope"></i> Email</label
-                  >
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email-input"
-                    placeholder="Email"
-                    required
-                  />
+                  <label for="email-input"><i class="fas fa-envelope"></i> Email</label>
+                  <input type="email" class="form-control" id="email-input" placeholder="Email" required />
                   <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -46,16 +38,8 @@
                 </div>
 
                 <div class="form-group col-md-6 ">
-                  <label for="first-input"
-                    ><i class="fas fa-phone"></i> Phone Number</label
-                  >
-                  <input
-                    type="tel"
-                    class="form-control"
-                    id="phone-input"
-                    placeholder="Phone"
-                    required
-                  />
+                  <label for="first-input"><i class="fas fa-phone"></i> Phone Number</label>
+                  <input type="tel" class="form-control" id="phone-input" placeholder="Phone" required />
                   <div class="invalid-feedback">
                     Please enter a valid phone number.
                   </div>
@@ -64,9 +48,7 @@
 
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="password-input"
-                    ><i class="fas fa-lock"></i> Password</label
-                  >
+                  <label for="password-input"><i class="fas fa-lock"></i> Password</label>
                   <input
                     type="password"
                     class="form-control"
@@ -74,6 +56,7 @@
                     placeholder="Password"
                     required
                   />
+                  <div class="invalid-feedback">Please enter a password.</div>
                   <div id="pwMeter">
                     <div class="progress mt-1 meter" style="height: 10px">
                       <meter
@@ -101,50 +84,33 @@
                   <div class="invalid-feedback">
                     Passwords do not match. Please double-check your entry.
                   </div>
+                  <div class="valid-feedback">
+                    Good to go!
+                  </div>
                 </div>
 
-                <div
-                  style="display: none"
-                  id="alert"
-                  class="alert alert-danger"
-                  role="alert"
-                >
-                  <span
-                    class="glyphicon glyphicon-exclamation-sign"
-                    aria-hidden="true"
-                  ></span>
+                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                   <span class="sr-only">Error:</span> <span class="msg"></span>
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6 ">
-                  <label for="sec-question-input"
-                    ><i class="fas fa-user-lock"></i> Security Question</label
-                  >
+                  <label for="sec-question-input"><i class="fas fa-user-lock"></i> Security Question</label>
                   <select id="sec-question-input" class="form-control required">
-                    <option>Choose a security question</option>
-                    <option value="What is your favorite book"
-                      >What is your favorite book?</option
-                    >
-                    <option value="What is your favorite movie"
-                      >What is your favorite movie?</option
-                    >
-                    <option value="What was your first pet's name"
-                      >What was your first pet's name?</option
-                    >
+                    <option value="What is your favorite book">What is your favorite book?</option>
+                    <option value="What is your favorite movie">What is your favorite movie?</option>
+                    <option value="What was your first pet's name">What was your first pet's name?</option>
                   </select>
                 </div>
 
                 <div class="form-group col-md-6">
                   <label for="sec-question-answer">Answer</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="sec-question-answer"
-                    placeholder="Answer"
-                    required
-                  />
+                  <input type="text" class="form-control" id="sec-question-answer" placeholder="Answer" required />
+                  <div class="valid-feedback">
+                    Thanks! Security is great.
+                  </div>
                 </div>
               </div>
             </div>
@@ -157,23 +123,12 @@
               <div class="form-row">
                 <div class="form-group col-md-6 ">
                   <label for="first-input">First Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="first-input"
-                    placeholder="First"
-                  />
+                  <input type="text" class="form-control" id="first-input" placeholder="First" />
                 </div>
 
                 <div class="form-group col-md-6">
                   <label for="last-input">Last Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="last-input"
-                    placeholder="Last"
-                    required
-                  />
+                  <input type="text" class="form-control" id="last-input" placeholder="Last" required />
                   <div class="invalid-feedback">
                     Please enter your last name.
                   </div>
@@ -181,17 +136,9 @@
               </div>
             </div>
             <div class="form-row d-block">
-              <div class="form-group">
-                <label for="address1-input"
-                  ><i class="fas fa-address-book"></i> Address</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="address1-input"
-                  placeholder="1234 Main St"
-                  required
-                />
+              <div class="form-group col-md-6">
+                <label for="address1-input"><i class="fas fa-address-book"></i> Address</label>
+                <input type="text" class="form-control" id="address1-input" placeholder="1234 Main St" required />
                 <div class="invalid-feedback">
                   Please include your address.
                 </div>
@@ -210,39 +157,36 @@
               </div>
             </div>
 
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="city-input">City</label>
+            <d-block>
+              <div class="form-group w-25">
+                <label for="zip-input">Zip Code</label>
                 <input
                   type="text"
-                  class="form-control"
-                  id="city-input"
-                  placeholder="City"
-                />
-              </div>
-
-              <div class="form-group col-md-4">
-                <label for="state-input">State</label>
-                <select id="state-input" class="form-control required">
-                  <option>Choose...</option>
-                  <option value="DC">DC</option>
-                  <option value="MD">MD</option>
-                  <option value="VA">VA</option>
-                </select>
-              </div>
-
-              <div class="form-group col-md-2">
-                <label for="zip-input">Zip</label>
-                <input
-                  type="number"
-                  max="5"
+                  pattern="[0-9]{5}"
                   class="form-control required"
                   id="zip-input"
                   placeholder="Zip"
                 />
                 <div class="invalid-feedback">
-                  Please enter a valid zip code.
+                  Please enter a valid DMV zip code.
                 </div>
+              </div>
+            </d-block>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="city-input">City</label>
+                <input type="text" class="form-control" id="city-input" placeholder="City" disabled />
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="state-input">State</label>
+                <select id="state-input" class="form-control" disabled required>
+                  <option>Choose...</option>
+                  <option value="DC">DC</option>
+                  <option value="MD">MD</option>
+                  <option value="VA">VA</option>
+                </select>
               </div>
             </div>
 
@@ -254,9 +198,7 @@
       </div>
 
       <div class="card-footer">
-        <p class="text-center">
-          Already a member? Login <a class="login-link" href="/login">here</a>
-        </p>
+        <p class="text-center">Already a member? Login <a class="login-link" href="/login">here</a></p>
       </div>
     </div>
 
