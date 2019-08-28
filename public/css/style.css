@@ -50,7 +50,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  text-shadow: 3px 2px black;
+  /* text-shadow: 3px 2px black; */
 }
 
 
@@ -58,7 +58,7 @@ body {
  margin-bottom:0px;
  padding-bottom:0px;
   z-index:10;
-  color:#fff;
+  color: rgb(1, 119, 155);
   text-align:center;
   top:80%;
   left:20%;
@@ -74,20 +74,24 @@ body {
     border-width: 5px;
     margin-top: 150px;
     padding: 50px 200px;
+    color: rgb(0, 204, 255);
+    text-shadow: 1px 1px black;
     
   }
 
 .display-4  {
-color:#fff;
+color: white;
 font-weight: bold;
+text-shadow: 2px 2px black;
 
 }
 
 .lead {
   margin-top:0px;
   padding-top: 0px;
-  color:#fff;
+  color: white;
   font-weight: bold;
+  text-shadow: 2px 2px black;
 
 
 }
@@ -263,21 +267,33 @@ label {
 section{
     padding: 100px 0;
 }
+
+#features {
+  text-align: center;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 50px;
+  font-size: 50px;
+}
 .details-card {
-	background: #ecf0f1;
+  background: #ecf0f1;
+ 
 }
 
 .card-content {
-	background: #ffffff;
+	background: rgba(0, 0, 0, 0.712);
 	border: 4px;
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
 }
 
 .card-img {
 	position: relative;
 	overflow: hidden;
-	border-radius: 0;
-	z-index: 1;
+	border-radius: 1;
+  z-index: 1;
+  border-style: solid;
+  border-width: 3px;
+  border-color: rgba(0, 0, 0, 0.712);
 }
 
 .card-img img {
@@ -311,24 +327,24 @@ section{
 .card-desc {
 	padding: 1.25rem;
   	width: 100%;
-    height: 15vw;
+    height: 18vw;
 
 
 }
 
 .card-desc h3 {
-	color: #000000;
+	color: rgb(0, 204, 255);
     font-weight: 600;
     font-size: 1.5em;
     line-height: 1.3em;
     margin-top: 0;
-    margin-bottom: 5px;
+    margin-bottom: 25px;
     padding: 0;
       text-align: center;
 }
 
 .card-desc p {
-	color: #747373;
+	color: rgb(0, 204, 255);
     font-size: 14px;
 	font-weight: 400;
 	font-size: 1em;
@@ -340,6 +356,47 @@ section{
 }
 
 /* End card section */
+
+/* Featured testimonials section */
+
+.speech-bubble {
+	position: relative;
+	background: #00aabb;
+  border-radius: .4em;
+  height: 200px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top-color: #00aabb;
+	border-bottom: 0;
+	margin-left: -20px;
+	margin-bottom: -20px;
+}
+
+.speech-bubble p {
+  text-align: center;
+  bottom: 100%;
+  font-size: 15px;
+  margin-bottom: 50px;
+}
+
+.speech-bubble h3 {
+  text-align: center;
+  margin-bottom: 0px;
+  
+}
+
+
+/* Featured testimonials section ends */
 
 /* Contact Form */
 
