@@ -17,11 +17,9 @@ module.exports = function(app) {
       }).then(data => {
         return data;
       });
-      const reservations = db.Reservation.findAll({ include: [db.Room] }).then(
-        data => {
-          return data;
-        }
-      );
+      const reservations = db.Reservation.findAll({ include: [db.Room] }).then(data => {
+        return data;
+      });
 
       const revenueData = db.User.findAll({
         include: [
