@@ -2,22 +2,22 @@
   <head>
     <% include ../partials/head.ejs %>
   </head>
-  
+
   <body>
   <% include ../partials/nav.ejs %>
   <div class="container member mb-0 ml-auto mr-auto">
     <div class="row text-center">
       <div class="col-md-12">
-        <h2>Welcome <span class="member-name pr-2" ></span> 
-          <a href="/viewrooms"> <i class="fas fa-lg fa-search  fa-lg"></i></a>  
+        <h2>Welcome <span class="member-name pr-2" ></span>
+          <a href="/viewrooms"> <i class="fas fa-lg fa-search  fa-lg"></i></a>
 
-           For a room
+           for a room
         </h2>
 
-      
+
       </div>
 
-      
+
 
     </div>
   </div>
@@ -27,11 +27,11 @@
     <div class="card ">
       <div class="card-header text-center members-title">
 
-        
+
             My Reservations
-        
+
       </div>
-     
+
 
       <div class="card-body text-center" >
         <h5 class="card-title d-none">No reservations found</h5>
@@ -56,16 +56,16 @@
 
       <div class="card ">
           <div class="card-header text-center members-title">
-    
-            
+
+
                 My Past Reservations
-            
+
           </div>
-         
-    
+
+
           <div class="card-body text-center" >
             <h5 class="card-title d-none">No reservations found</h5>
-    
+
             <table class="table">
               <thead class="thead-light">
                 <tr>
@@ -79,7 +79,7 @@
                 </tr>
               </thead>
               <tbody id="my-past-reservations">
-    
+
                </tbody>
                </table>
           </div>
@@ -103,16 +103,16 @@
               </tr>
             </thead>
             <tbody id="my-rooms">
-  
+
              </tbody>
              </table>
       </div>
-      
-      <div class="card-footer text-center members-title">
-         
 
-          <a href="/addroom"> <i class="fas fa-plus-square fa-lg"></i></a>  
- A room 
+      <div class="card-footer text-center members-title">
+
+
+          <a href="/addroom"> <i class="fas fa-plus-square fa-lg"></i></a>
+ a room
         <a class="search-link" href="/addroom"></a>
       </div>
 
@@ -134,17 +134,17 @@
                     </button>
                   </div>
                   <div class="modal-body justify-content-center" id="room-name">
-                      
-                      
-                          
 
-                         
-                        
+
+
+
+
+
                   </div>
                   <div class="modal-footer">
                     <button type="submit" class="btn btn-primary float-left">Text me this!</button>
                     <button type="button" class="btn btn-secondary modal-btn" data-dismiss="modal">Close</button>
-                    
+
                   </div>
                 </div>
               </div>
@@ -161,11 +161,11 @@
                   </button>
                 </div>
                 <div class="modal-body justify-content-center" id="reservations-list">
-  
+
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary modal-btn" data-dismiss="modal">Close</button>
-                  
+
                 </div>
               </div>
             </div>
@@ -175,7 +175,7 @@
 
             <!-- Modal for Res Del -->
 
-                    
+
           <div class="modal fade" id="confirm-res-del-modal" tabindex="-1" role="dialog" aria-labelledby="confirm-res-del-modal" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -186,17 +186,17 @@
                     </button>
                   </div>
                   <div class="modal-body justify-content-center" id="res-del-info">
-                      
-                      
-                          
 
-                         
-                        
+
+
+
+
+
                   </div>
                   <div class="modal-footer">
                     <button type="submit" id="confirm-res-del-btn" class="btn btn-primary float-left">Confirm</button>
                     <button type="button" class="btn btn-secondary modal-btn" data-dismiss="modal">Close</button>
-                    
+
                   </div>
                 </div>
               </div>
@@ -224,9 +224,9 @@
                                 </div>
 
                                 <div class="form-group row">
-                                     
 
-                                    
+
+
                                     <label class="" for="res-dur-input">Reservation Time</label>
 
                                       <div class="form-group row ml-1">
@@ -275,34 +275,34 @@
                                       <option value="6">Six hours</option>
                                       <option value="7">Seven hours</option>
                                       <option value="8">Eight hours</option>
-                                      
+
                                     </select>
                                     </div>
-                                    
+
 
                                     <div class="form-group row">
                                       <label for="res-text-input">Reservation details</label>
                                       <textarea class="form-control" id="res-text-input" rows="2"></textarea>
                                     </div>
-                               
-                                
+
+
                                     <div class="form-group row pt-1">
                                     <button  id="update-res-btn" class="btn btn-dark">Update Reservation</button>
                                     </div>
                                   </div>
                                   </form>
 
-                      
-                      
-                          
 
-                         
-                        
+
+
+
+
+
                   </div>
                   <div class="modal-footer">
- 
+
                     <button type="button" class="btn btn-secondary modal-btn" data-dismiss="modal">Close</button>
-                    
+
                   </div>
                 </div>
               </div>
@@ -310,7 +310,7 @@
 
               <!-- Modal for Res Del -->
 
-                    
+
               <div class="modal fade" id="meeting-conflict-modal" tabindex="-1" role="dialog" aria-labelledby="meeting-conflict-modal" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -321,17 +321,17 @@
                         </button>
                       </div>
                       <div class="modal-body justify-content-center" id="meeting-conflict-info">
-                          
+
                           There is a meeting conflict. Please adjust your meeting times or search for another room.
-                              
-    
-                             
-                            
+
+
+
+
                       </div>
                       <div class="modal-footer">
-                       
+
                         <button type="button" id="conflict-close" class="btn btn-secondary modal-btn" data-dismiss="modal">Close</button>
-                        
+
                       </div>
                     </div>
                   </div>
@@ -449,6 +449,3 @@
   <% include ../partials/footer.ejs %>
   </body>
 </html>
-
-
-

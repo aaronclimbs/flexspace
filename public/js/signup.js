@@ -20,11 +20,16 @@ $(document).ready(function() {
   signUpForm.on("submit", function(event) {
     event.preventDefault();
     const inputs = Array.from(document.querySelectorAll(".form-control"));
-    if (inputs.filter(input => input.className.includes("is-invalid")).length !== 0) {
+    if (
+      inputs.filter(input => input.className.includes("is-invalid")).length !==
+      0
+    ) {
       passwordInput.val("");
       passwordInput.addClass("is-invalid");
+      passwordInput.removeClass("is-valid");
       passwordConfirm.val("");
       passwordConfirm.addClass("is-invalid");
+      passwordConfirm.removeClass("is-valid");
       const alert = `<div class="alert alert-info alert-dismissible fade show" role="alert">
                       <strong>Holy guacamole!</strong> You should check in on some of those fields below.
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -32,6 +37,7 @@ $(document).ready(function() {
                       </button>
                     </div>`;
       document.querySelector("#messages").innerHTML = alert;
+      $("body").scrollTop(0);
 
       return;
     }
@@ -125,7 +131,9 @@ $(document).ready(function() {
 
   function handleLoginErr(err) {
     $("#loading").hide();
-    $("#alert").text("Password must meet a minimum complexity of 5 characters.");
+    $("#alert").text(
+      "Password must meet a minimum complexity of 5 characters."
+    );
     $("#alert").fadeIn(500);
   }
 });
