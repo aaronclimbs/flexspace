@@ -197,15 +197,17 @@ var i=0;
 
    
 
+      roomReviews=$("<td>")
+
      
 
-      roomReviews=$("<td>")
       roomReviews.addClass("get-review-info")
       roomReviews.attr("id", element.id)
-      //roomReviews.text(reviewdata.length)
+      roomReviews.html('<a href="#" id="'+element.id+'">Check Reviews')
        
+      
 
-
+      
       roomUpdDel=$("<td>")
 
 
@@ -698,7 +700,65 @@ $(document).on("click","#submit-review", (function(event) {
 }))
 
 })
+
+/* get Review Click*/
+
+
+$(document).on ("click", ".get-review-info", function (event)  {
+  event.preventDefault();
+  var roomid = this.id
+  
+  console.log("Id from click is " + this.id)
+
+  $("#reviews-list").empty()
+
+  jQuery.noConflict();
  
+  $.get("/api/reviews/" + roomid, function(revdata) {
+
+    console.log("Review data is " + JSON.stringify(revdata))
+
+    var i=0
+
+   for (i =0; i< revdata.length; i++) {
+
+      revTR= $("<tr>")
+      revTR.attr("id", "reviews-row"+i)
+
+      $("#reviews-list").append(revTR)
+
+      revName =$("<td>")
+      revName.text(revdata[i].User.first + " " + revdata[i].User.last)
+
+      revEmail =$("<td>")
+      revEmail.text(revdata[i].User.email)
+
+      revPhone =$("<td>")
+      revPhone.text(revdata[i].User.phone)
+
+      revRating =$("<td>")
+      revRating.text(revdata[i].rating)
+
+      revReview =$("<td>")
+      revReview.text(revdata[i].message)
+
+
+      $('#reviews-row'+i).append(revName, revEmail, revPhone, revRating, revReview)
+
+
+
+
+
+    }
+  
+
+  })
+
+  $("#show-room-rev-modal").modal("toggle");
+
+})
+
+
 
 
 // GET RES INFO:
