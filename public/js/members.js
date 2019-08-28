@@ -199,16 +199,15 @@ var i=0;
 
       roomReviews=$("<td>")
 
-      roomReviewLink=$("<a>")
+     
 
-      roomReviewLink.addClass("get-review-info")
-      roomReviewLink.attr("id", element.id)
-      roomReviewLink.text("Check Reviews")
+      roomReviews.addClass("get-review-info")
+      roomReviews.attr("id", element.id)
+      roomReviews.html('<a href="#" id="'+element.id+'">Check Reviews')
        
-      roomReviews.append(roomReviewLink)
+      
 
-
-
+      
       roomUpdDel=$("<td>")
 
 
