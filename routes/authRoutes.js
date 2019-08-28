@@ -58,11 +58,16 @@ module.exports = function(app) {
           phone: req.body.phone,
           secQuestion: req.body.secQuestion,
           secAnswer: req.body.secAnswer
-        }).catch(function(err) {
-          console.log(err);
-          res.json(err);
-          // res.status(422).json(err.errors[0].message);
-        });
+        })
+          .then(() => {
+            console.log("member added");
+            res.redirect(307, "/api/login");
+          })
+          .catch(function(err) {
+            console.log(err);
+            res.json(err);
+            // res.status(422).json(err.errors[0].message);
+          });
       }, 500);
     }
   );
