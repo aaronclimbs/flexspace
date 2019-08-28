@@ -1,8 +1,10 @@
+// @ts-nocheck
 $(document).ready(function() {
   // Getting references to our form and input
   var signUpForm = $("form.signup");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
+  var passwordConfirm = $("input#confirm-password-input");
   var firstInput = $("input#first-input");
   var lastInput = $("input#last-input");
   var address1Input = $("input#address1-input");
@@ -18,12 +20,19 @@ $(document).ready(function() {
   signUpForm.on("submit", function(event) {
     event.preventDefault();
     const inputs = Array.from(document.querySelectorAll(".form-control"));
-    if (
-      inputs.filter(input => input.className.includes("is-invalid")).length !==
-      0
-    ) {
+    if (inputs.filter(input => input.className.includes("is-invalid")).length !== 0) {
       passwordInput.val("");
-      alert("Please check errors!");
+      passwordInput.addClass("is-invalid");
+      passwordConfirm.val("");
+      passwordConfirm.addClass("is-invalid");
+      const alert = `<div class="alert alert-info alert-dismissible fade show" role="alert">
+                      <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>`;
+      document.querySelector("#messages").innerHTML = alert;
+
       return;
     }
     // if (!userData.email || !userData.password) {
@@ -62,17 +71,17 @@ $(document).ready(function() {
       userData.secQuestion,
       userData.secAnswer
     );
-    emailInput.val("");
+    // emailInput.val("");
     passwordInput.val("");
-    firstInput.val("");
-    lastInput.val("");
-    address1Input.val("");
-    address2Input.val("");
-    cityInput.val("");
-    stateInput.val("");
-    zipInput.val("");
-    phoneInput.val("");
-    secQuestionInput.val("");
+    // firstInput.val("");
+    // lastInput.val("");
+    // address1Input.val("");
+    // address2Input.val("");
+    // cityInput.val("");
+    // stateInput.val("");
+    // zipInput.val("");
+    // phoneInput.val("");
+    // secQuestionInput.val("");
     secAnswerInput.val("");
   });
 
@@ -116,7 +125,7 @@ $(document).ready(function() {
 
   function handleLoginErr(err) {
     $("#loading").hide();
-    $("#alert").text(JSON.stringify(err.responseJSON));
+    $("#alert").text("Password must meet a minimum complexity of 5 characters.");
     $("#alert").fadeIn(500);
   }
 });
@@ -151,17 +160,17 @@ password.addEventListener("input", function() {
 
 passwordConfirm.addEventListener("blur", e => {
   if (password.value !== passwordConfirm.value || !password.value) {
-    console.log("Passwords do not match!");
     passwordConfirm.classList.add("is-invalid");
   } else {
-    console.log("Passwords match!");
     passwordConfirm.classList.remove("is-invalid");
     passwordConfirm.classList.add("is-valid");
+    password.classList.remove("is-invalid");
+    password.classList.add("is-valid");
   }
 });
 const loginEmail = document.querySelector("#email-input");
 loginEmail.addEventListener("blur", e => {
-  fetch(`/api/users/login/${e.target.value}`)
+  fetch(`/api/users/${e.target.value}/check`)
     .then(data => data.json())
     .then(data => {
       if (data.match == false) {
@@ -172,4 +181,33 @@ loginEmail.addEventListener("blur", e => {
         loginEmail.classList.add("is-invalid");
       }
     });
+});
+
+const zipInput = document.querySelector("#zip-input");
+const stateInput = document.querySelector("#state-input");
+const cityInput = document.querySelector("#city-input");
+zipInput.addEventListener("blur", e => {
+  const zipRegex = RegExp(/\d{5}/);
+  if (zipRegex.test(zipInput.value)) {
+    const zipRes = fetch(`/api/user/${e.target.value}/check`)
+      .then(res => res.json())
+      .then(res => {
+        if (["DC", "MD", "VA"].includes(res.state)) {
+          zipInput.classList.remove("is-invalid");
+          zipInput.classList.add("is-valid");
+          cityInput.value = res.city;
+          stateInput.value = res.state;
+        } else {
+          zipInput.classList.add("is-invalid");
+          zipInput.value = "";
+          cityInput.value = "";
+          stateInput.value = "";
+        }
+      });
+  } else {
+    zipInput.classList.add("is-invalid");
+    zipInput.value = "";
+    cityInput.value = "";
+    stateInput.value = "";
+  }
 });
