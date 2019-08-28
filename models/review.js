@@ -15,20 +15,21 @@ module.exports = function(sequelize, DataTypes) {
     });
 
 
-    // Review.associate = function(models) {
+     Review.associate = function(models) {
 
-    //     Reviews.belongsTo(models.Review, {
-    //         foreignKey: {
-    //             allowNull: false,
+       Review.belongsTo(models.Room, {
+           foreignKey: {
+                allowNull: false,
                 
-    //         }, 
-    //     });
-    //     Reviews.belongsTo(models.User, {
-    //         foreignKey: {
-    //             allowNull: false
-    //         }
-    //     });
-    // };
+           }, 
+        });
+
+        Review.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
 
     return Review;
 

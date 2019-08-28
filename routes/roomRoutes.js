@@ -23,7 +23,8 @@ module.exports = function(app) {
     db.Room.findOne({
       where: {
         id: req.params.id
-      }
+      },
+      include: [db.Review]
     }).then(function(dbRoom) {
       res.json(dbRoom);
     });

@@ -63,6 +63,10 @@ module.exports = function(sequelize, DataTypes) {
             onDelete: "cascade",
             hooks: true
         });
+        Room.hasMany(models.Review, {
+            onDelete: "cascade",
+            hooks: true
+        });
     };
 
 

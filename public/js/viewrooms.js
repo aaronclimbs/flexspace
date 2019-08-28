@@ -40,7 +40,7 @@ $(document).on ("click", "#search-btn", function (event)  {
 
 
   
-
+console.log("room data is " + JSON.stringify(roomSearch))
 
 
 
@@ -101,9 +101,10 @@ for (i=0; i < roomSearch.length; i++) {
         roomCapacity.text("Capacity: " + roomSearch[i].roomCapacity)
 
         var roomReview=$("<li>");
-        roomReview.addClass("list-group-item")
-        roomReview.text("Reviews")
-        // Reviews link needs to be added
+        roomReview.addClass("list-group-item room-review")
+       
+        roomReview.attr("id", roomSearch[i].id)
+        roomReview.html('<a href="#" id="'+roomSearch[i].id+'">Reviews')
 
     $("#roomInfo" +i).append(roomType, roomCapacity, roomReview)
       
@@ -137,6 +138,48 @@ var roomid = this.id
 console.log( "Room ID being sent in URL is "+ roomid)
 
 window.location = "/rendercalender/?variable=" + roomid;
+
+})
+
+$(document).on ("click", ".room-review", function (event)  {
+  event.preventDefault();
+  var roomid = this.id
+  
+  console.log("Id from click is " + this.id)
+
+  jQuery.noConflict();
+ 
+  $.get("/api/reviews/" + roomid, function(revdata) {
+
+    console.log("Review data is " + JSON.stringify(revdata))
+
+    var i=0
+
+   for (i =0; i< revdata.length; i++) {
+
+      revTR= $("<tr>")
+      revTR.attr("id", "reviews-row"+i)
+
+      $("#reviews-list").append(revTR)
+
+      revName =$("<td>")
+      revName.text(revdata[i].User.first + " gave this room a rating of " + revdata[i].rating + " with a comment of " + revdata[i].message)
+
+      
+
+
+      $('#reviews-row'+i).append(revName)
+
+
+
+
+
+    }
+  
+
+  })
+
+  $("#show-room-rev-modal").modal("toggle");
 
 })
 

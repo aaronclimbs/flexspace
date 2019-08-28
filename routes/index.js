@@ -4,5 +4,6 @@ module.exports = {
   reservation: require("./reservationRoutes"),
   user: require("./userRoutes"),
   admin: require("./adminRoutes"),
+  review: require("./reviewRoutes"),
   view: require("./viewRoutes")
 };

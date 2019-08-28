@@ -125,29 +125,7 @@ module.exports = function(app) {
     res.render("pages/contact", ejsObj);
   });
   
-  // Review route test
-  app.get("/reviews", function(req, res) {
-    // If the user already has an account send them to the members page
-    var ejsObj = {
-      pageTitle: "Reviews",
-      user: req.user,
-      script: "review"
-    };
 
-    res.render("pages/reviews", ejsObj);
-  });
-
-  // Submit Review route test
-  app.get("/submitreview", function(req, res) {
-    // If the user already has an account send them to the members page
-    var ejsObj = {
-      pageTitle: "Submit Review",
-      user: req.user,
-      script: "submitReview"
-    };
-
-    res.render("pages/submitreview", ejsObj);
-  });
 
   app.get("/about", function(req, res) {
     // If the user already has an account send them to the members page
@@ -222,6 +200,30 @@ module.exports = function(app) {
     }
     res.render("pages/members", ejsObj);
   });
+      // Review route test
+      app.get("/reviews", function(req, res) {
+        // If the user already has an account send them to the members page
+        var ejsObj = {
+          pageTitle: "Reviews",
+          user: req.user,
+          script: "review"
+        };
+    
+        res.render("pages/reviews", ejsObj);
+      });
+
+
+  // Submit Review route test
+  app.get("/submitreview", function(req, res) {
+    // If the user already has an account send them to the members page
+    var ejsObj = {
+      pageTitle: "Submit Review",
+      user: req.user,
+      script: "submitReview"
+    };
+
+    res.render("pages/submitreview", ejsObj);
+  });
 
 
   app.get("*", function(req, res) {
@@ -236,4 +238,7 @@ module.exports = function(app) {
 
     res.render("pages/error", ejsObj);
   });
+
+
+  
 };
