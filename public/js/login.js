@@ -67,7 +67,7 @@ $(document).ready(function() {
     console.log(err.responseJSON)
     var error=JSON.stringify(err)
  
-   $("#error-info").text("Login failure. ");
+   $("#error-info").text("Login failure! Please check your email address and password");
    
   }
 

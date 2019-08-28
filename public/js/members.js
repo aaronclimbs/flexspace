@@ -86,7 +86,10 @@ var i=0;
   
   })
 
+
+
   $.get("/api/pastreservationsbyuser/" +userdata.id, function(pastresdata) {
+
 
     var i=0;
     
@@ -102,7 +105,7 @@ var i=0;
         pastroomName=$("<td>")
         pastroomName.addClass("get-room-info")
         pastroomName.attr("id", element.RoomId)
-        pastroomName.html('<a href="#" id="'+element.roomId+'">'+element.Room.roomName)
+        pastroomName.html('<a href="#" id="'+element.RoomId+'">'+element.Room.roomName)
         
       
     
@@ -129,16 +132,25 @@ var i=0;
     
         pastresCost=$("<td>")
         pastresCost.text("$" + element.duration * element.Room.hourlyRate)
+
+        //$.get("/api/submitreview/" +element.RoomId, function(reviewdata) {
     
         pastReview=$("<td>")
-        pastReview.html('<a href="/submitreview" id="'+element.roomId+'">'+"Review Room")
+
+        pastReviewLink=$("<a>")
+        pastReviewLink.attr("id", element.RoomId)
+        pastReviewLink.addClass("review-click")
+        pastReviewLink.text("Review Room")
+
+       
+        
         
     
      
     
         pastrowDiv.append(pastresName,pastroomName, pastresDate, pastresTime, pastresDur, pastresCost, pastReview)
        
-    
+        pastReview.append(pastReviewLink)
     
       i++
       })
@@ -147,8 +159,14 @@ var i=0;
 
   $.get("/api/rooms/" , function(roomdata) {
   var i=0;
+
+  var results = JSON.stringify(roomdata)
+
     
+  console.log(results)
     roomdata.forEach(function(element){
+
+
   
       rowDiv=$("<tr>")
       rowDiv.addClass("room-row")
@@ -177,6 +195,16 @@ var i=0;
       roomResCount.attr("id", element.id)
       roomResCount.html('<a href="#" id="'+element.id+'">'+element.Reservations.length)
 
+   
+
+     
+
+      roomReviews=$("<td>")
+      roomReviews.addClass("get-review-info")
+      roomReviews.attr("id", element.id)
+      //roomReviews.text(reviewdata.length)
+       
+
 
       roomUpdDel=$("<td>")
 
@@ -193,12 +221,14 @@ var i=0;
     roomUpdate.attr("id", element.id)
       
   
-      rowDiv.append(roomImg, roomName, roomLoc, roomResCount,roomUpdDel)
+      rowDiv.append(roomImg, roomName, roomLoc, roomResCount,roomReviews, roomUpdDel)
 
       roomUpdDel.append(roomDel, roomUpdate)
   
     i++
     })
+
+    
   
   
     
@@ -619,6 +649,53 @@ var roomid = this.id
 console.log( "Room ID being sent in URL is "+ roomid)
 
 window.location = "/updateroom/?variable=" + roomid;
+
+})
+
+$(document).on ("click", ".review-click", function (event)  {
+  console.log("Update link clicked")
+  console.log("id is " + this.id)
+  
+  event.preventDefault();
+  jQuery.noConflict();
+  var roomid = this.id
+  console.log("Id from click is " + roomid)
+
+$("#submit-review--modal").modal("toggle")
+
+$(document).on("click","#submit-review", (function(event) { 
+  console.log("Submit review clicked")
+  event.preventDefault()
+
+
+  var reviewMessage =$("#review-message").val()
+  var reviewRating =$("#review-rating").val()
+  
+  
+  var reviewData= {
+      message: reviewMessage,
+      rating: reviewRating,
+      roomid: roomid
+  
+  }
+  
+  $.post("/api/submitreview/", {
+      message: reviewData.message,
+      rating: reviewData.rating,
+      roomid: reviewData.roomid
+  
+  
+    }).then(function(data) {
+
+      location.reload(true)
+     // window.location.replace(data);
+      // If there's an error, handle it by throwing up a bootstrap alert
+    })
+
+
+
+
+}))
 
 })
  

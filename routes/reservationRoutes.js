@@ -8,6 +8,8 @@ var moment= require("moment");
 var today = moment().format("YYYYMMDD")
 module.exports = function(app) {
 
+ 
+
 
     // CRUD stuff for "Reservation" tables:
   
@@ -117,7 +119,9 @@ module.exports = function(app) {
           }
           
         },
-        include: [db.Room]
+        include: [db.Room],
+       
+
       })
         .then(function(dbReservation) {
           res.json(dbReservation);
