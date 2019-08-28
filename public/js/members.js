@@ -661,7 +661,7 @@ $(document).on ("click", ".review-click", function (event)  {
   var roomid = this.id
   console.log("Id from click is " + roomid)
 
-$("#submit-review--modal").modal("toggle")
+$("#submit-review-modal").modal("toggle")
 
 $(document).on("click","#submit-review", (function(event) { 
   console.log("Submit review clicked")
@@ -669,7 +669,7 @@ $(document).on("click","#submit-review", (function(event) {
 
 
   var reviewMessage =$("#review-message").val()
-  var reviewRating =$("#review-rating").val()
+  var reviewRating =$("input:radio[name='review-rating']:checked").val()
   
   
   var reviewData= {

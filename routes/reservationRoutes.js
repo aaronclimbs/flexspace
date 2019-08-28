@@ -82,6 +82,8 @@ module.exports = function(app) {
       res.json(dbReservation);
     });
 
+  })
+
 
     app.get("/api/pastreservationsbyuser/:userid/", function(req, res) {
      

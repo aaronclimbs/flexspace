@@ -339,70 +339,72 @@
 
                       <!-- Modal for Submit Reviews-->
 
-                    
-          <div class="modal fade" id="submit-review--modal" tabindex="-1" role="dialog" aria-labelledby="submit-review--modal" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title"id="modal-room-name">Submit Your Review</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body justify-content-center" id="review-info">
-                      
-                          
-            <!-- Name input-->
-          
-      
-            
-      
-              <!-- Message body -->
-              <div class="form-group">
-                <label class="col-md-3 control-label" for="message">Your message</label>
-                <div class="col-md-9">
-                  <textarea class="form-control" id="review-message" name="message" placeholder="Please enter your feedback here..." rows="5"></textarea>
-                </div>
-              </div>
-  
-  
-              <!-- Rating -->
-              <div class="form-group">
-                <label class="col-md-3 control-label" for="message">Your rating</label>
-                <div class="col-md-9">
-                  <input id="review-rating" value="0" type="number" class="rating" min=0 max=5 step=0.5 data-size="xs" >
-                </div>
-              </div>
-      </td>
-      <td align="center" valign="top" width="23%">
-              <!-- Form actions -->
-              <div class="form-group">
-                <div class="col-md-12 text-center">
-                  <button type="submit" id="submit-review" class="btn btn-primary btn-md">Submit</button>
-                  <button type="reset" class="btn btn-default btn-md">Clear</button>
-                </div>
-              </div>
-            </fieldset>
-            </form>
-          </div>
-      </div>
-      </td>
-      </tr>
-      </table>
-  </div>
-                          
+                      <div class="modal fade" id="submit-review-modal" tabindex="-1" role="dialog" aria-labelledby="submit-review-modal" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title"id="modal-room-name">Review Room</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body justify-content-center" id="review-form">
 
-                         
-                        
-                  </div>
-                  <div class="modal-footer">
-                    <button type="submit" id="confirm-res-del-btn" class="btn btn-primary float-left">Confirm</button>
-                    <button type="button" class="btn btn-secondary modal-btn" data-dismiss="modal">Close</button>
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
+                                  <form>
+                           
+                                      <div class="form-group">
+                                          <label for="room-rating">Please rate your overall room experience</label>
+                                         
+                                        </div>
+
+                                      
+                                      <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="review-rating" id="inlineRadio1" value="1">
+                                          <label class="form-check-label" for="inlineRadio1">1 (Worst)</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="review-rating" id="inlineRadio2" value="2">
+                                          <label class="form-check-label" for="inlineRadio2">2</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="radio" name="review-rating" id="inlineRadio3" value="3">
+                                          <label class="form-check-label" for="inlineRadio3">3</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="review-rating" id="inlineRadio3" value="4">
+                                            <label class="form-check-label" for="inlineRadio3">4 </label>
+                                          </div>
+
+                                          <div class="form-check form-check-inline">
+                                              <input class="form-check-input" type="radio" name="review-rating" id="inlineRadio3" value="5">
+                                              <label class="form-check-label" for="inlineRadio3">5 (Best)</label>
+                                            </div>
+
+                                        <div class="form-group pt-4">
+                                            <label for="exampleFormControlTextarea1">Any additonal feedback?</label>
+                                            <textarea class="form-control" id="review-message" rows="3"></textarea>
+                                          </div>
+
+                                          <button type="submit" id="submit-review"class="btn btn-primary mb-2">Submit</button>
+
+                                    </form>
+                                  
+                                
+            
+                                     
+                                    
+                              </div>
+                              <div class="modal-footer">
+                               
+                                <button type="button" id="conflict-close" class="btn btn-secondary modal-btn" data-dismiss="modal">Close</button>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
 
   <% include ../partials/footer.ejs %>
   </body>
