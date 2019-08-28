@@ -4,8 +4,8 @@
   </head>
   <body>
     <% include ../partials/nav.ejs %>
-    <div class="container">
-      <ul class="nav nav-tabs" id="tabdiv" role="tablist">
+    <div class="container member">
+      <ul class="nav nav-pills nav-fill" id="tabdiv" role="tablist">
         <li class="nav-item">
           <a
             class="nav-link active"
@@ -45,14 +45,8 @@
       </ul>
     </div>
     <div class="tab-content" id="content">
-      <div
-        class="tab-pane fade show active"
-        id="user"
-        role="tabpanel"
-        aria-labelledby="user-tab"
-      >
+      <div class="tab-pane fade show active" id="user" role="tabpanel" aria-labelledby="user-tab">
         <div class="container">
-          <!-- <p class="lead"><%=JSON.stringify(users)%></p> -->
           <table class="table table-striped table-light">
             <thead>
               <tr>
@@ -73,11 +67,7 @@
                 <td><%=user.reservations%></td>
                 <td><%=user.revenue%></td>
                 <td>
-                  <button
-                    data-id="<%=user.id%>"
-                    type="button"
-                    class="btn btn-outline-danger delete delete-user"
-                  >
+                  <button data-id="<%=user.id%>" type="button" class="btn btn-outline-danger delete delete-user">
                     <i class="fas fa-trash"></i>
                     Delete
                   </button>
@@ -88,12 +78,7 @@
           </table>
         </div>
       </div>
-      <div
-        class="tab-pane fade"
-        id="rooms"
-        role="tabpanel"
-        aria-labelledby="rooms-tab"
-      >
+      <div class="tab-pane fade" id="rooms" role="tabpanel" aria-labelledby="rooms-tab">
         <div class="container">
           <!-- <p class="lead"><%=JSON.stringify(rooms)%></p> -->
           <table class="table table-striped table-light">
@@ -116,11 +101,7 @@
                 <td><%=room.owner%></td>
                 <td><%=room.reservations%></td>
                 <td>
-                  <button
-                    data-id="<%=room.id%>"
-                    type="button"
-                    class="btn btn-outline-danger delete delete-room"
-                  >
+                  <button data-id="<%=room.id%>" type="button" class="btn btn-outline-danger delete delete-room">
                     <i class="fas fa-trash"></i>
                     Delete
                   </button>
@@ -131,12 +112,7 @@
           </table>
         </div>
       </div>
-      <div
-        class="tab-pane fade"
-        id="reservations"
-        role="tabpanel"
-        aria-labelledby="reservations-tab"
-      >
+      <div class="tab-pane fade" id="reservations" role="tabpanel" aria-labelledby="reservations-tab">
         <div class="container">
           <!-- <p class="lead"><%=JSON.stringify(reservations, null, 2)%></p> -->
           <table class="table table-striped table-light">

@@ -1,231 +1,211 @@
 <html>
   <head>
     <% include ../partials/head.ejs %>
-
   </head>
   <% include ../partials/nav.ejs %>
   <div class="container member mx-auto">
-
-
-
-
-  <div class="container">
+    <div class="container">
       <div id="loading">
-          <div id="loadingcontent">
-
-              <p id="loadingspinner">
-                 Processing Signup...sending 0s and 1s
-
-              </p>
-
-          </div>
+        <div id="loadingcontent">
+          <p id="loadingspinner">
+            Processing Signup...sending 0s and 1s
+          </p>
+        </div>
       </div>
 
-    <div class="card signup-form w-75 mx-auto">
+      <div class="card signup-form w-75 mx-auto">
+        <h4 class="card-header text-center text-dark">
+          New Member Signup
+        </h4>
 
-      <h4 class="card-header text-center text-dark">
-        New Member Signup
-      </h4>
-
-      <div class="card-body">
-
-        <form class="signup">
-
-          <div class="form-row d-block">
-
-            <div class="card-header text-center pass-header mt-0">
-              Password and Security
-            </div>
-
-            <div class="form-row">
-
-              <div class="form-group col-md-6 ">
-                <label for="email-input"><i class="fas fa-envelope"></i> Email</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email-input"
-                  placeholder="Email"
-                />
+        <div class="card-body">
+          <form class="signup">
+            <div class="form-row d-block">
+              <div class="card-header text-center pass-header mt-0">
+                Password and Security
               </div>
 
-              <div class="form-group col-md-6 ">
-                <label for="first-input"><i class="fas fa-phone"></i> Phone Number</label>
+              <div class="form-row">
+                <div class="form-group col-md-6 ">
+                  <label for="email-input"><i class="fas fa-envelope"></i> Email</label>
+                  <input type="email" class="form-control" id="email-input" placeholder="Email" required />
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                    This username is taken.
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6 ">
+                  <label for="first-input"><i class="fas fa-phone"></i> Phone Number</label>
+                  <input type="tel" class="form-control" id="phone-input" placeholder="Phone" required />
+                  <div class="invalid-feedback">
+                    Please enter a valid phone number.
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="password-input"><i class="fas fa-lock"></i> Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password-input"
+                    placeholder="Password"
+                    required
+                  />
+                  <div class="invalid-feedback">Please enter a password.</div>
+                  <div id="pwMeter">
+                    <div class="progress mt-1 meter" style="height: 10px">
+                      <meter
+                        id="password-strength-meter"
+                        class="progress-bar"
+                        role="progressbar"
+                        value="0"
+                        max="4"
+                        style="width: 100%"
+                      ></meter>
+                    </div>
+                    <p id="password-strength-text"></p>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="confirm-password-input">Confirm Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="confirm-password-input"
+                    placeholder="Confirm Password"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Passwords do not match. Please double-check your entry.
+                  </div>
+                  <div class="valid-feedback">
+                    Good to go!
+                  </div>
+                </div>
+
+                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                  <span class="sr-only">Error:</span> <span class="msg"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6 ">
+                  <label for="sec-question-input"><i class="fas fa-user-lock"></i> Security Question</label>
+                  <select id="sec-question-input" class="form-control required">
+                    <option value="What is your favorite book">What is your favorite book?</option>
+                    <option value="What is your favorite movie">What is your favorite movie?</option>
+                    <option value="What was your first pet's name">What was your first pet's name?</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="sec-question-answer">Answer</label>
+                  <input type="text" class="form-control" id="sec-question-answer" placeholder="Answer" required />
+                  <div class="valid-feedback">
+                    Thanks! Security is great.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row d-block">
+              <div class="card-header text-center acct-header mt-3">
+                Account Information
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6 ">
+                  <label for="first-input">First Name</label>
+                  <input type="text" class="form-control" id="first-input" placeholder="First" required />
+                  <div class="invalid-feedback">
+                    Please enter your first name.
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="last-input">Last Name</label>
+                  <input type="text" class="form-control" id="last-input" placeholder="Last" required />
+                  <div class="invalid-feedback">
+                    Please enter your last name.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row d-block">
+              <div class="form-group col-md-6">
+                <label for="address1-input"><i class="fas fa-address-book"></i> Address</label>
+                <input type="text" class="form-control" id="address1-input" placeholder="1234 Main St" required />
+                <div class="invalid-feedback">
+                  Please include your address.
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row d-block">
+              <div class="form-group">
+                <label for="address2-input">Address 2</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="phone-input"
-                  placeholder="Phone"
+                  id="address2-input"
+                  placeholder="Apartment, studio, or floor"
                 />
               </div>
-
             </div>
+
+            <d-block>
+              <div class="form-group w-25">
+                <label for="zip-input">Zip Code</label>
+                <input
+                  type="text"
+                  pattern="[0-9]{5}"
+                  class="form-control required"
+                  id="zip-input"
+                  placeholder="Zip"
+                />
+                <div class="invalid-feedback">
+                  Please enter a valid DMV zip code.
+                </div>
+              </div>
+            </d-block>
 
             <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="password-input"><i class="fas fa-lock"></i> Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="password-input"
-                placeholder="Password"
-              />
-            </div>
+              <div class="form-group col-md-6">
+                <label for="city-input">City</label>
+                <input type="text" class="form-control" id="city-input" placeholder="City" disabled />
+              </div>
 
-            <div class="form-group col-md-6">
-              <label for="confirm-password-input">Confirm Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="confirm-password-input"
-                placeholder="Confirm Password"
-              />
-            </div>
-
-            <div
-              style="display: none"
-              id="alert"
-              class="alert alert-danger"
-              role="alert"
-            >
-              <span
-                class="glyphicon glyphicon-exclamation-sign"
-                aria-hidden="true"
-              ></span>
-              <span class="sr-only">Error:</span> <span class="msg"></span>
-            </div>
-
-          </div>
-
-            <div class="form-row">
-
-              <div class="form-group col-md-6 ">
-                <label for="sec-question-input"><i class="fas fa-user-lock"></i> Security Question</label>
-                <select id="sec-question-input" class="form-control">
-                  <option>Choose a security question</option>
-                  <option value="What is your favorite book"
-                    >What is your favorite book?</option
-                  >
-                  <option value="What is your favorite movie"
-                    >What is your favorite movie?</option
-                  >
-                  <option value="What was your first pet's name"
-                    >What was your first pet's name?</option
-                  >
+              <div class="form-group col-md-4">
+                <label for="state-input">State</label>
+                <select id="state-input" class="form-control" disabled required>
+                  <option>Choose...</option>
+                  <option value="DC">DC</option>
+                  <option value="MD">MD</option>
+                  <option value="VA">VA</option>
                 </select>
               </div>
-
-              <div class="form-group col-md-6">
-                <label for="sec-question-answer">Answer</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="sec-question-answer"
-                  placeholder="Answer"
-                />
-              </div>
-
             </div>
 
-          </div>
-
-          <div class="form-row d-block">
-
-            <div class="card-header text-center acct-header mt-3">
-              Account Information
-            </div>
-
-            <div class="form-row">
-
-              <div class="form-group col-md-6 ">
-                <label for="first-input">First Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="first-input"
-                  placeholder="First"
-                />
-              </div>
-
-              <div class="form-group col-md-6">
-                <label for="last-input">Last Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="last-input"
-                  placeholder="Last"
-                />
-              </div>
-
-            </div>
-
-          <div class="form-row d-block">
-
-          <div class="form-group">
-            <label for="address1-input"><i class="fas fa-address-book"></i> Address</label>
-            <input
-              type="text"
-              class="form-control"
-              id="address1-input"
-              placeholder="1234 Main St"
-            />
-          </div>
-
-          </div>
-
-          <div class="form-row d-block">
-
-          <div class="form-group">
-            <label for="address2-input">Address 2</label>
-            <input
-              type="text"
-              class="form-control"
-              id="address2-input"
-              placeholder="Apartment, studio, or floor"
-            />
-          </div>
-
-          </div>
-
-          <div class="form-row">
-
-            <div class="form-group col-md-6">
-              <label for="city-input">City</label>
-              <input type="text" class="form-control" id="city-input" placeholder="City" />
-            </div>
-
-            <div class="form-group col-md-4">
-              <label for="state-input">State</label>
-              <select id="state-input" class="form-control">
-                <option>Choose...</option>
-                <option value="DC">DC</option>
-                <option value="MD">MD</option>
-                <option value="VA">VA</option>
-              </select>
-            </div>
-
-            <div class="form-group col-md-2">
-              <label for="zip-input">Zip</label>
-              <input type="text" class="form-control" id="zip-input" placeholder="Zip" />
-            </div>
-
-          </div>
-
-          <button type="submit" class="btn btn-dark signup-btn">Sign Up</button>
-        </form>
-
+            <button type="submit" class="btn btn-dark signup-btn">
+              Sign Up
+            </button>
+          </form>
+        </div>
       </div>
 
-   </div>
-
-   <div class="card-footer">
-      <p class="text-center">Already a member? Login <a class="login-link" href="/login">here</a>
-      </p>
+      <div class="card-footer">
+        <p class="text-center">Already a member? Login <a class="login-link" href="/login">here</a></p>
+      </div>
     </div>
 
-  </div>
-
-  <!--End outer-->
+    <!--End outer-->
   </div>
   <% include ../partials/footer.ejs %>
 </html>
