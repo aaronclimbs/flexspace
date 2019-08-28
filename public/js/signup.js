@@ -1,8 +1,5 @@
 $(document).ready(function() {
-  $("#logout").hide();
-  $("#myDashboard").hide();
   // Getting references to our form and input
-  var signupBtn = $(".signup-btn");
   var signUpForm = $("form.signup");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
@@ -18,12 +15,16 @@ $(document).ready(function() {
   var secAnswerInput = $("input#sec-question-answer");
 
   // When the signup button is clicked, we validate the email and password are not blank
-  signupBtn.on("click", function(event) {
+  signUpForm.on("submit", function(event) {
+    event.preventDefault();
     const inputs = Array.from(document.querySelectorAll(".form-control"));
-    if (!!inputs.filter(input => input.classList.includes("is-invalid"))) {
-      event.preventDefault();
-      event.stopPropogation();
-      return false;
+    if (
+      inputs.filter(input => input.className.includes("is-invalid")).length !==
+      0
+    ) {
+      passwordInput.val("");
+      alert("Please check errors!");
+      return;
     }
     // if (!userData.email || !userData.password) {
     //   return;
@@ -31,7 +32,6 @@ $(document).ready(function() {
     $("#loading").fadeIn();
 
     console.log("Signup clicked");
-    event.preventDefault();
     var userData = {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim(),
@@ -107,6 +107,7 @@ $(document).ready(function() {
       secAnswer: secAnswer
     })
       .then(function(data) {
+        $("#loading").hide();
         window.location.replace(data);
         // If there's an error, handle it by throwing up a bootstrap alert
       })
@@ -114,7 +115,8 @@ $(document).ready(function() {
   }
 
   function handleLoginErr(err) {
-    $("#alert").text(err.responseJSON);
+    $("#loading").hide();
+    $("#alert").text(JSON.stringify(err.responseJSON));
     $("#alert").fadeIn(500);
   }
 });
