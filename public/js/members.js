@@ -8,14 +8,14 @@ $(document).ready(function() {
 
 
     $.get("/api/user_data").then(function(userdata) {
-    
-      $(".member-name").text(userdata.first);
+
+      $(".member-name").text(userdata.first + ",");
       //$("#logMsg").text("Logged In").css("display", "unset");
       $("#login").css("display", "none");
       $("#signup").css("display", "none");
       $("#features").css("display", "none");
-  
-  
+
+
 
  $.get("/api/reservationsbyuser/" +userdata.id, function(resdata) {
 
@@ -34,16 +34,16 @@ var i=0;
     roomName.addClass("get-room-info")
     roomName.attr("id", element.RoomId)
     roomName.html('<a href="#" id="'+element.roomId+'">'+element.Room.roomName)
-    
-  
+
+
 
     resName=$("<td>")
     resName.attr("id", "reservation"+i)
     resName.attr("id", element.id)
     resName.text(element.text)
 
-   
-    
+
+
 
     resDate=$("<td>")
     resDate.attr("id", "reservation-date"+i)
@@ -52,7 +52,7 @@ var i=0;
     resTime=$("<td>")
     resTime.attr("id", "reservation-time"+i)
     resTime.text(moment(element.start_date+ " " + element.start_time).format("hh:mm A"))
-   
+
 
     resDur=$("<td>")
     resDur.attr("id", "reservation-duration"+i)
@@ -82,92 +82,92 @@ var i=0;
   })
 
 
-  
-  
+
+
   })
 
   $.get("/api/pastreservationsbyuser/" +userdata.id, function(pastresdata) {
 
     var i=0;
-    
-    
+
+
       pastresdata.forEach(function(element){
-    
+
         pastrowDiv=$("<tr>")
         pastrowDiv.addClass("reservationrow")
         pastrowDiv.attr("id", "reservation-row"+i)
-    
+
         $("#my-past-reservations").append(pastrowDiv)
-    
+
         pastroomName=$("<td>")
         pastroomName.addClass("get-room-info")
         pastroomName.attr("id", element.RoomId)
         pastroomName.html('<a href="#" id="'+element.roomId+'">'+element.Room.roomName)
-        
-      
-    
+
+
+
         pastresName=$("<td>")
         pastresName.attr("id", "reservation"+i)
         pastresName.attr("id", element.id)
         pastresName.text(element.text)
-    
-       
-        
-    
+
+
+
+
         pastresDate=$("<td>")
         pastresDate.attr("id", "reservation-date"+i)
        pastresDate.text(moment(element.start_date).format( "MMM DD YYYY"))
-    
+
         pastresTime=$("<td>")
        pastresTime.attr("id", "reservation-time"+i)
         pastresTime.text(moment(element.start_date+ " " + element.start_time).format("hh:mm A"))
-       
-    
+
+
         pastresDur=$("<td>")
        pastresDur.attr("id", "reservation-duration"+i)
         pastresDur.text(element.duration + " hr")
-    
+
         pastresCost=$("<td>")
         pastresCost.text("$" + element.duration * element.Room.hourlyRate)
-    
+
         pastReview=$("<td>")
         pastReview.html('<a href="/submitreview" id="'+element.roomId+'">'+"Review Room")
-        
-    
-     
-    
+
+
+
+
         pastrowDiv.append(pastresName,pastroomName, pastresDate, pastresTime, pastresDur, pastresCost, pastReview)
-       
-    
-    
+
+
+
       i++
       })
 
-  })  
+  })
 
   $.get("/api/rooms/" , function(roomdata) {
   var i=0;
-    
+
     roomdata.forEach(function(element){
-  
+
       rowDiv=$("<tr>")
       rowDiv.addClass("room-row")
       rowDiv.attr("id", "room-row"+i)
-  
+
       $("#my-rooms").append(rowDiv)
-  
+
       roomImg=$("<img>")
       roomImg.attr("src", element.roomURL)
       roomImg.addClass("room-thumb")
-  
-    
-  
+
+
+
       roomName=$("<td>")
       roomName.attr("id", "room-name"+i)
       roomName.attr("id", element.id)
       roomName.text(element.roomName)
-      
-  
+
+
       roomLoc=$("<td>")
       roomLoc.attr("id", "room-loc"+i)
       roomLoc.text(element.city + ", " + element.state_us)
@@ -181,59 +181,59 @@ var i=0;
       roomUpdDel=$("<td>")
 
 
-      
+
       roomDel=$("<span>")
     roomDel.addClass("del-room float-left pr-4")
     roomDel.html('<i class="fa fa-trash" ></i>')
     roomDel.attr("id", element.id)
-  
+
     roomUpdate=$("<span>")
     roomUpdate.addClass("update-room")
     roomUpdate.html('<i class="fa fa-pen" ></i>')
     roomUpdate.attr("id", element.id)
-      
-  
+
+
       rowDiv.append(roomImg, roomName, roomLoc, roomResCount,roomUpdDel)
 
       roomUpdDel.append(roomDel, roomUpdate)
-  
+
     i++
     })
-  
-  
-    
-    
+
+
+
+
     })
 
 
-  
-      
+
+
     })
- 
-    
+
+
     /*Clickable actions */
 
     $(document).on ("click", ".del-res", function (event)  {
       console.log("Launch modal clicked")
       event.preventDefault();
       jQuery.noConflict();
-    var resid = this.id 
+    var resid = this.id
 
     $("#confirm-res-del-btn").attr("value", resid)
 
     $("#res-del-info").text("Are you sure you want to delete this reservation?")
-    
+
     $("#confirm-res-del-modal").modal("toggle");
 
 
     $(document).on ("click", "#confirm-res-del-btn", function (event)  {
       console.log("Confrim Delete clicked")
       event.preventDefault();
-    
-    
-    
+
+
+
     console.log("Reservation ID " + resid)
-    
+
     $.ajax({
     method: "DELETE",
     url: "api/reservations/" + resid
@@ -242,20 +242,20 @@ var i=0;
     console.log("Reservation ID "+ resid)
     location.reload(true)
     });
-    
+
     })
-    
-    
-    
+
+
+
     })
 
     $(document).on ("click", ".get-room-info", function (event)  {
       event.preventDefault();
       var roomid = this.id
       console.log("Id from click is " + this.id)
-      $("#room-name").empty(); 
+      $("#room-name").empty();
       jQuery.noConflict();
-     
+
       $.get("/api/rooms/" + roomid, function(roomdata) {
 
         $("#modal-room-name").text(roomdata.roomName)
@@ -266,46 +266,46 @@ var i=0;
         roomDiv.addClass("card modal-room-card");
         roomDiv.attr("id", "room");
         roomDiv.attr("value", roomdata.roomID);
- 
+
         $("#room-name").append(roomDiv);
- 
- 
+
+
         var roomImg=$("<img>");
         roomImg.attr("id", "room-image");
         roomImg.attr("src", roomdata.roomURL);
         roomImg.addClass("card-img-top modal-room-photo");
- 
+
         $("#room").append(roomImg);
- 
+
         var bodyDiv=$("<div>");
         bodyDiv.addClass("card-body modal-room-card-body");
         bodyDiv.attr("id", "card-body");
- 
+
         $("#room").append(bodyDiv);
- 
-   
+
+
         var roomAddCont = $("<div>")
         roomAddCont.addClass("d-inline-block")
         roomAddCont.attr("id", "roomAddCont")
- 
+
         var roomAdd=$("<p>")
         roomAdd.html(roomdata.address1 + "<br>" + roomdata.address2 +"<br>" + roomdata.city + " " + roomdata.state_us + " " +roomdata.zip)
          roomAdd.addClass("text-left");
-         
+
         $("#card-body").append(roomAddCont)
- 
+
         $("#roomAddCont").append(roomAdd)
- 
+
         var roomInfo=$("<ul>")
          roomInfo.addClass("list-group list-group-flush")
          roomInfo.attr("id", "roomInfo")
- 
+
          $("#room").append(roomInfo)
- 
+
         var roomType=$("<li>");
         roomType.addClass("list-group-item ")
         roomType.text("Type: " + roomdata.roomType.toUpperCase() + "  Rate:  $" + roomdata.hourlyRate+"/hr")
- 
+
          var roomCapacity=$("<li>");
          roomCapacity.addClass("list-group-item")
          roomCapacity.text("Capacity: " + roomdata.roomCapacity)
@@ -316,8 +316,8 @@ var i=0;
          editRoom.attr("owner-id", roomdata.roomOwnerID)
          editRoom.attr("roomname", roomdata.roomName)
          editRoom.text("Edit")*/
-  
- 
+
+
      $("#roomInfo").append(roomType, roomCapacity)
 
      $("#show-room-modal").modal("toggle");
@@ -328,21 +328,21 @@ var i=0;
 
 /*end click*/
 })
-      
+
 
 
 
 $(document).on ("click", ".update-res", function (event)  {
   console.log("Update link clicked")
-  
+
   event.preventDefault();
   jQuery.noConflict();
   var resid = this.id
   console.log("Id from click is " + resid)
- 
- 
- 
- 
+
+
+
+
   $.get("/api/reservations/" + resid).then(function(updatedata) {
 
   console.log("Room data from link click is " +JSON.stringify(updatedata))
@@ -378,19 +378,19 @@ console.log("Dur is " + dur)
   console.log("Update Button clicked")
   event.preventDefault();
 
-  var resHH= parseInt($("#res-hh-input").val())  
+  var resHH= parseInt($("#res-hh-input").val())
 
  var newDate = $("#res-date-input").val()
- var newTime = $("#res-hh-input").val() + ":00" 
+ var newTime = $("#res-hh-input").val() + ":00"
  var newDur = $("#res-dur-input").val()
  var newText = $("#res-text-input").val().trim()
 
- console.log("Old info was " + date+ " " + time+ " " + dur+ " " + text) 
+ console.log("Old info was " + date+ " " + time+ " " + dur+ " " + text)
 
  convertedTime=moment(newDate+ " " + newTime).format("HH:MM")
 
 
- console.log("New res info being submitted is " + newDate + " " + newTime + " " + newDur + " " + newText) 
+ console.log("New res info being submitted is " + newDate + " " + newTime + " " + newDur + " " + newText)
 
  if (date===newDate) {
    console.log("Dates match")
@@ -414,23 +414,23 @@ console.log("Dur is " + dur)
  if (date === newDate && time === convertedTime && dur == newDur) {
   updateRes ( updatedRes.id, updatedRes.start_date,updatedRes.start_time,updatedRes.duration,updatedRes.text)
 
- } else { 
+ } else {
 
   checkConflict()
 
- }  
+ }
 
     function checkConflict () {
 
-        
+
         $.get("/api/reservationsbyroomdate/" + updatedata.RoomId +"/" +newDate, function(reservations) {
             console.log("Number of reservations is " + reservations.length)
             if( reservations.length === 0) {
                 console.log("No reservation found, go ahead and process")
 
                 updateRes ( updatedRes.id, updatedRes.start_date,updatedRes.start_time,updatedRes.duration,updatedRes.text)
-    
-    
+
+
         } else {
             var resHours =[]
             for (z=0; z < newDur; z++) {
@@ -442,24 +442,24 @@ console.log("Dur is " + dur)
                 for( h=8; h < 22; h++ ) {
                 var meetingTime = parseInt(moment ((reservations[m].start_date + " " +reservations[m].start_time )).format("H"))
                 console.log("Meeting time is " + meetingTime)
-            
+
                     if (meetingTime === h) {
                     console.log("Meeting found at " + h)
-                  
+
                     var roomBookedhours =[]
-            
+
                         for (d=0; d < reservations[m].duration; d++) {
 
                             roomBookedhours.push(h+d)
-            
-                        
+
+
                     }
-    
-                   
+
+
                 }
-            
+
             }
-            
+
             }
 
             console.log("Rooms booked hours are " + roomBookedhours)
@@ -478,17 +478,17 @@ console.log("Dur is " + dur)
 
         if (conflict) {
             console.log("There is a meeting conflict")
-            
-            
-            $("#meeting-conflict-modal").modal("toggle")
-            $(document).on("click","#conflict-close", (function(event) { 
-                event.preventDefault()
-            
-            
-            }))
-          
 
-            
+
+            $("#meeting-conflict-modal").modal("toggle")
+            $(document).on("click","#conflict-close", (function(event) {
+                event.preventDefault()
+
+
+            }))
+
+
+
 
         } else {
             console.log("No meeting conflict")
@@ -500,8 +500,8 @@ console.log("Dur is " + dur)
         }
 
 
-        
-       
+
+
     /*end get */
     })
 
@@ -521,7 +521,7 @@ console.log("Dur is " + dur)
   $.ajax({
     type:"PUT",
     url: "/api/updatereservation/" + id,
-    data: { 
+    data: {
     id: id,
     start_date: date,
     start_time:time,
@@ -535,14 +535,14 @@ console.log("Dur is " + dur)
           location.reload(false)
           //window.location.replace("?variable=" + thisRoomId);
       },
-     
+
   });
 
- 
+
 
  }
 
-/* end update button click*/ 
+/* end update button click*/
 })
 
 /* end get*/
@@ -554,13 +554,13 @@ console.log("Dur is " + dur)
 $(document).on ("click", ".del-room", function (event)  {
   console.log("Delete clicked")
   event.preventDefault();
-var roomid = this.id 
+var roomid = this.id
 console.log(this.id);
 
 
 /* Get the reservation for the room */
 
-$.get("/api/reservationsbyroom/" + roomid, function(resdata) { 
+$.get("/api/reservationsbyroom/" + roomid, function(resdata) {
 
   console.log("Reservation data length is " + resdata.length)
 
@@ -574,7 +574,7 @@ $.get("/api/reservationsbyroom/" + roomid, function(resdata) {
       })
       .then(function() {
       console.log("Reservation ID deleted was "+ resid)
-      
+
       });
 
 
@@ -587,7 +587,7 @@ $.get("/api/reservationsbyroom/" + roomid, function(resdata) {
     })
     .then(function() {
     console.log("Room ID deleted was"+ roomid)
-    
+
     });
 
 
@@ -608,7 +608,7 @@ console.log( "Room ID being sent in URL is "+ roomid)
 window.location = "/updateroom/?variable=" + roomid;
 
 })
- 
+
 
 
 // GET RES INFO:
@@ -617,34 +617,34 @@ window.location = "/updateroom/?variable=" + roomid;
     $(document).on ("click", ".get-res-info", function (event)  {
       event.preventDefault();
       var roomid = this.id
-      
+
       console.log("Id from click is " + this.id)
-      $("#reservations-list").empty(); 
+      $("#reservations-list").empty();
       jQuery.noConflict();
-     
+
       $.get("/api/reservationsbyroom/" + roomid, function(resdata) {
-    
+
         $("#reservations-list").text(resdata.roomName)
-    
+
         console.log("Room data from link click is " + JSON.stringify(resdata));
-    
+
         var resDiv=$("<div>");
         resDiv.addClass("card modal-res-card");
         resDiv.attr("id", "reservation");
         // resDiv.attr("value", "Reservations for this room: ");
         $("#reservations-list").append(resDiv);
-    
+
         var bodyDiv=$("<div>");
         bodyDiv.addClass("card-body modal-room-card-body");
         bodyDiv.attr("id", "card-body");
         bodyDiv.html("<i>Reservations for this room: </i><br>");
         $("#reservation").append(bodyDiv);
-    
+
         var resInfo=$("<ul>")
         resInfo.addClass("list-group list-group-flush")
         resInfo.attr("id", "resInfo")
         $("#reservation").append(resInfo)
-    
+
         var bookingText;
         for (let i = 0;i<resdata.length; i++) {
 
@@ -657,7 +657,7 @@ window.location = "/updateroom/?variable=" + roomid;
             var reservationItem=$("<li>");
             reservationItem.addClass("list-group-item")
             reservationItem.attr("id", "item"+i)
-  
+
             bookingText = "Booked: " + resdata[i].start_date + " at " + resdata[i].start_time + " for " + resdata[i].duration + " hour(s), <i>Booked by: " + bookingText2.first + " " + bookingText2.last + " Phone: " + bookingText2.phone + " Email: " + bookingText2.email + "</i>";
             // console.log(bookingText);
             reservationItem.html(bookingText)
@@ -666,13 +666,13 @@ window.location = "/updateroom/?variable=" + roomid;
 
 
         }
-    
-    
+
+
         $("#show-room-res-modal").modal("toggle");
-    
+
       })
     })
-    
+
 
 
 
