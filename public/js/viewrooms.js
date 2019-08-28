@@ -102,9 +102,9 @@ for (i=0; i < roomSearch.length; i++) {
 
         var roomReview=$("<li>");
         roomReview.addClass("list-group-item room-review")
-        roomReview.text("Reviews")
+       
         roomReview.attr("id", roomSearch[i].id)
-        // Reviews link needs to be added
+        roomReview.html('<a href="#" id="'+roomSearch[i].id+'">Reviews')
 
     $("#roomInfo" +i).append(roomType, roomCapacity, roomReview)
       
