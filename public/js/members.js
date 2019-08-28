@@ -105,7 +105,13 @@ var i=0;
         pastroomName=$("<td>")
         pastroomName.addClass("get-room-info")
         pastroomName.attr("id", element.RoomId)
+
+
+
+
+
         pastroomName.html('<a href="#" id="'+element.RoomId+'">'+element.Room.roomName)
+
 
 
 
@@ -152,6 +158,7 @@ var i=0;
 
         pastReview.append(pastReviewLink)
 
+
       i++
       })
 
@@ -165,6 +172,7 @@ var i=0;
 
   console.log(results)
     roomdata.forEach(function(element){
+
 
 
 
@@ -223,17 +231,14 @@ var i=0;
     roomUpdate.attr("id", element.id)
 
 
+
       rowDiv.append(roomImg, roomName, roomLoc, roomResCount,roomReviews, roomUpdDel)
+
 
       roomUpdDel.append(roomDel, roomUpdate)
 
     i++
     })
-
-
-
-
-
 
     })
 

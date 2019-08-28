@@ -98,6 +98,7 @@
               </div>
             </div>
           </div>
+
           <div class="col-md-4">
             <div class="card-content">
               <div class="card-img">
@@ -112,12 +113,14 @@
                   as networking!
                 </p>
               </div>
+
             </div>
           </div>
         </div>
       </div>
     </section>
     <!-- End Features Cards -->
+
 
     <!-- Featured Testimonials -->
     <section class="testimonials-card">
@@ -132,6 +135,7 @@
                     I love the Georgetown room. I can get me some Cashew chicken when I'm there!
                 </p>
                 <h3>Gabe</h3>
+
               </div>
 
             </div>
@@ -190,46 +194,28 @@
     <!-- End Featured Testimonals -->
 
 
-      <!--Contact Form-->
-      <section class="mb-4" id="contactForm">
-        <div id="contact">
-          <div class="row">
-            <div class="col-md-9">
-              <h2 class="h1-responsive font-weight-bold text-center my-4">
-                <i class="fas fa-chevron-left"></i> Contact us /<i
-                  class="fas fa-chevron-right"
-                ></i>
-              </h2>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-9">
-              <p class="text-left w-responsive mx-auto mb-7">
-                Do you have any questions? Please do not hesitate to contact us
-                directly. Our team will come back to you as soon as possible.
-              </p>
-            </div>
-          </div>
 
-          <div class="row">
-            <div class="col-md-9 mb-md-0 mb-5 test">
-              <form
-                id="contact-form"
-                name="contact-form"
-                action="/contact"
-                method="POST"
-              >
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="md-form mb-0">
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        class="form-control"
-                      />
-                      <label for="name" class="">Your name</label>
-                    </div>
+
+    <!--Contact Form-->
+    <section class="mb-4" id="contactForm">
+      <div id="contact">
+        <h2 class="h1-responsive font-weight-bold text-center my-4">
+          <i class="fas fa-chevron-left"></i> Contact us /<i class="fas fa-chevron-right"></i>
+        </h2>
+        <p class="text-center w-responsive mx-auto mb-7">
+          Do you have any questions? Please do not hesitate to contact us
+          directly. Our team will come back to you as soon as possible.
+        </p>
+
+        <div class="row">
+          <div class="col-md-9 mb-md-0 mb-5 test">
+            <form id="contact-form" name="contact-form" action="/contact" method="POST">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="md-form mb-0">
+                    <input type="text" id="name" name="name" class="form-control" />
+                    <label for="name" class="">Your name</label>
+
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -256,9 +242,11 @@
                   </div>
                 </div>
               </div>
+
             </form>
             <div class="text-center">
               <button type="submit" class="btn btn-primary">Send</button>
+
             </div>
             <div class="status"></div>
           </div>
@@ -281,6 +269,7 @@
             </ul>
           </div>
         </div>
+
       </div>
     </section>
   </header>
@@ -289,6 +278,7 @@
 
   <% include ../partials/footer.ejs %>
   <!-- <script>
+
     var isloggedIn = ( < %= loggedIn % > );
     console.log("User logged in? " + isloggedIn)
 
