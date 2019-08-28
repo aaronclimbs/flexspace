@@ -4,7 +4,7 @@ var db = require("../models");
 module.exports = function(app) {
 
 
-    app.get("/api/submitreview/:id/", function(req, res) {
+    app.get("/api/reviews/:id/", function(req, res) {
         db.Review.findAll({
           where: {
             RoomId: req.params.id
