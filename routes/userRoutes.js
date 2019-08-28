@@ -80,6 +80,7 @@ module.exports = function(app) {
         }
       )
         .then(function(result) {
+          req.flash("info", "User information updated.");
           res.json(result);
         })
         .catch(function(err) {
@@ -105,6 +106,7 @@ module.exports = function(app) {
         }
       )
         .then(function(result) {
+          req.flash("info", "Password successfully reset.");
           res.json(result);
         })
         // need some sort of logging/redirect/message in case security question does not match
@@ -126,6 +128,7 @@ module.exports = function(app) {
         }
       })
         .then(function(result) {
+          req.flash("danger", "User successfully deleted.");
           res.json(result);
         })
         .catch(function(err) {

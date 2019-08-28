@@ -1,16 +1,12 @@
 var db = require("../models");
 
-
 module.exports = function(app) {
-
-
   // CRUD stuff for "Room" tables:
 
   app.get("/api/rooms/", function(req, res) {
-    db.Room.findAll({})
-      .then(function(dbRoom) {
-        res.json(dbRoom);
-      });
+    db.Room.findAll({}).then(function(dbRoom) {
+      res.json(dbRoom);
+    });
   });
 
   app.get("/api/rooms/type/:roomType", function(req, res) {
@@ -18,10 +14,9 @@ module.exports = function(app) {
       where: {
         roomType: req.params.type
       }
-    })
-      .then(function(dbRoom) {
-        res.json(dbRoom);
-      });
+    }).then(function(dbRoom) {
+      res.json(dbRoom);
+    });
   });
 
   app.get("/api/rooms/:id", function(req, res) {
@@ -29,10 +24,9 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    })
-      .then(function(dbRoom) {
-        res.json(dbRoom);
-      });
+    }).then(function(dbRoom) {
+      res.json(dbRoom);
+    });
   });
 
   app.post("/api/rooms", function(req, res) {
@@ -50,10 +44,10 @@ module.exports = function(app) {
       contactPhone: req.body.contactPhone,
       ownerID: req.user.email,
       hourlyRate: req.body.hourlyRate
-    })
-      .then(function(dbRoom) {
-        res.json(dbRoom);
-      });
+    }).then(function(dbRoom) {
+      req.flash("success", "Room added.");
+      res.json(dbRoom);
+    });
   });
 
   app.delete("/api/rooms/:id", function(req, res) {
@@ -61,29 +55,20 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    })
-      .then(function(dbRoom) {
-        res.json(dbRoom);
-      });
+    }).then(function(dbRoom) {
+      req.flash("info", "Room successfully deleted.");
+      res.json(dbRoom);
+    });
   });
 
   app.put("/api/updateroom/:id", function(req, res) {
-
-  
-    db.Room.update(req.body,
-      {
-        where: {
-          id: req.params.id
-        }
-      })
-      .then(function(dbRoom) {
-        req.flash(
-          "success",
-          "Room sucessfully updated"
-        );
-        res.json(dbRoom);
-        
-      });
+    db.Room.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbRoom) {
+      req.flash("danger", "Room information updated.");
+      res.json(dbRoom);
+    });
   });
-
 };
