@@ -73,7 +73,7 @@ body {
     padding: 50px 200px;
     color: rgb(0, 204, 255);
     text-shadow: 1px 1px black;
-    
+
   }
 
 .display-4  {
@@ -270,7 +270,7 @@ section {
 }
 .details-card {
   background: #ecf0f1;
- 
+
 }
 
 .card-content {
@@ -320,10 +320,8 @@ section {
 .card-desc {
 	padding: 1.25rem;
   	width: 100%;
-    height: 18vw;
+    height: 40vh;
     background-color: rgba(0, 0, 0, 0.486);
-
-
 }
 
 .card-desc h3 {
@@ -334,7 +332,7 @@ section {
     margin-top: 0;
     margin-bottom: 25px;
     padding: 0;
-      text-align: center;
+    text-align: center;
 }
 
 .card-desc p {
@@ -397,7 +395,7 @@ section {
   margin-top: 50px;
   border-style: hidden;
   border-width: 1px;
-  
+
 }
 
 
@@ -541,5 +539,3 @@ li {
 .modal-title {
   color: white;
 }
-
-
