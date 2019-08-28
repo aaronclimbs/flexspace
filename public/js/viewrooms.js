@@ -148,6 +148,7 @@ $(document).on ("click", ".room-review", function (event)  {
   console.log("Id from click is " + this.id)
 
   jQuery.noConflict();
+  $("#reviews-list").empty()
  
   $.get("/api/reviews/" + roomid, function(revdata) {
 
