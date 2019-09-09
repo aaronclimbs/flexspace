@@ -36,6 +36,31 @@ MySQL_Host="your host"
 git clone https://github.com/brityank/flexspace
 npm i
 
+Once your database has been succesfully setup, you can run node seeds.js to populate the database with sample listing and user accounts. 
+
+## Organization
+
+Config - contains the MySQL databse configuration setting and the Passport authentication middleware settings 
+
+Models - contains the Sequlize settings, schema definitions and table associations for the user, rooms, reservations and reviews tables 
+
+Public - contains the CSS, Javascript, Images and fonts used for the applications 
+
+Routes - contains the API and HTML routes for the application 
+
+Seeders - contains the data to seed the database. Alter as neeeded to meet your needs. 
+
+Views - contains the EJS templates for the HTML pages and EJS partials for the headers, footer and navigation elements 
+
+
+
+
+
+
+
+
+
+
 
 
 
