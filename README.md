@@ -22,16 +22,24 @@ Renter: search, create, and edit room reservations
 Admin: all management privileges
 
 ## Development setup
+This application requires MySQL. This application supports a local MySQL Installation and a Heroku hosted JAWSDB setup. 
+
+Please create a .env file and enter the MYSQL or Heroku server informtion as below:
+
+JAWSDB_URL='your heroku db link'
+
+MySQL_User="your user"
+MySQL_Pass="your password"
+MySQL_DB="your db"
+MySQL_Host="your host"
 
 git clone https://github.com/brityank/flexspace
 npm i
 
-# Setup local MySQL database
-npm run dev
-```
 
 
 
-[https: //github.com/brityank/flexspace](https://github.com/brityank/flexspace/)
+
+
 
 
