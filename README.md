@@ -1,5 +1,5 @@
-# ConferCloud
-An app that shares conference meeting spaces between offices and potential renters. It uses NodeJS, MySQL, Sequelize, Express, and EJS for template rendering.
+# FlexSpace
+An app that shares conference meeting spaces between offices and potential renters. It uses NodeJS, MySQL, Sequelize, Express, and EJS for template rendering. Passport and Bcrypt are used for authentication and password hashing. Express Validator and Connect-Flash are used for inline form feedback and displaying messages to end users. 
 
 # Product Name
 
