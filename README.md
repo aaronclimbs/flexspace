@@ -28,11 +28,6 @@ npm i
 npm run dev
 ```
 
-## Release History
-
-* 0.0.1
-* Work in progress
-
 ## Meta
 
 Aaron Keisler
@@ -40,13 +35,12 @@ Kevin Steele
 David Pomerede
 Javier Pagan
 
-Distributed under the XYZ license. See ``LICENSE`` for more information.
-
-[https: //github.com/brityank/flexspace](https://github.com/brityank/flexspace/)
+[https: //github.com/aaronclimbs/flexspace](https://github.com/aaronclimbs/flexspace/)
 
 ## More ToDos:
 
 * walkthrough on how to set up the .env file (and .gitignore)
 * some walkthrough steps on  JAWSDB and Heroku if needed
+
 * Link to deployed/live version
-* comments on Passport, passwords and security
+* Comments on Passport, passwords and security
