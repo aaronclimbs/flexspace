@@ -1,13 +1,7 @@
 # ConferCloud
 An app that shares conference meeting spaces between offices and potential renters. It uses NodeJS, MySQL, Sequelize, Express, and EJS for template rendering.
 
-# Product Name
-
-[![NPM Version][npm-image]][npm-url]
-
 > This project allows for businesses with unused spaces to rent out those spaces on a short-term basis.
-
-![](image.png)
 
 ## Usage example
 
@@ -28,7 +22,7 @@ Admin: all management privileges
 Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
 
 ```sh
-git clone https://github.com/brityank/flexspace
+git clone https://github.com/aaronclimbs/flexspace
 npm i
 # Setup local MySQL database
 npm run dev
@@ -41,24 +35,14 @@ npm run dev
 
 ## Meta
 
-Aaron Keisler – [@YourTwitter](https: //twitter.com/dbader_org) – aaron@keisler.dev
-Kevin Steele – [@YourTwitter](https: //twitter.com/dbader_org) – YourEmail@example.com
-David Pomerede – [@YourTwitter](https: //twitter.com/dbader_org) – YourEmail@example.com
-Javier Pagan – [@YourTwitter](https: //twitter.com/dbader_org) – YourEmail@example.com
+Aaron Keisler
+Kevin Steele
+David Pomerede
+Javier Pagan
 
 Distributed under the XYZ license. See ``LICENSE`` for more information.
 
 [https: //github.com/brityank/flexspace](https://github.com/brityank/flexspace/)
-
-## Contributing
-
-1. Fork it (<https: //github.com/brityank/flexspace/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
-
-
 
 ## More ToDos:
 
