@@ -5,7 +5,9 @@ An app that shares conference meeting spaces between offices and potential rente
 
 > This project allows for businesses with unused spaces to rent out those spaces on a short-term basis.
 
-![](image.png)
+![FlexSpace Homepage](./assets/FlexspaceCover.png)
+
+![FlexSpace Signup](./assets/FlexspaceSignup.png)
 
 ## Usage example
 
