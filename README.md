@@ -1,8 +1,6 @@
 # ConferCloud
 An app that shares conference meeting spaces between offices and potential renters. It uses NodeJS, MySQL, Sequelize, Express, and EJS for template rendering.
 
-# Product Name
-
 > This project allows for businesses with unused spaces to rent out those spaces on a short-term basis.
 
 ![FlexSpace Homepage](./assets/FlexspaceCover.png)
@@ -43,17 +41,10 @@ Javier Pagan
 
 [https: //github.com/aaronclimbs/flexspace](https://github.com/aaronclimbs/flexspace/)
 
-## Contributing
+## More ToDos:
 
-1. Fork it (https://github.com/aaronclimbs/flexspace/fork)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
+* walkthrough on how to set up the .env file (and .gitignore)
+* some walkthrough steps on  JAWSDB and Heroku if needed
 
-## More TODOS:
-
-* Walkthrough on how to set up the .env file (and .gitignore)
-* Some walkthrough steps on  JAWSDB and Heroku if needed
 * Link to deployed/live version
 * Comments on Passport, passwords and security
