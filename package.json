@@ -25,7 +25,7 @@
     "mysql2": "^1.6.4",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.15.1",
+    "sequelize": "^6.29.0",
     "spin.js": "^4.0.0",
     "twilio": "^3.33.4"
   },
